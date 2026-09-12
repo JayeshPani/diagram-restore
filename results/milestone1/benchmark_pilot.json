@@ -1,0 +1,84 @@
+{
+  "cpu_threads": 4,
+  "data_loading_seconds_8_images": 0.020078290719538927,
+  "device": "mps",
+  "dtype": "float32",
+  "memory_note": "sampled maxima; RSS and MPS are not additive",
+  "purpose": "bounded timing runs on eight training images, not generalization experiments",
+  "rows": [
+    {
+      "batch_size": 4,
+      "estimated_20000_step_hours_excluding_validation": 0.05026559967599395,
+      "final_measured_loss": 0.1798515021800995,
+      "initial_measured_loss": 0.3808615803718567,
+      "mean_seconds_per_step": 0.009047807941678912,
+      "measured_steps": 200,
+      "median_seconds_per_step": 0.008976375451311469,
+      "memory_sampled_high_water": {
+        "mps_current_allocated_bytes": 27167488,
+        "mps_driver_allocated_bytes": 155549696,
+        "process_rss_bytes": 492617728
+      },
+      "model": "unet",
+      "p95_seconds_per_step": 0.009661620669066905,
+      "parameters": 472257,
+      "warmup_steps": 20
+    },
+    {
+      "batch_size": 8,
+      "estimated_20000_step_hours_excluding_validation": 0.06959052207983202,
+      "final_measured_loss": 0.18080094456672668,
+      "initial_measured_loss": 0.4052703082561493,
+      "mean_seconds_per_step": 0.012526293974369765,
+      "measured_steps": 200,
+      "median_seconds_per_step": 0.012511374428868294,
+      "memory_sampled_high_water": {
+        "mps_current_allocated_bytes": 18796544,
+        "mps_driver_allocated_bytes": 206405632,
+        "process_rss_bytes": 555646976
+      },
+      "model": "unet",
+      "p95_seconds_per_step": 0.012855093856342136,
+      "parameters": 472257,
+      "warmup_steps": 20
+    },
+    {
+      "batch_size": 4,
+      "estimated_20000_step_hours_excluding_validation": 0.07480859611597326,
+      "final_measured_loss": 0.09947466850280762,
+      "initial_measured_loss": 1.0953781604766846,
+      "mean_seconds_per_step": 0.013465547300875187,
+      "measured_steps": 200,
+      "median_seconds_per_step": 0.013259146129712462,
+      "memory_sampled_high_water": {
+        "mps_current_allocated_bytes": 63204608,
+        "mps_driver_allocated_bytes": 240320512,
+        "process_rss_bytes": 649199616
+      },
+      "model": "conditional_dit",
+      "p95_seconds_per_step": 0.01480019197333604,
+      "parameters": 1919248,
+      "warmup_steps": 20
+    },
+    {
+      "batch_size": 8,
+      "estimated_20000_step_hours_excluding_validation": 0.10044836932017158,
+      "final_measured_loss": 0.08901220560073853,
+      "initial_measured_loss": 1.085027813911438,
+      "mean_seconds_per_step": 0.018080706477630885,
+      "measured_steps": 200,
+      "median_seconds_per_step": 0.017983291996642947,
+      "memory_sampled_high_water": {
+        "mps_current_allocated_bytes": 104106240,
+        "mps_driver_allocated_bytes": 362184704,
+        "process_rss_bytes": 617332736
+      },
+      "model": "conditional_dit",
+      "p95_seconds_per_step": 0.01870735357515514,
+      "parameters": 1919248,
+      "warmup_steps": 20
+    }
+  ],
+  "seed": 7,
+  "source_sha256": "d49958fc814126f92bbc584ae958f83b77d428f91da23be7cbdf259a8f5ca483"
+}

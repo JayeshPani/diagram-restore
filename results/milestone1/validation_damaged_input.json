@@ -1,0 +1,4089 @@
+{
+  "by_corruption": {
+    "blur": {
+      "edge_f1": 1.0,
+      "edge_precision": 1.0,
+      "edge_recall": 1.0,
+      "exact_graph_accuracy": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "images": 30,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.0,
+      "macro_edge_f1": 1.0,
+      "missing_edges_per_image": 0.0,
+      "tp": 67
+    },
+    "clean": {
+      "edge_f1": 1.0,
+      "edge_precision": 1.0,
+      "edge_recall": 1.0,
+      "exact_graph_accuracy": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "images": 10,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.0,
+      "macro_edge_f1": 1.0,
+      "missing_edges_per_image": 0.0,
+      "tp": 17
+    },
+    "gap": {
+      "edge_f1": 0.6595744680851063,
+      "edge_precision": 1.0,
+      "edge_recall": 0.49206349206349204,
+      "exact_graph_accuracy": 0.0,
+      "fn": 32,
+      "fp": 0,
+      "images": 30,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.0,
+      "macro_edge_f1": 0.36211640211640206,
+      "missing_edges_per_image": 1.0666666666666667,
+      "tp": 31
+    },
+    "noise": {
+      "edge_f1": 1.0,
+      "edge_precision": 1.0,
+      "edge_recall": 1.0,
+      "exact_graph_accuracy": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "images": 30,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.0,
+      "macro_edge_f1": 1.0,
+      "missing_edges_per_image": 0.0,
+      "tp": 61
+    }
+  },
+  "mean_foreground_dice": 0.9973525941979776,
+  "mean_ssim": 0.9393474909557304,
+  "model": "B0_unchanged_damaged_input",
+  "overall": {
+    "edge_f1": 0.9166666666666666,
+    "edge_precision": 1.0,
+    "edge_recall": 0.8461538461538461,
+    "exact_graph_accuracy": 0.7,
+    "fn": 32,
+    "fp": 0,
+    "images": 100,
+    "invalid_merge_images": 0,
+    "invented_edges_per_image": 0.0,
+    "macro_edge_f1": 0.8086349206349206,
+    "missing_edges_per_image": 0.32,
+    "tp": 176
+  },
+  "per_image": [
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00500",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 52.98335476320476,
+      "recall": 1.0,
+      "ssim": 0.9998759818877958,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 0.9970149253731343,
+      "diagram_id": "d00501",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 0.6666666666666666,
+      "fn": 1,
+      "foreground_dice": 0.990990990990991,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 30.513742006697505,
+      "recall": 0.5,
+      "ssim": 0.9232487753653782,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00502",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 26.54628029777975,
+      "recall": 1.0,
+      "ssim": 0.9652253217578785,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00503",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 40.001833559486656,
+      "recall": 1.0,
+      "ssim": 0.9475445473803634,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00504",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 36.81812995363999,
+      "recall": 1.0,
+      "ssim": 0.9105274743189001,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00505",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 40.4640694427149,
+      "recall": 1.0,
+      "ssim": 0.964342843231775,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00506",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 41.12227155580893,
+      "recall": 1.0,
+      "ssim": 0.9570531394159894,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00507",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 29.99405918668336,
+      "recall": 1.0,
+      "ssim": 0.9737791313604849,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00508",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 37.06200236959296,
+      "recall": 1.0,
+      "ssim": 0.9209467596800801,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00509",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 55.68107842587861,
+      "recall": 1.0,
+      "ssim": 0.999934892166809,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00510",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 34.479774016379906,
+      "recall": 1.0,
+      "ssim": 0.8692686569109541,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00511",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "psnr_db": 37.727396543097896,
+      "recall": 1.0,
+      "ssim": 0.9272179207216403,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00512",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 53.65498409464826,
+      "recall": 1.0,
+      "ssim": 0.9999334394364805,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00513",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9797979797979798,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 25.464747084208675,
+      "recall": 0.0,
+      "ssim": 0.815895901565461,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00514",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 0.995850622406639,
+      "diagram_id": "d00515",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9874476987447699,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 30.120382826635005,
+      "recall": 0.0,
+      "ssim": 0.8735466066090524,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00516",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 39.98327693477509,
+      "recall": 1.0,
+      "ssim": 0.9430727503848274,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00517",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9955555555555555,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 21.11734168776859,
+      "recall": 0.0,
+      "ssim": 0.8676841612816671,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00518",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00519",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9934640522875817,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 32.211140611869176,
+      "recall": 0.0,
+      "ssim": 0.8226418382810444,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00520",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 37.06581718008624,
+      "recall": 1.0,
+      "ssim": 0.9053232159363671,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00521",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 50.185596389685074,
+      "recall": 1.0,
+      "ssim": 0.9998166807235067,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00522",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "clean",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00523",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 40.35919832532517,
+      "recall": 1.0,
+      "ssim": 0.9977832312001342,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00524",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 39.49725618917795,
+      "recall": 1.0,
+      "ssim": 0.9402026425821177,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00525",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "psnr_db": 30.33443693802787,
+      "recall": 1.0,
+      "ssim": 0.9776200600916367,
+      "tp": 4
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00526",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "clean",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00527",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "clean",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 0.9981308411214954,
+      "diagram_id": "d00528",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 0.8571428571428571,
+      "fn": 1,
+      "foreground_dice": 0.9943714821763602,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 20.78741368598525,
+      "recall": 0.75,
+      "ssim": 0.8395625095322782,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00529",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 33.82900253264594,
+      "recall": 1.0,
+      "ssim": 0.7954010438798582,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00530",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "psnr_db": 33.76020756053621,
+      "recall": 1.0,
+      "ssim": 0.8714433708776333,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00531",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9902912621359223,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 31.393141212739177,
+      "recall": 0.0,
+      "ssim": 0.8707206663492886,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00532",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9906542056074766,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 30.707020689737657,
+      "recall": 0.0,
+      "ssim": 0.8233672881656183,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00533",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 0.8888888888888888,
+      "fn": 1,
+      "foreground_dice": 0.9979591836734694,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "psnr_db": 32.247785550988496,
+      "recall": 0.8,
+      "ssim": 0.9772325692328488,
+      "tp": 4
+    },
+    {
+      "boundary_f1_1px": 0.9857142857142858,
+      "diagram_id": "d00534",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9784172661870504,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 28.07188198154656,
+      "recall": 0.0,
+      "ssim": 0.9392847588633112,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00535",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "psnr_db": 38.65856893227384,
+      "recall": 1.0,
+      "ssim": 0.9394084215518552,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00536",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "psnr_db": 37.858940847234365,
+      "recall": 1.0,
+      "ssim": 0.9132166993710147,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00537",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "psnr_db": 32.77797999278307,
+      "recall": 1.0,
+      "ssim": 0.9899546042633964,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00538",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "psnr_db": 31.180983545383754,
+      "recall": 1.0,
+      "ssim": 0.9805555946938915,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00539",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "f1": 0.8571428571428571,
+      "fn": 1,
+      "foreground_dice": 0.9963503649635036,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 32.34674552052275,
+      "recall": 0.75,
+      "ssim": 0.9636022147150017,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00540",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 30.13633786099578,
+      "recall": 1.0,
+      "ssim": 0.9757088415865098,
+      "tp": 4
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00541",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 0.6666666666666666,
+      "fn": 1,
+      "foreground_dice": 0.9909584086799277,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 21.348517496493997,
+      "recall": 0.5,
+      "ssim": 0.8214889686705831,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00542",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 34.676702675507286,
+      "recall": 1.0,
+      "ssim": 0.9125734580045081,
+      "tp": 6
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00543",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9966777408637874,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 23.878460885130934,
+      "recall": 0.0,
+      "ssim": 0.8383068784088002,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00544",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 34.05443878510296,
+      "recall": 1.0,
+      "ssim": 0.8454019785033678,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 0.9981981981981982,
+      "diagram_id": "d00545",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 0.8571428571428571,
+      "fn": 1,
+      "foreground_dice": 0.9945750452079566,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 29.896469217483222,
+      "recall": 0.75,
+      "ssim": 0.9250801342332405,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00546",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "clean",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00547",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "psnr_db": 36.33279891305678,
+      "recall": 1.0,
+      "ssim": 0.8901766089458953,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00548",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 41.35183024726898,
+      "recall": 1.0,
+      "ssim": 0.9986061534437923,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00549",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 0.6666666666666666,
+      "fn": 1,
+      "foreground_dice": 0.995575221238938,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "psnr_db": 27.65571637891082,
+      "recall": 0.5,
+      "ssim": 0.8994102495214177,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00550",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "psnr_db": 38.742466245585696,
+      "recall": 1.0,
+      "ssim": 0.94803453273141,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00551",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 34.618933198096656,
+      "recall": 1.0,
+      "ssim": 0.8679519562354128,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00552",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 22.20008275936358,
+      "recall": 1.0,
+      "ssim": 0.9387302281164457,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00553",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 59.69074241007227,
+      "recall": 1.0,
+      "ssim": 0.9999886246732526,
+      "tp": 5
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00554",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00555",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "clean",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00556",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 0.6666666666666666,
+      "fn": 1,
+      "foreground_dice": 0.9973753280839895,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "psnr_db": 32.20406584625304,
+      "recall": 0.5,
+      "ssim": 0.9552508387249516,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00557",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 27.789415209260756,
+      "recall": 1.0,
+      "ssim": 0.9775245503857998,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00558",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 41.33206428379758,
+      "recall": 1.0,
+      "ssim": 0.9680991590058478,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00559",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "psnr_db": 47.81987663861252,
+      "recall": 1.0,
+      "ssim": 0.9994028701439198,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00560",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 33.38170156593876,
+      "recall": 1.0,
+      "ssim": 0.9899551284086406,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00561",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00562",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 40.83807949346508,
+      "recall": 1.0,
+      "ssim": 0.9984715297623281,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00563",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "C",
+          "E"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "E"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "psnr_db": 40.219938105828945,
+      "recall": 1.0,
+      "ssim": 0.9647374667501903,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00564",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.995475113122172,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 26.074521369387917,
+      "recall": 0.0,
+      "ssim": 0.8579528864105448,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00565",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 38.490298983148655,
+      "recall": 1.0,
+      "ssim": 0.945929609354271,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00566",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 35.91649601158706,
+      "recall": 1.0,
+      "ssim": 0.8613910117096907,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00567",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 53.63987841667665,
+      "recall": 1.0,
+      "ssim": 0.9998454526332556,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00568",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "E"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "f1": 0.8571428571428571,
+      "fn": 1,
+      "foreground_dice": 0.9982608695652174,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "psnr_db": 33.27579387520817,
+      "recall": 0.75,
+      "ssim": 0.9263832698687999,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00569",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 40.34964488036419,
+      "recall": 1.0,
+      "ssim": 0.9448472295625314,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00570",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 39.36509108915282,
+      "recall": 1.0,
+      "ssim": 0.9361910640342908,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00571",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "f1": 0.8,
+      "fn": 1,
+      "foreground_dice": 0.9955022488755623,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "psnr_db": 27.42446431953799,
+      "recall": 0.6666666666666666,
+      "ssim": 0.8702363796270808,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00572",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 39.333786919428405,
+      "recall": 1.0,
+      "ssim": 0.9978083628678294,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00573",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "clean",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00574",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "psnr_db": 22.882866250856292,
+      "recall": 1.0,
+      "ssim": 0.9304810992921575,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 0.9910714285714286,
+      "diagram_id": "d00575",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.963302752293578,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 26.92105037350096,
+      "recall": 0.0,
+      "ssim": 0.9351907198488442,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00576",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "clean",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00577",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9960159362549801,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 27.57545804539014,
+      "recall": 0.0,
+      "ssim": 0.8321512107417324,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00578",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "psnr_db": 41.11594224999661,
+      "recall": 1.0,
+      "ssim": 0.9693591389162787,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00579",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9968051118210862,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 25.296715123797302,
+      "recall": 0.0,
+      "ssim": 0.8585027926130825,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00580",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "clean",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00581",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "clean",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00582",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 41.36208237781487,
+      "recall": 1.0,
+      "ssim": 0.955382693749404,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00583",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "f1": 0.8571428571428571,
+      "fn": 1,
+      "foreground_dice": 0.9982425307557118,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 26.68285044113351,
+      "recall": 0.75,
+      "ssim": 0.876648234059496,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00584",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "C",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "psnr_db": 25.79466499685151,
+      "recall": 1.0,
+      "ssim": 0.9508747239104349,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00585",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "clean",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00586",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "psnr_db": 39.89707444382985,
+      "recall": 1.0,
+      "ssim": 0.975287393922613,
+      "tp": 6
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00587",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 0.6666666666666666,
+      "fn": 1,
+      "foreground_dice": 0.9970845481049563,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 33.96052479906462,
+      "recall": 0.5,
+      "ssim": 0.9604644250206641,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00588",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "D",
+          "E"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": true,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "psnr_db": null,
+      "recall": 1.0,
+      "ssim": 1.0,
+      "tp": 2
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00589",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 37.86352520464042,
+      "recall": 1.0,
+      "ssim": 0.9348976034826104,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00590",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "f1": 0.6666666666666666,
+      "fn": 1,
+      "foreground_dice": 0.9977011494252873,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "psnr_db": 33.57302763945781,
+      "recall": 0.5,
+      "ssim": 0.9224532826335194,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 0.9976133651551313,
+      "diagram_id": "d00591",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 3,
+      "foreground_dice": 0.9781021897810219,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 20.211549262910907,
+      "recall": 0.0,
+      "ssim": 0.8657676265768787,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00592",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "B",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "D",
+          "E"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "f1": 0.8888888888888888,
+      "fn": 1,
+      "foreground_dice": 0.9973190348525469,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "D",
+          "E"
+        ]
+      ],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "B",
+          "E"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "psnr_db": 24.548545052678588,
+      "recall": 0.8,
+      "ssim": 0.8972445939325336,
+      "tp": 4
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00593",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 60.79087348772365,
+      "recall": 1.0,
+      "ssim": 0.999956138848408,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00594",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9951219512195122,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 31.58649060969443,
+      "recall": 0.0,
+      "ssim": 0.7977782427095205,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00595",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9975308641975309,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 35.143946564099046,
+      "recall": 0.0,
+      "ssim": 0.9692148699222507,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00596",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 35.15686452140805,
+      "recall": 1.0,
+      "ssim": 0.9942856161687944,
+      "tp": 1
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00597",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "E"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "noise",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "E"
+        ],
+        [
+          "C",
+          "E"
+        ]
+      ],
+      "psnr_db": 36.12466844285511,
+      "recall": 1.0,
+      "ssim": 0.9215930395900281,
+      "tp": 3
+    },
+    {
+      "boundary_f1_1px": 0.9761092150170648,
+      "diagram_id": "d00598",
+      "exact_graph": false,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 0.0,
+      "fn": 1,
+      "foreground_dice": 0.9583333333333334,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "gap",
+      "missing_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "precision": null,
+      "predicted_edges": [],
+      "psnr_db": 23.86611980190663,
+      "recall": 0.0,
+      "ssim": 0.9259612283452916,
+      "tp": 0
+    },
+    {
+      "boundary_f1_1px": 1.0,
+      "diagram_id": "d00599",
+      "exact_graph": true,
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "f1": 1.0,
+      "fn": 0,
+      "foreground_dice": 1.0,
+      "fp": 0,
+      "identical_pixels": false,
+      "invalid_merges": [],
+      "invented_edges": [],
+      "kind": "blur",
+      "missing_edges": [],
+      "precision": 1.0,
+      "predicted_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "psnr_db": 47.69629843507178,
+      "recall": 1.0,
+      "ssim": 0.9995332851775619,
+      "tp": 1
+    }
+  ],
+  "split": "validation",
+  "threshold": 0.5,
+  "threshold_sensitivity": {
+    "0.4": {
+      "edge_f1": 0.9138381201044387,
+      "edge_precision": 1.0,
+      "edge_recall": 0.8413461538461539,
+      "exact_graph_accuracy": 0.7,
+      "fn": 33,
+      "fp": 0,
+      "images": 100,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.0,
+      "macro_edge_f1": 0.8067301587301587,
+      "missing_edges_per_image": 0.33,
+      "tp": 175
+    },
+    "0.6": {
+      "edge_f1": 0.9222797927461139,
+      "edge_precision": 1.0,
+      "edge_recall": 0.8557692307692307,
+      "exact_graph_accuracy": 0.7,
+      "fn": 30,
+      "fp": 0,
+      "images": 100,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.0,
+      "macro_edge_f1": 0.8166349206349207,
+      "missing_edges_per_image": 0.3,
+      "tp": 178
+    }
+  }
+}

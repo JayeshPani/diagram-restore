@@ -1,0 +1,19 @@
+version = "pilot-v1"
+image_size = 64
+seed = 20260912
+train = 500
+validation = 100
+test = 100
+min_nodes = 2
+max_nodes = 5
+line_widths = [1, 2]
+noise_sigma_max = 0.03
+blur_sigma_max = 0.6
+max_gap_length = 3
+max_removed_fraction = 0.20
+
+[corruption_weights]
+clean = 0.10
+noise = 0.30
+blur = 0.30
+gap = 0.30

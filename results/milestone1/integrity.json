@@ -1,0 +1,28 @@
+{
+  "clean_graph_recovery": {
+    "edge_f1": 1.0,
+    "edge_precision": 1.0,
+    "edge_recall": 1.0,
+    "exact_graph_accuracy": 1.0,
+    "fn": 0,
+    "fp": 0,
+    "images": 700,
+    "invalid_merge_images": 0,
+    "invented_edges_per_image": 0.0,
+    "macro_edge_f1": 1.0,
+    "missing_edges_per_image": 0.0,
+    "tp": 1544
+  },
+  "failures": [],
+  "fixture_passed": 80,
+  "fixture_total": 80,
+  "identity_hashes_unique": true,
+  "integrity_passed": true,
+  "records": 700,
+  "split_counts": {
+    "test": 100,
+    "train": 500,
+    "validation": 100
+  },
+  "test_access": "clean-render graph integrity and image hashes only; no damaged-test scores"
+}

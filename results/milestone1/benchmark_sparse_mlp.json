@@ -1,0 +1,42 @@
+{
+  "device": "mps",
+  "note": "isolated MLP only; dummy score + topk + gather/scatter included; not full-restoration latency or evidence for the routing hypothesis",
+  "repeats": 200,
+  "rows": [
+    {
+      "dense_tokens": 2048,
+      "keep_fraction": 1.0,
+      "max_absolute_parity_error": 0.0,
+      "median_seconds": {
+        "dense": 0.00033985450863838196,
+        "sparse_with_overhead": 0.0005590205546468496
+      },
+      "mlp_tokens_executed": 2048
+    },
+    {
+      "dense_tokens": 2048,
+      "keep_fraction": 0.75,
+      "max_absolute_parity_error": 0.0,
+      "median_seconds": {
+        "dense": 0.0003367289900779724,
+        "sparse_with_overhead": 0.0005089994519948959
+      },
+      "mlp_tokens_executed": 1536
+    },
+    {
+      "dense_tokens": 2048,
+      "keep_fraction": 0.5,
+      "max_absolute_parity_error": 0.0,
+      "median_seconds": {
+        "dense": 0.00033360463567078114,
+        "sparse_with_overhead": 0.0004574372433125973
+      },
+      "mlp_tokens_executed": 1024
+    }
+  ],
+  "shape": [
+    8,
+    256,
+    128
+  ]
+}

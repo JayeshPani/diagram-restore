@@ -1,0 +1,756 @@
+{
+  "count": 32,
+  "examples": [
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "id": "d00522",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "id": "d00526",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "id": "d00527",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00546",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00555",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "id": "d00573",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "id": "d00576",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00580",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "id": "d00503",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00504",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "id": "d00505",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "id": "d00506",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00508",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00510",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "B",
+          "D"
+        ]
+      ],
+      "id": "d00511",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "B",
+          "D"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "id": "d00516",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00500",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00502",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00507",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "id": "d00509",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "id": "d00512",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "id": "d00514",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "B",
+          "E"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00518",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00521",
+      "invented": [],
+      "missing": [],
+      "reference": [
+        [
+          "B",
+          "C"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "id": "d00501",
+      "invented": [],
+      "missing": [
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "reference": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "extracted": [],
+      "id": "d00513",
+      "invented": [],
+      "missing": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "reference": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [],
+      "id": "d00515",
+      "invented": [],
+      "missing": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "reference": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [],
+      "id": "d00517",
+      "invented": [],
+      "missing": [
+        [
+          "B",
+          "E"
+        ]
+      ],
+      "reference": [
+        [
+          "B",
+          "E"
+        ]
+      ]
+    },
+    {
+      "extracted": [],
+      "id": "d00519",
+      "invented": [],
+      "missing": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "reference": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "id": "d00528",
+      "invented": [],
+      "missing": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "reference": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ]
+    },
+    {
+      "extracted": [],
+      "id": "d00531",
+      "invented": [],
+      "missing": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "reference": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    },
+    {
+      "extracted": [],
+      "id": "d00532",
+      "invented": [],
+      "missing": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "reference": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    }
+  ],
+  "human_review": "pending visual inspection; not implied by automatic generation",
+  "sheets": [
+    "results/milestone1/validation_overlays_1.png",
+    "results/milestone1/validation_overlays_2.png"
+  ]
+}
