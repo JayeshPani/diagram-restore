@@ -1,9 +1,10 @@
 # Gate G2 screening report — Stage 6 baseline suite
 
-Prepared 12 September 2026, updated after a second run the same day. **Single-seed development
-screening across two independent training budgets, not a multi-seed confirmatory result.** No
-confidence intervals yet. Do not cite these numbers as final paper evidence; see "Next scoped
-step" for what turns this into one.
+Prepared 12 September 2026, updated 13 September 2026 after a third run adding EMA + a
+warmup-cosine learning-rate schedule. **Single-seed development screening across three
+independent training configurations, not a multi-seed confirmatory result.** No confidence
+intervals yet. Do not cite these numbers as final paper evidence; see "Next scoped step" for what
+turns this into one.
 
 ## Question
 
@@ -24,6 +25,11 @@ tradeoff?
   **D0/D1 retrained at 30,000 steps** (3× run 1) specifically to test whether run 1's gap was an
   undertraining artifact. Batch-one latency (warmup 20, 50 timed repeats, MPS-synchronized) added
   for every row in run 2.
+- Run 3 (git `f5dc2c1`, `source_sha256` in [diffusion_tuning.json](diffusion_tuning.json)): D0
+  retrained again at the same 30,000 steps and seed, this time with the two standard diffusion
+  training fixes run 2 lacked — a linear-warmup/cosine-decay learning rate schedule
+  (`warmup_steps=1500`, base_lr=1e-4) and an EMA of the weights (decay 0.999) used for sampling.
+  This isolates "was the recipe missing standard tricks" from "is the architecture behind."
 - U0/U1/T0: SmallUNet/ConditionalDiT backbone, AdamW lr=1e-4, batch 8.
 - D0/D1: ConditionalDiT, same optimizer; DDIM sampling at 10/20/50 steps, eta=0, identical fixed
   noise across the sweep and across D0/D1.
@@ -54,6 +60,24 @@ Full numeric output: [baselines.json](baselines.json).
 - **This rules out plain undertraining as the explanation for run 1's gap.** Tripling optimizer
   steps did not close it and mildly widened it at the higher sampling budget.
 
+## What changed in run 3 (EMA + warmup-cosine LR, same 30k steps and seed)
+
+| Sampling steps | Plain D0 (run 2) F1 | Tuned D0 (run 3) F1 |
+| --- | --- | --- |
+| 10 | 0.9223 | 0.9223 (identical) |
+| 20 | 0.9223 | 0.9223 (identical) |
+| 50 | 0.9110 | 0.9195 (+0.0085, 3 more true edges of 208) |
+
+EMA and a proper LR schedule are the two most common fixes for unstable/undertrained diffusion
+sampling, and they left the 10- and 20-step results **completely unchanged** and moved the
+50-step result only slightly — nowhere near U1's 0.965. Latency also stayed in the same
+20–100 ms range (still 10×–45× slower than U-Net's 2.1 ms). Full numeric output:
+[diffusion_tuning.json](diffusion_tuning.json).
+
+**This rules out "missing standard diffusion training tricks" as the explanation, too.** Two of
+the three most likely fixable-defect explanations are now eliminated by direct experiment, not
+assumption.
+
 ## Decision
 
 **U0/U1 now dominate D0/D1 on both measured axes at every tested diffusion operating point**:
@@ -64,16 +88,19 @@ diffusion's connectivity accuracy at lower latency throughout the useful operati
 that outcome and reconsider the diffusion contribution") and in the plan's own failure-response
 table ("U-Net dominates the useful quality/runtime range → stop expanding the diffusion method").
 
-Both of the confounds raised after run 1 are now addressed:
+Three of the four confounds raised after run 1 are now addressed:
 
 1. ~~Diffusion may be undertrained~~ — **ruled out**: 3× the steps did not help.
 2. ~~No latency measured~~ — **measured**: U-Net wins on latency by more than an order of
    magnitude, so this is not a case where diffusion trades speed for quality.
+3. ~~Missing standard training tricks (EMA / LR schedule)~~ — **ruled out**: both together moved
+   one of three sampling-step results by 0.0085 F1; the other two were unchanged.
 
-The one confound not yet addressed is single-seed variance (seed 7 only) and an unexplored
-1–5-step sampling regime; see below. Given how large and directionally consistent the gap is
-across two independent training budgets, seed variance alone is very unlikely to reverse this
-conclusion, but it is not yet formally ruled out.
+The remaining unaddressed items are single-seed variance (seed 7 only), the unexplored 1–5-step
+sampling regime, and model capacity (a wider/deeper DiT at matched compute has not been tried).
+Given how large and directionally consistent the gap is across three independent training
+configurations, seed variance alone is very unlikely to reverse this conclusion, but it is not
+yet formally ruled out.
 
 **This is a project-direction decision, not a routine implementation one** — the routing method
 this project is built around only matters if diffusion is worth accelerating in the first place.
@@ -84,9 +111,9 @@ I'm flagging it back to the researcher rather than deciding unilaterally which w
 1. Confirm with seeds {17, 27} that the U-Net-dominates finding is not a seed artifact (cheap:
    ~5 more minutes per seed at this pilot scale).
 2. Extend the D0/D1 sampling sweep down to 1–5 steps to fully characterize H1's premise.
-3. Rule out a fixable diffusion-training defect before treating the gap as architectural: try a
-   cosine LR schedule / warmup, EMA weights, and a wider/deeper DiT at matched compute, since the
-   current recipe is a minimal pilot default, not a tuned diffusion baseline.
+3. The one remaining fixable-defect candidate is model capacity: try a wider/deeper DiT at
+   matched compute before treating the gap as fully architectural — two of three likely tuning
+   explanations are now eliminated, so expectations for this should be modest.
 4. Depending on (1)–(3): either scope the paper around a narrower, evidence-backed restoration/
    evaluation contribution (per
    [docs/06_PAPER_AND_VENUE.md](../../docs/06_PAPER_AND_VENUE.md)'s own contingency), or identify

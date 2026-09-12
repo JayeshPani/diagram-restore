@@ -1,0 +1,80 @@
+{
+  "base_lr": 0.0001,
+  "ema_decay": 0.999,
+  "final_training_loss": 0.005799237173050642,
+  "sampling_steps": {
+    "10": {
+      "edge_metrics": {
+        "edge_f1": 0.9222797927461139,
+        "edge_precision": 1.0,
+        "edge_recall": 0.8557692307692307,
+        "exact_graph_accuracy": 0.7,
+        "fn": 30,
+        "fp": 0,
+        "images": 100,
+        "invalid_merge_images": 0,
+        "invented_edges_per_image": 0.0,
+        "macro_edge_f1": 0.8166349206349207,
+        "missing_edges_per_image": 0.3,
+        "tp": 178
+      },
+      "latency": {
+        "mean_seconds": 0.019984037479994186,
+        "median_seconds": 0.02000275000000329,
+        "p95_seconds": 0.020512414100028308,
+        "repeats": 50,
+        "warmup": 20
+      }
+    },
+    "20": {
+      "edge_metrics": {
+        "edge_f1": 0.9222797927461139,
+        "edge_precision": 1.0,
+        "edge_recall": 0.8557692307692307,
+        "exact_graph_accuracy": 0.7,
+        "fn": 30,
+        "fp": 0,
+        "images": 100,
+        "invalid_merge_images": 0,
+        "invented_edges_per_image": 0.0,
+        "macro_edge_f1": 0.8166349206349207,
+        "missing_edges_per_image": 0.3,
+        "tp": 178
+      },
+      "latency": {
+        "mean_seconds": 0.039517552500010426,
+        "median_seconds": 0.0394504789999246,
+        "p95_seconds": 0.04072507295006744,
+        "repeats": 50,
+        "warmup": 20
+      }
+    },
+    "50": {
+      "edge_metrics": {
+        "edge_f1": 0.9194805194805195,
+        "edge_precision": 1.0,
+        "edge_recall": 0.8509615384615384,
+        "exact_graph_accuracy": 0.69,
+        "fn": 31,
+        "fp": 0,
+        "images": 100,
+        "invalid_merge_images": 0,
+        "invented_edges_per_image": 0.0,
+        "macro_edge_f1": 0.8146349206349207,
+        "missing_edges_per_image": 0.31,
+        "tp": 177
+      },
+      "latency": {
+        "mean_seconds": 0.09788778412000738,
+        "median_seconds": 0.09755410400009623,
+        "p95_seconds": 0.10111264809999056,
+        "repeats": 50,
+        "warmup": 20
+      }
+    }
+  },
+  "source_sha256": "b764cc91ead4bdc75ffb7e6164aa311a1f904d761672c189bf559c72729a59f5",
+  "steps": 30000,
+  "structural_weight": 0.0,
+  "warmup_steps": 1500
+}
