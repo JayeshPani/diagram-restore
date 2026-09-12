@@ -63,13 +63,14 @@ and clean-graph recovery for the evaluator (met — see
 showing which architectures dominate the accuracy/latency frontier for this task (met — see
 [results/milestone2/G2_REPORT.md](../results/milestone2/G2_REPORT.md)); (3) at least one
 demonstrated case where an appearance metric and the direct-edge F1 disagree on which restoration
-is better (met, single seed — see
+is better (met, confirmed at 3 seeds — see
 [results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md](../results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md));
 (4) generalization evidence beyond the exact pilot generator: a held-out layout/corruption
 distribution shift and, resources permitting, a second renderer or independently authored diagrams
-(revised Stage 9, not yet gathered). Report edge precision/recall, invented and missing edges, and
-variability across at least three training seeds (met for the primary comparison, not yet repeated
-for item 3) with confidence intervals before any generalization claim.
+(revised Stage 9, not yet gathered — the only remaining open item before a confirmatory-scale
+claim). Report edge precision/recall, invented and missing edges, and variability across at least
+three training seeds (met for items 2 and 3) with confidence intervals before any generalization
+claim.
 
 **Practical relevance.** *(unchanged from v0.1 — this is the clause whose condition was met)*
 U-Net remains an essential reference. If it matches or exceeds diffusion's connectivity accuracy

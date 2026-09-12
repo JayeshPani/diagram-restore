@@ -1,9 +1,11 @@
 # Stage 7 — Appearance metrics vs. the direct-edge evaluator
 
-Prepared 13 September 2026. Validation split, seed 7, same run as
-[G2_REPORT.md](G2_REPORT.md) (unet_steps=6000, dit_steps=30000), now also scoring mean
-foreground Dice, boundary F1, SSIM, and PSNR (`evaluation.aggregate_image_metrics`)
-alongside edge-F1 for every row. Full numeric output: [baselines.json](baselines.json).
+Prepared 13 September 2026, confirmed across seeds 7/17/27 the same day. Validation split,
+same runs as [G2_REPORT.md](G2_REPORT.md) (unet_steps=6000, dit_steps=30000), now also
+scoring mean foreground Dice, boundary F1, SSIM, and PSNR
+(`evaluation.aggregate_image_metrics`) alongside edge-F1 for every row. Full numeric
+output: [baselines.json](baselines.json), [seed17/baselines.json](seed17/baselines.json),
+[seed27/baselines.json](seed27/baselines.json).
 
 ## The question (RQ2, docs/04_EXPERIMENT_PROTOCOL.md)
 
@@ -61,12 +63,12 @@ weakest deployable option.
 
 ## What this does and doesn't establish
 
-**Established:** for this pilot task, foreground Dice specifically compresses the
-meaningful accuracy differences Gate G2 found into a band about 5× narrower than the
-direct-edge evaluator's, and in doing so produces a ranking (B0 beating all diffusion
-variants) that a real deployment decision should not be made on. This is concrete evidence
-for the project's founding motivation: image similarity can look fine while a restoration
-loses real connections.
+**Established, confirmed across 3 seeds:** for this pilot task, foreground Dice specifically
+compresses the meaningful accuracy differences Gate G2 found into a band about 4.5× narrower
+than the direct-edge evaluator's, and in doing so produces a ranking (B0 beating all
+diffusion variants, 18/18 configs across seeds) that a real deployment decision should not
+be made on. This is concrete evidence for the project's founding motivation: image
+similarity can look fine while a restoration loses real connections.
 
 **Not established:** that appearance metrics are *useless* — SSIM's ranking of B0 as worst
 is directionally closer to intuition than Dice's, and boundary-sensitive metrics might do
@@ -74,19 +76,29 @@ better still. The claim is narrower and better-supported: no single commonly-use
 appearance metric reliably substitutes for a graph-aware evaluator on this task, not that
 all appearance metrics are equally uninformative.
 
-**Single run, single seed (7).** This should be checked against seeds 17/27 before being
-treated as a confirmed, generalizable pattern rather than a striking pilot observation —
-flagged as the immediate next step alongside the Stage 8 confirmatory-scale work.
+## Confirmed across seeds 7/17/27
+
+| Seed | Dice range | Edge-F1 range | Ratio (F1 range ÷ Dice range) | B0 beats every diffusion variant on Dice? |
+| --- | --- | --- | --- | --- |
+| 7 | 0.0111 | 0.0542 | 4.88× | Yes (6/6 diffusion configs) |
+| 17 | 0.0113 | 0.0536 | 4.76× | Yes (6/6) |
+| 27 | 0.0162 | 0.0612 | 3.79× | Yes (6/6) |
+| **mean ± sd** | — | — | **4.48× ± 0.60** | **Yes, 18/18 diffusion configs across all seeds** |
+
+Both headline patterns replicate at every seed tested: Dice compresses the meaningful range
+by roughly 4–5×, and the untouched damaged input scores a higher mean Dice than every one
+of the six diffusion sampling-step/loss configurations, at all three seeds — 18 out of 18
+diffusion configurations checked. This is no longer a single-seed curiosity.
 
 ## Decision
 
 This closes the primary open item from [G2_REPORT.md](G2_REPORT.md)'s Stage 7 pointer with
-a genuine positive result, not a null one: appearance metrics do hide the connectivity gap,
-concretely and by a clean, checkable margin (~5× compression of the meaningful range, plus
-a raw-input-beats-diffusion reversal on Dice specifically). This is strong candidate
-evidence for the paper's central motivating figure.
+a genuine, now multi-seed-confirmed positive result: appearance metrics do hide the
+connectivity gap, concretely and by a clean, checkable margin (~4.5× compression of the
+meaningful range, plus a raw-input-beats-diffusion reversal on Dice specifically, at every
+seed tested). This is strong evidence for the paper's central motivating figure.
 
-**Next scoped step:** confirm this divergence pattern holds at seeds 17 and 27 (cheap,
-reuses the already-trained-per-seed models' restored images if checkpoints are saved, or a
-short rerun otherwise), then proceed to Stage 8 (confirmatory scale) with the researcher
-present to supervise the multi-hour compute commitment.
+**Next scoped step:** proceed to Stage 8 (confirmatory scale, 5,000/500/1,000 diagrams) with
+the researcher present to supervise the multi-hour compute commitment — the two things that
+would otherwise gate that decision (does the U-Net-dominates finding hold across seeds; does
+the appearance-vs-edge divergence hold across seeds) are both now answered yes.

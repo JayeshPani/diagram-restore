@@ -37,7 +37,7 @@ restoration loss." Kept for the record per this project's amendment discipline.
 | Claim | Required evidence | Status |
 | --- | --- | --- |
 | Connection failures matter in this task | Deliberate evaluator fixtures; damaged/dense/fewer-step edge errors | **Done** — 80/80 fixtures pass; B0 damaged-input F1 = 0.917 vs. clean-render F1 = 1.0 |
-| Image similarity can hide connectivity failures | At least one case where an appearance metric and edge-F1 disagree | **Done, single seed** — mean Dice compresses the accuracy range to ~1/5 of edge-F1's and ranks raw damaged input above every diffusion variant; `results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md`. Confirm at seeds 17/27. |
+| Image similarity can hide connectivity failures | At least one case where an appearance metric and edge-F1 disagree | **Done, confirmed at 3 seeds** — mean Dice compresses the accuracy range ~4.5× vs. edge-F1's and ranks raw damaged input above every diffusion variant (18/18 configs, seeds 7/17/27); `results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md`. |
 | Simple restoration dominates diffusion here | Same-split, same-seed comparison with latency, repeated across seeds | **Done** — U0/U1 vs. D0/D1, 3 seeds, `results/milestone2/G2_REPORT.md` |
 | The dominance isn't a fixable diffusion defect | Undertraining, training-trick, and capacity checks | **Done** — all three tested and ruled out |
 | The result generalizes | Fresh held-out parents/layouts, corruption shifts, and (resources permitting) independently created examples | **Open — Stage 9** |
