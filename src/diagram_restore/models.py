@@ -122,26 +122,46 @@ def cosine_alpha_bar(steps: int = 1000) -> torch.Tensor:
     return torch.cumprod(1 - beta, 0).float()
 
 
-def restoration_loss(logits: torch.Tensor, clean: torch.Tensor) -> torch.Tensor:
-    """BCE + L1 balances direct pixel classification with reconstruction."""
+def restoration_loss(
+    logits: torch.Tensor, clean: torch.Tensor, structural_weight: float = 0.0
+) -> torch.Tensor:
+    """BCE + L1 balances direct pixel classification with reconstruction.
+
+    structural_weight adds a soft-clDice term (U1/T0 in docs/04_EXPERIMENT_PROTOCOL.md §7);
+    it is a structural proxy, not a topology guarantee.
+    """
     ink = 1 - clean
-    return F.binary_cross_entropy_with_logits(logits, ink) + F.l1_loss(logits.sigmoid(), ink)
+    loss = F.binary_cross_entropy_with_logits(logits, ink) + F.l1_loss(logits.sigmoid(), ink)
+    if structural_weight:
+        loss = loss + structural_weight * (1 - soft_cldice(logits.sigmoid(), ink)).mean()
+    return loss
 
 
 def diffusion_loss(
-    model: ConditionalDiT, clean: torch.Tensor, observation: torch.Tensor, alpha_bar: torch.Tensor
+    model: ConditionalDiT,
+    clean: torch.Tensor,
+    observation: torch.Tensor,
+    alpha_bar: torch.Tensor,
+    structural_weight: float = 0.0,
 ) -> torch.Tensor:
-    clean, observation = 2 * clean - 1, 2 * observation - 1
+    """structural_weight adds a soft-clDice term on the estimated x0 (D1 in the same table)."""
+    ink_target = 1 - clean
+    mapped_clean, mapped_observation = 2 * clean - 1, 2 * observation - 1
     t = torch.randint(len(alpha_bar), (len(clean),), device=clean.device)
     alpha = alpha_bar[t, None, None, None]
-    noise = torch.randn_like(clean)
-    xt = alpha.sqrt() * clean + (1 - alpha).sqrt() * noise
-    prediction = model(xt, observation, t)
+    noise = torch.randn_like(mapped_clean)
+    xt = alpha.sqrt() * mapped_clean + (1 - alpha).sqrt() * noise
+    prediction = model(xt, mapped_observation, t)
     x0 = (xt - (1 - alpha).sqrt() * prediction) / alpha.sqrt()
-    per_image_l1 = (x0 - clean).abs().mean((1, 2, 3))
     gate = (alpha.flatten() >= 0.1).float()
+    per_image_l1 = (x0 - mapped_clean).abs().mean((1, 2, 3))
     reconstruction = (per_image_l1 * gate).sum() / gate.sum().clamp_min(1)
-    return F.mse_loss(prediction, noise) + 0.1 * reconstruction
+    loss = F.mse_loss(prediction, noise) + 0.1 * reconstruction
+    if structural_weight:
+        pred_ink = ((1 - x0) / 2).clamp(0, 1)
+        structural = 1 - soft_cldice(pred_ink, ink_target)
+        loss = loss + structural_weight * (structural * gate).sum() / gate.sum().clamp_min(1)
+    return loss
 
 
 def soft_skeleton(image: torch.Tensor, iterations: int = 5) -> torch.Tensor:
@@ -161,3 +181,17 @@ def soft_skeleton(image: torch.Tensor, iterations: int = 5) -> torch.Tensor:
         delta = F.relu(image - opened(image))
         skel = skel + F.relu(delta - skel * delta)
     return skel
+
+
+def soft_cldice(
+    prediction: torch.Tensor, target: torch.Tensor, iterations: int = 5, eps: float = 1e-6
+) -> torch.Tensor:
+    """Per-image soft clDice between two foreground-probability maps in [0, 1].
+
+    A structural proxy (Shit et al., docs/02_LITERATURE_REVIEW.md), not a topology guarantee.
+    """
+    pred_skeleton = soft_skeleton(prediction, iterations)
+    target_skeleton = soft_skeleton(target, iterations)
+    precision = (pred_skeleton * target).sum((1, 2, 3)) / (pred_skeleton.sum((1, 2, 3)) + eps)
+    sensitivity = (target_skeleton * prediction).sum((1, 2, 3)) / (target_skeleton.sum((1, 2, 3)) + eps)
+    return 2 * precision * sensitivity / (precision + sensitivity + eps)

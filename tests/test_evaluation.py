@@ -4,7 +4,13 @@ from itertools import combinations
 import numpy as np
 import pytest
 
-from diagram_restore.evaluation import edge_metrics, extract_edges, image_metrics, summarize
+from diagram_restore.evaluation import (
+    edge_metrics,
+    evaluate_predictions,
+    extract_edges,
+    image_metrics,
+    summarize,
+)
 from diagram_restore.fixtures import all_fixtures, make_fixture
 
 
@@ -50,3 +56,14 @@ def test_image_scores_do_not_replace_graph_scores():
 def test_invalid_float_images_rejected(bad):
     with pytest.raises(ValueError):
         extract_edges(bad, make_fixture("intact").nodes)
+
+
+def test_evaluate_predictions_summarizes_direct_edges_per_record():
+    intact, gap = make_fixture("intact"), make_fixture("one_pixel_gap")
+    records = [
+        {"nodes": [n.to_dict() for n in intact.nodes], "edges": intact.reference},
+        {"nodes": [n.to_dict() for n in gap.nodes], "edges": gap.reference},
+    ]
+    summary = evaluate_predictions(np.stack([intact.image, gap.image]), records)
+    assert (summary["tp"], summary["fn"]) == (1, 1)
+    assert summary["edge_f1"] == pytest.approx(2 / 3)

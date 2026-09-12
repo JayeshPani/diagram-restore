@@ -101,6 +101,16 @@ def summarize(rows: list[dict]) -> dict:
     }
 
 
+def evaluate_predictions(images: np.ndarray, records: list[dict]) -> dict:
+    """Extract and score edges for a batch of restored images against their own record."""
+    rows = []
+    for image, record in zip(images, records, strict=True):
+        nodes = [Node.from_dict(node) for node in record["nodes"]]
+        predicted = extract_edges(image, nodes).edges
+        rows.append(edge_metrics(predicted, record["edges"]))
+    return summarize(rows)
+
+
 def image_metrics(image: np.ndarray, reference: np.ndarray, threshold: float = 0.5) -> dict:
     pred, truth = normalized_image(image), normalized_image(reference)
     if pred.shape != truth.shape:

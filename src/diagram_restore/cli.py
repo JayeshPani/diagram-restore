@@ -29,6 +29,17 @@ def main():
     overfit.add_argument("--dit-steps", type=int, default=10000)
     overfit.add_argument("--sampling-steps", type=int, default=50)
     overfit.add_argument("--seed", type=int, default=7)
+    baselines = commands.add_parser(
+        "baselines", help="B0/B1/U0/U1/T0/D0/D1 baseline suite (Stage 6, Gate G2)"
+    )
+    baselines.add_argument("--data", type=Path, default=Path("data/pilot-v1"))
+    baselines.add_argument("--output", type=Path, default=Path("results/milestone2"))
+    baselines.add_argument("--unet-steps", type=int, default=6000)
+    baselines.add_argument("--dit-steps", type=int, default=10000)
+    baselines.add_argument("--sampling-steps", type=int, nargs="+", default=[10, 20, 50])
+    baselines.add_argument("--seed", type=int, default=7)
+    baselines.add_argument("--morphological-radii", type=int, nargs="+", default=[0, 1, 2, 3])
+    baselines.add_argument("--structural-weight", type=float, default=0.1)
     args = parser.parse_args()
     if args.command == "generate":
         from .data import generate
@@ -50,6 +61,19 @@ def main():
             args.dit_steps,
             args.sampling_steps,
             args.seed,
+        )
+    elif args.command == "baselines":
+        from .baselines import run_baseline_suite
+
+        result = run_baseline_suite(
+            args.data,
+            args.output,
+            args.unet_steps,
+            args.dit_steps,
+            tuple(args.sampling_steps),
+            args.seed,
+            tuple(args.morphological_radii),
+            args.structural_weight,
         )
     else:
         from .artifacts import (
