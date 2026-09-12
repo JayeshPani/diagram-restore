@@ -64,3 +64,53 @@ Potential accompanying artifact: a reproducible diagram corruption generator and
 Do not claim the first adaptive diffusion transformer, first structural diffusion restoration method, guaranteed preservation of graph topology, or practical speedup without the corresponding evidence. Before the method freezes, compare the full details of DyDiT++, TRaM-VSR, PixRestore, and any later directly relevant paper against the exact proposed supervision. The next literature pass should also look more deeply at graphics-recognition restoration datasets and direct graph extraction.
 
 The linked paper rows and version note form the initial bibliography. Keep citation metadata tied to the accessed version; produce venue-specific BibTeX after the final related-work selection.
+
+## Literature refresh for the benchmark framing (13 September 2026)
+
+Everything above was scoped for the routing method, dropped after Gate G2 (see
+[docs/01_RESEARCH_SCOPE.md](01_RESEARCH_SCOPE.md)'s amendment). This section is a first pass
+at the refresh [docs/03_PROJECT_PLAN.md](03_PROJECT_PLAN.md)'s revised Stage 12 calls for —
+positioning against diagram-benchmark and graph-aware-evaluation papers rather than
+efficient-diffusion papers. Web search only, no full-text inspection; treat as **evidence
+label B** (abstract/summary level) throughout, weaker than the original review's A-labeled
+sections. A full pass (citation graph, full-text methods) is still required before drafting
+related work.
+
+| Paper | Task | Relation to this project |
+| --- | --- | --- |
+| **DiagramNet**, arXiv:2605.01338 (2026) | Recognition/QA over system-level chip diagrams; 10,977 connection annotations across Listing/Localization/Connection/Circuit-QA tasks. | Closest dataset match on "diagrams with connection annotations," but it's a recognition/parsing benchmark on *clean* diagrams, not a restoration benchmark on *damaged* ones, and reports no graph-vs-pixel evaluation contrast. Different task; useful for framing "diagram+graph benchmarks exist" but not a competitor. |
+| **SciFlow-Bench**, arXiv:2602.09809 (2026) | Evaluates text-to-image *generation* of scientific diagrams by inverse-parsing the generated image back into a structured graph and comparing it to a canonical ground-truth graph — explicitly "structural recoverability rather than visual similarity alone." | **The closest prior argument to this project's Finding 04** (appearance metrics hide structural failures) — but for generation, not restoration, using directed dependency graphs with semantic node matching and a *learned inverse-parser*, versus this project's undirected connectivity graphs with geometric node matching (known bounding boxes) and a raster-tracing extractor. Different mechanism, same motivating claim; must be cited and distinguished explicitly, not treated as scooped. Node/edge-level precision-recall-F1 with edge weighted 60% of the graph score (their design choice; this project currently reports edge-F1 as the sole primary endpoint, node-level not separately scored) and a "path-aware semantic matching" edge-correctness rule (their directed-dependency setting; not applicable to this project's undirected, geometrically-anchored edges). |
+| **ERQA** (Edge-Restoration Quality Assessment), arXiv:2110.09992 | Edge-sensitive quality metric for video super-resolution. | An appearance metric already tuned to be more edge-sensitive than Dice/PSNR/SSIM. Worth adding as a comparison point in the Stage 7 divergence analysis — it may narrow, but is unlikely to close, the gap Finding 04 found, since it is still a *pixel/gradient*-level edge metric, not a graph-topology one. Not yet tested. |
+| Occluded Pages Restoration Benchmark (OPRB) (found via search, exact venue/authors not yet verified) | Document restoration benchmark, 30,078 degraded document images, ~23% containing figures/diagrams. | Adjacent (document restoration, not diagram-specific graph connectivity), and evaluation methodology not yet inspected. Flag for full-text check before citing. |
+| Enginuity, arXiv:2601.13299 / 2606.03410 | Vision-language understanding benchmark for engineering diagrams. | Recognition/VQA, not restoration; same category as DiagramNet — evidence that diagram+graph benchmarks are an active area, not a direct competitor. |
+
+### What this changes about the novelty statement
+
+The original review's claim — a reproducible diagram corruption generator and a validated
+direct-edge evaluator "with counterexamples to image-similarity-only assessment" — is
+**not scooped**, but SciFlow-Bench shows the core motivating argument (visual similarity can
+hide structural failure) is being made independently and roughly concurrently in the
+adjacent diagram-generation literature. The defensible, narrower claim: this project
+demonstrates that argument **empirically, with a lightweight geometry-assisted extractor
+(no learned parser required)**, for the *restoration* setting specifically, and pairs it
+with a rigorous multi-seed, confound-controlled finding that a small CNN beats diffusion for
+this structural task — a comparison SciFlow-Bench does not make (it evaluates generation
+quality, not restoration architecture choice).
+
+### What still needs doing before drafting related work
+
+1. Full-text read of SciFlow-Bench's evaluation section — confirm exactly how its inverse
+   parser works and whether its "structural recoverability" argument is empirically
+   demonstrated (a divergence table like this project's) or only motivated.
+2. Verify OPRB's exact venue, authors, and evaluation metrics — currently known only from a
+   search snippet.
+3. Search specifically for diffusion-vs-CNN restoration comparisons on tasks with an
+   explicit graph/topology ground truth (vessel/road segmentation with clDice is the closest
+   found so far, already in the original review) — the diagram-specific version of this
+   comparison was not found in this pass, which is either a genuine gap this paper fills or
+   a sign the queries need broadening.
+4. Repeat this search closer to the submission date given how recent every hit above is
+   (all 2026, several within the last two months) — this literature is moving fast.
+
+Search log: see [docs/07_SEARCH_LOG.md](07_SEARCH_LOG.md)'s 13 September addendum for exact
+queries.

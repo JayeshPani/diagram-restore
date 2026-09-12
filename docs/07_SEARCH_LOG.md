@@ -83,3 +83,30 @@ that refresh is revised Stage 12 in `docs/03_PROJECT_PLAN.md` and is a **require
 drafting related work**, not optional. Suggested starting queries for that refresh: "diagram
 restoration benchmark dataset", "graph-aware evaluation image restoration", "flowchart / circuit
 diagram dataset direct edge annotation", "diffusion vs CNN restoration structural task comparison".
+
+## First refresh pass (13 September 2026) — web search only, not full-text inspection
+
+Queries run (web search, no domain filter, current-year results biased by the search tool):
+
+```text
+diagram restoration benchmark dataset graphics recognition 2026
+graph-aware evaluation metric image restoration structural connectivity
+flowchart circuit diagram dataset direct edge annotation restoration corruption
+diffusion model versus CNN U-Net image restoration structural preservation comparison
+"direct edge" OR "edge-level F1" graph extraction evaluation diagram image restoration 2025 2026
+```
+
+Findings and their disposition are in
+[docs/02_LITERATURE_REVIEW.md](02_LITERATURE_REVIEW.md)'s "Literature refresh" section, most
+notably **SciFlow-Bench** (arXiv:2602.09809) — a near-concurrent, independent argument for
+"structural recoverability over visual similarity" in scientific-diagram *generation*, the
+closest prior-art match to this project's Finding 04, and **DiagramNet** (arXiv:2605.01338), a
+diagram+connection-annotation benchmark for *recognition* rather than restoration.
+
+This pass is **evidence label B** (search-tool summaries and abstracts only; no full-text
+inspection, no citation-graph check, no license verification) and is explicitly a first look,
+not the required pre-submission pass. Every hit found was from 2026 or very late 2025 — this
+area is moving fast enough that the queries should be repeated close to the submission date
+rather than trusted from this single pass. See docs/02's "What still needs doing" list for the
+concrete follow-ups (full-text read of SciFlow-Bench's evaluator, verify OPRB's venue/authors,
+search specifically for diagram-domain diffusion-vs-CNN comparisons with a graph ground truth).
