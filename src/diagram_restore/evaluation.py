@@ -111,6 +111,23 @@ def evaluate_predictions(images: np.ndarray, records: list[dict]) -> dict:
     return summarize(rows)
 
 
+def aggregate_image_metrics(images: np.ndarray, references: np.ndarray, threshold: float = 0.5) -> dict:
+    """Mean appearance-similarity scores over a batch (docs/03_PROJECT_PLAN.md Stage 7)."""
+    rows = [
+        image_metrics(image, reference, threshold)
+        for image, reference in zip(images, references, strict=True)
+    ]
+    finite_psnr = [row["psnr_db"] for row in rows if row["psnr_db"] is not None]
+    return {
+        "images": len(rows),
+        "mean_foreground_dice": float(np.mean([row["foreground_dice"] for row in rows])),
+        "mean_boundary_f1_1px": float(np.mean([row["boundary_f1_1px"] for row in rows])),
+        "mean_ssim": float(np.mean([row["ssim"] for row in rows])),
+        "mean_psnr_db": float(np.mean(finite_psnr)) if finite_psnr else None,
+        "identical_pixel_images": sum(row["identical_pixels"] for row in rows),
+    }
+
+
 def image_metrics(image: np.ndarray, reference: np.ndarray, threshold: float = 0.5) -> dict:
     pred, truth = normalized_image(image), normalized_image(reference)
     if pred.shape != truth.shape:

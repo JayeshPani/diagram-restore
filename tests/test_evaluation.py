@@ -5,6 +5,7 @@ import numpy as np
 import pytest
 
 from diagram_restore.evaluation import (
+    aggregate_image_metrics,
     edge_metrics,
     evaluate_predictions,
     extract_edges,
@@ -56,6 +57,22 @@ def test_image_scores_do_not_replace_graph_scores():
 def test_invalid_float_images_rejected(bad):
     with pytest.raises(ValueError):
         extract_edges(bad, make_fixture("intact").nodes)
+
+
+def test_aggregate_image_metrics_averages_per_image_scores():
+    intact, gap = make_fixture("intact"), make_fixture("one_pixel_gap")
+    result = aggregate_image_metrics(
+        np.stack([intact.image, gap.image]), np.stack([intact.image, intact.image])
+    )
+    individual = [
+        image_metrics(intact.image, intact.image),
+        image_metrics(gap.image, intact.image),
+    ]
+    assert result["mean_foreground_dice"] == pytest.approx(
+        sum(m["foreground_dice"] for m in individual) / 2
+    )
+    assert result["mean_ssim"] == pytest.approx(sum(m["ssim"] for m in individual) / 2)
+    assert result["images"] == 2
 
 
 def test_evaluate_predictions_summarizes_direct_edges_per_record():

@@ -94,3 +94,26 @@ def test_run_baseline_suite_measures_batch_one_latency_for_every_trained_row(
         assert "edge_metrics" in entry and "latency" in entry
         assert entry["latency"]["repeats"] == 2
     assert "latency" not in result["B0"]
+
+
+def test_run_baseline_suite_reports_appearance_metrics_alongside_edge_metrics(
+    tmp_path, tiny_dataset
+):
+    output = tmp_path / "results"
+    result = run_baseline_suite(
+        tiny_dataset,
+        output,
+        unet_steps=2,
+        dit_steps=2,
+        sampling_steps=(2,),
+        seed=0,
+        morphological_radii=(0, 1),
+        latency_warmup=1,
+        latency_repeats=2,
+    )
+    for key in ("B0", "B1", "U0", "U1", "T0"):
+        assert "appearance_metrics" in result[key]
+        assert 0 <= result[key]["appearance_metrics"]["mean_ssim"] <= 1
+    for key in ("D0", "D1"):
+        entry = result[key]["sampling_steps"]["2"]
+        assert "appearance_metrics" in entry

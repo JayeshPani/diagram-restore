@@ -12,7 +12,7 @@ import torch
 from scipy import ndimage as ndi
 
 from .data import read_manifest
-from .evaluation import evaluate_predictions, normalized_image
+from .evaluation import aggregate_image_metrics, evaluate_predictions, normalized_image
 from .geometry import NEIGHBORS
 from .io import load_image, source_fingerprint, write_json
 from .latency import measure_latency
@@ -175,15 +175,34 @@ def run_baseline_suite(
     def timed(restore) -> dict:
         return measure_latency(restore, latency_warmup, latency_repeats, device)
 
-    result: dict = {"B0": damaged_input_baseline(val_damaged.cpu(), val_records)}
+    val_clean_np = val_clean.cpu().numpy()[:, 0]
+
+    def scored(restored: np.ndarray) -> dict:
+        return {
+            "edge_metrics": evaluate_predictions(restored, val_records),
+            "appearance_metrics": aggregate_image_metrics(restored, val_clean_np),
+        }
+
+    result: dict = {
+        "B0": {
+            "edge_metrics": damaged_input_baseline(val_damaged.cpu(), val_records),
+            "appearance_metrics": aggregate_image_metrics(
+                val_damaged.cpu().numpy()[:, 0], val_clean_np
+            ),
+        }
+    }
 
     radius, morphological_metrics = select_morphological_radius(
         val_damaged.cpu(), val_records, morphological_radii
     )
     single_cpu = single.cpu().numpy()[0, 0]
+    morphological_restored = np.stack(
+        [morphological_restore(image, radius) for image in val_damaged.cpu().numpy()[:, 0]]
+    )
     result["B1"] = {
         "selected_radius": radius,
         "edge_metrics": morphological_metrics,
+        "appearance_metrics": aggregate_image_metrics(morphological_restored, val_clean_np),
         "latency": timed(lambda: morphological_restore(single_cpu, radius)),
     }
 
@@ -191,7 +210,7 @@ def run_baseline_suite(
     result["U0"] = {
         "steps": unet_steps,
         "final_loss": unet0_losses[-1],
-        "edge_metrics": evaluate_predictions(restore_unet(unet0, val_damaged), val_records),
+        **scored(restore_unet(unet0, val_damaged)),
         "latency": timed(lambda: restore_unet(unet0, single)),
     }
 
@@ -202,7 +221,7 @@ def run_baseline_suite(
         "steps": unet_steps,
         "structural_weight": structural_weight,
         "final_loss": unet1_losses[-1],
-        "edge_metrics": evaluate_predictions(restore_unet(unet1, val_damaged), val_records),
+        **scored(restore_unet(unet1, val_damaged)),
         "latency": timed(lambda: restore_unet(unet1, single)),
     }
 
@@ -213,9 +232,7 @@ def run_baseline_suite(
         "steps": unet_steps,
         "structural_weight": structural_weight,
         "final_loss": transformer_losses[-1],
-        "edge_metrics": evaluate_predictions(
-            restore_deterministic_transformer(transformer, val_damaged), val_records
-        ),
+        **scored(restore_deterministic_transformer(transformer, val_damaged)),
         "latency": timed(lambda: restore_deterministic_transformer(transformer, single)),
     }
 
@@ -233,7 +250,7 @@ def run_baseline_suite(
         for steps in sampling_steps:
             restored = restore_conditional_dit(model, val_damaged, alpha_bar, steps, seed)
             row["sampling_steps"][str(steps)] = {
-                "edge_metrics": evaluate_predictions(restored, val_records),
+                **scored(restored),
                 "latency": timed(
                     lambda steps=steps: restore_conditional_dit(
                         model, single, alpha_bar, steps, seed
