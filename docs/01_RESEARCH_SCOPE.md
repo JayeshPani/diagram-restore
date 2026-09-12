@@ -26,12 +26,13 @@ else is revised.
 restoration, and which restoration architectures actually preserve direct connections under a
 controlled, reproducible corruption benchmark?
 
-**Problem to establish.** *(unchanged from v0.1)* A restored diagram can look similar to its clean
-reference while losing a short connection or inventing a shortcut. Stage 6 confirms this
-divergence is measurable: U0/U1 and D0/D1 have not yet been compared on appearance metrics
-(Dice/PSNR/SSIM) in the same report as their edge-F1 gap, and doing so is the first piece of new
-evidence this rescoped project should gather (see
-[docs/03_PROJECT_PLAN.md](03_PROJECT_PLAN.md)'s revised Stage 7).
+**Problem to establish.** *(unchanged from v0.1, now demonstrated)* A restored diagram can look
+similar to its clean reference while losing a short connection or inventing a shortcut. Stage 7
+confirmed this at a concrete, checkable margin: mean foreground Dice spans only 0.9875–0.9986
+across all seven compared methods (a range of 0.0111) while edge-F1 spans 0.9110–0.9652 (a range
+of 0.0542, ~5× wider) — and Dice ranks the untouched damaged input above every diffusion-restored
+variant tested. Single seed; see
+[results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md](../results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md).
 
 **Input and output.** *(unchanged from v0.1)* The model receives only a damaged grayscale raster
 image. The target is a clean black-and-white image with the original direct connections. The
@@ -61,13 +62,14 @@ and clean-graph recovery for the evaluator (met — see
 [results/milestone1](../results/milestone1)); (2) a multi-seed, confound-controlled comparison
 showing which architectures dominate the accuracy/latency frontier for this task (met — see
 [results/milestone2/G2_REPORT.md](../results/milestone2/G2_REPORT.md)); (3) at least one
-demonstrated case where an appearance metric (Dice/PSNR/SSIM) and the direct-edge F1 disagree on
-which restoration is better, showing the evaluator adds information appearance metrics miss (not
-yet gathered — revised Stage 7); (4) generalization evidence beyond the exact pilot generator: a
-held-out layout/corruption distribution shift and, resources permitting, a second renderer or
-independently authored diagrams (revised Stage 9). Report edge precision/recall, invented and
-missing edges, and variability across at least three training seeds (met for the primary
-comparison) with confidence intervals before any generalization claim.
+demonstrated case where an appearance metric and the direct-edge F1 disagree on which restoration
+is better (met, single seed — see
+[results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md](../results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md));
+(4) generalization evidence beyond the exact pilot generator: a held-out layout/corruption
+distribution shift and, resources permitting, a second renderer or independently authored diagrams
+(revised Stage 9, not yet gathered). Report edge precision/recall, invented and missing edges, and
+variability across at least three training seeds (met for the primary comparison, not yet repeated
+for item 3) with confidence intervals before any generalization claim.
 
 **Practical relevance.** *(unchanged from v0.1 — this is the clause whose condition was met)*
 U-Net remains an essential reference. If it matches or exceeds diffusion's connectivity accuracy

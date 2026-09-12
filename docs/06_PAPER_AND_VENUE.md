@@ -37,7 +37,7 @@ restoration loss." Kept for the record per this project's amendment discipline.
 | Claim | Required evidence | Status |
 | --- | --- | --- |
 | Connection failures matter in this task | Deliberate evaluator fixtures; damaged/dense/fewer-step edge errors | **Done** — 80/80 fixtures pass; B0 damaged-input F1 = 0.917 vs. clean-render F1 = 1.0 |
-| Image similarity can hide connectivity failures | At least one case where an appearance metric and edge-F1 disagree | **Open — Stage 7**, the next scoped experiment |
+| Image similarity can hide connectivity failures | At least one case where an appearance metric and edge-F1 disagree | **Done, single seed** — mean Dice compresses the accuracy range to ~1/5 of edge-F1's and ranks raw damaged input above every diffusion variant; `results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md`. Confirm at seeds 17/27. |
 | Simple restoration dominates diffusion here | Same-split, same-seed comparison with latency, repeated across seeds | **Done** — U0/U1 vs. D0/D1, 3 seeds, `results/milestone2/G2_REPORT.md` |
 | The dominance isn't a fixable diffusion defect | Undertraining, training-trick, and capacity checks | **Done** — all three tested and ruled out |
 | The result generalizes | Fresh held-out parents/layouts, corruption shifts, and (resources permitting) independently created examples | **Open — Stage 9** |
@@ -51,7 +51,7 @@ Write every result sentence from saved metrics. Use placeholders for unavailable
 2. **Related work:** conditional restoration and diffusion-based restoration (Palette, DDIM), U-Net baselines, topology-sensitive supervision (clDice) — reposition against diagram/graphics-recognition **benchmark and evaluation** papers, not efficient-diffusion/routing papers (DyDiT etc. move to a shorter "why we did not pursue routing" note). **Needs the Stage 12 literature refresh** before drafting — the current [docs/02_LITERATURE_REVIEW.md](02_LITERATURE_REVIEW.md) was scoped for the dropped routing angle.
 3. **Task and evaluation:** graph convention, corruptions, split discipline, direct-edge extraction, assisted-node limitation, and evaluation audits. *(unchanged — this is the generator/evaluator contribution, unaffected by the pivot.)*
 4. **Method:** the compared architectures (morphological repair, U-Net with/without structural loss, deterministic transformer, conditional diffusion with/without structural loss) and training recipe, including the debugging interventions (EMA, LR schedule, capacity) as part of giving diffusion a fair chance.
-5. **Experiments:** baselines first; the appearance-vs-edge divergence analysis (Stage 7); the 3-seed comparison with confidence intervals; the diffusion debugging ablations; confirmatory-scale results (Stage 8); generalization (Stage 9).
+5. **Experiments:** baselines first; the 3-seed comparison with confidence intervals; the diffusion debugging ablations; the appearance-vs-edge divergence analysis (Stage 7, done at seed 7 — confirm at seeds 17/27 before drafting); confirmatory-scale results (Stage 8); generalization (Stage 9).
 6. **Limitations:** synthetic bias, node-geometry assistance, ambiguous corruption, hardware dependence, and the fact that this compares one specific compact DiT configuration, not diffusion restoration in general.
 7. **Conclusion:** a precise result supported by the experiment, without expanding beyond the tested diagram domain or overclaiming that diffusion never helps diagram restoration.
 

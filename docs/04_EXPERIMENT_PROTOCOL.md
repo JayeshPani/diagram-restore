@@ -23,10 +23,13 @@ latency frontier on this pilot task, and is the answer robust to training budget
 diffusion training tricks, model capacity, and training seed? — U0/U1 dominate D0/D1 on both axes,
 confirmed across 3 seeds and 4 independent debugging interventions.
 
-RQ2 *(open, revised Stage 7)*: does an appearance-similarity metric (Dice/PSNR/SSIM) rank
+RQ2 *(answered, single seed, Stage 7)*: does an appearance-similarity metric (Dice/PSNR/SSIM) rank
 restoration architectures the same way the direct-edge evaluator does, or does it hide the gap RQ1
-found? This is the paper's core motivating evidence for a graph-aware evaluator and has not yet
-been measured — `evaluation.image_metrics` exists but has not been run against the Stage 6 models.
+found? **It hides it.** Mean Dice spans 0.9875–0.9986 (range 0.0111) against edge-F1's
+0.9110–0.9652 (range 0.0542, ~5× wider), and Dice ranks the untouched damaged input above every
+diffusion-restored variant tested. SSIM and PSNR each disagree with Dice and with each other about
+which row is worst. See `results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md`. Not yet confirmed across
+seeds 17/27.
 
 RQ3 *(open, revised Stage 8)*: does the RQ1 finding replicate at a larger, held-out confirmatory
 scale (5,000/500/1,000 split), rather than only the 700-diagram pilot used for Gate G2?
@@ -253,10 +256,13 @@ seeds 7/17/27, a gap roughly 7–9× the seed-to-seed standard deviation. Guardr
 precision/recall, invented edges, exact-graph accuracy, extraction-error audit) are reported for
 every row in `results/milestone2/`.
 
-**Criterion D (evaluator-divergence, open — Stage 7):** at least one pair of restorations exists
-where an appearance-similarity metric (Dice/PSNR/SSIM) and the direct-edge evaluator disagree on
-which is better, or rank the gap between them very differently in magnitude. This is the paper's
-central "why this evaluator is needed" evidence and is the immediate next scoped experiment.
+**Criterion D (evaluator-divergence, met — single seed, Stage 7):** at least one pair of
+restorations exists where an appearance-similarity metric and the direct-edge evaluator disagree
+on which is better, or rank the gap between them very differently in magnitude. **Met**: mean Dice
+ranks the untouched damaged input above every diffusion-restored variant, and compresses the
+meaningful accuracy range to ~1/5 of edge-F1's — see
+`results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md`. Confirmation at seeds 17/27 remains open before
+treating this as generalized beyond seed 7.
 
 **Criterion E (generalization, open — Stage 9):** the Criterion C ranking holds — or any change is
 reported honestly — under at least one genuine distribution shift (held-out layout family, second
