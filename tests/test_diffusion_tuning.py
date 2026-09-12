@@ -93,3 +93,35 @@ def test_evaluate_diffusion_tuning_writes_a_report_with_every_sampling_step(
     assert result["steps"] == 3
     entry = result["sampling_steps"]["2"]
     assert "edge_metrics" in entry and "latency" in entry
+
+
+def test_train_conditional_dit_tuned_accepts_a_wider_deeper_capacity(tiny_dataset):
+    from diagram_restore.baselines import load_split
+
+    damaged, clean, _ = load_split(tiny_dataset, "train")
+    small, _ = train_conditional_dit_tuned(damaged, clean, steps=1, seed=0, warmup_steps=1)
+    large, _ = train_conditional_dit_tuned(
+        damaged, clean, steps=1, seed=0, warmup_steps=1, width=192, depth=8
+    )
+    small_params = sum(p.numel() for p in small.parameters())
+    large_params = sum(p.numel() for p in large.parameters())
+    assert large_params > small_params * 2
+
+
+def test_evaluate_diffusion_tuning_reports_the_trained_parameter_count(tmp_path, tiny_dataset):
+    output = tmp_path / "results"
+    result = evaluate_diffusion_tuning(
+        tiny_dataset,
+        output,
+        steps=1,
+        sampling_steps=(1,),
+        seed=0,
+        warmup_steps=1,
+        latency_warmup=1,
+        latency_repeats=1,
+        width=192,
+        depth=8,
+    )
+    assert result["width"] == 192
+    assert result["depth"] == 8
+    assert result["parameters"] > 0

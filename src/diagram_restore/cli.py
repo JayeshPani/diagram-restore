@@ -55,6 +55,8 @@ def main():
     tuning.add_argument("--base-lr", type=float, default=1e-4)
     tuning.add_argument("--warmup-steps", type=int, default=1500)
     tuning.add_argument("--ema-decay", type=float, default=0.999)
+    tuning.add_argument("--width", type=int, default=128)
+    tuning.add_argument("--depth", type=int, default=6)
     tuning.add_argument("--latency-warmup", type=int, default=20)
     tuning.add_argument("--latency-repeats", type=int, default=50)
     args = parser.parse_args()
@@ -107,6 +109,8 @@ def main():
             args.base_lr,
             args.warmup_steps,
             args.ema_decay,
+            args.width,
+            args.depth,
             args.latency_warmup,
             args.latency_repeats,
         )

@@ -61,11 +61,13 @@ def train_conditional_dit_tuned(
     base_lr: float = 1e-4,
     warmup_steps: int = 500,
     ema_decay: float = 0.999,
+    width: int = 128,
+    depth: int = 6,
 ) -> tuple[ConditionalDiT, list[float]]:
     """Trains with linear warmup + cosine LR decay and returns the EMA-averaged weights."""
     torch.manual_seed(seed)
     device = train_damaged.device
-    model = ConditionalDiT().to(device).train()
+    model = ConditionalDiT(width=width, depth=depth).to(device).train()
     alpha_bar = cosine_alpha_bar().to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=base_lr)
     ema = EMA(model, ema_decay)
@@ -99,6 +101,8 @@ def evaluate_diffusion_tuning(
     base_lr: float = 1e-4,
     warmup_steps: int = 1500,
     ema_decay: float = 0.999,
+    width: int = 128,
+    depth: int = 6,
     latency_warmup: int = 20,
     latency_repeats: int = 50,
 ) -> dict:
@@ -113,7 +117,16 @@ def evaluate_diffusion_tuning(
     single = val_damaged[:1]
 
     model, losses = train_conditional_dit_tuned(
-        train_damaged, train_clean, steps, seed, structural_weight, base_lr, warmup_steps, ema_decay
+        train_damaged,
+        train_clean,
+        steps,
+        seed,
+        structural_weight,
+        base_lr,
+        warmup_steps,
+        ema_decay,
+        width,
+        depth,
     )
     alpha_bar = cosine_alpha_bar().to(device)
     result: dict = {
@@ -122,6 +135,9 @@ def evaluate_diffusion_tuning(
         "warmup_steps": warmup_steps,
         "ema_decay": ema_decay,
         "structural_weight": structural_weight,
+        "width": width,
+        "depth": depth,
+        "parameters": sum(p.numel() for p in model.parameters()),
         "final_training_loss": losses[-1],
         "sampling_steps": {},
     }
