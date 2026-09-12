@@ -1,9 +1,10 @@
 # Gate G2 screening report — Stage 6 baseline suite
 
-Prepared 12 September 2026, updated 13 September 2026 after a fourth run testing a substantially
-larger diffusion model. **Single-seed development screening across four independent training
-configurations, not a multi-seed confirmatory result.** No confidence intervals yet. Do not cite
-these numbers as final paper evidence; see "Next scoped step" for what turns this into one.
+Prepared 12 September 2026, updated 13 September 2026 — now including a 3-seed confirmation of
+the primary U0/U1-vs-D0/D1 comparison. **Still a development screening pass, not the fully
+powered confirmatory study**: seed count (3) is at the plan's minimum, there are no formal
+confidence intervals, and OOD/held-out generalization has not been tested. Treat the direction and
+size of the finding as reliable; treat exact decimal values as provisional.
 
 ## Question
 
@@ -32,6 +33,10 @@ tradeoff?
 - Run 4 (git `4af1709`, `source_sha256` in [capacity/diffusion_tuning.json](capacity/diffusion_tuning.json)):
   same recipe as run 3 (EMA + warmup-cosine, 30,000 steps, seed 7), but with a **2.9× larger DiT**
   (width 192, depth 8 → 5.64M params vs 1.92M). Tests whether the pilot DiT was simply too small.
+- Runs 5–6 (same git `457823f`, `source_sha256` in [seed17/baselines.json](seed17/baselines.json)
+  and [seed27/baselines.json](seed27/baselines.json)): the full run-2 baseline suite (unet_steps
+  6,000; dit_steps 30,000; plain recipe, no EMA/schedule/capacity changes) repeated at seeds 17
+  and 27, to check whether the run-2 gap was a seed-7 artifact.
 - U0/U1/T0: SmallUNet/ConditionalDiT backbone, AdamW lr=1e-4, batch 8.
 - D0/D1: ConditionalDiT, same optimizer; DDIM sampling at 10/20/50 steps, eta=0, identical fixed
   noise across the sweep and across D0/D1.
@@ -99,6 +104,19 @@ interventions (more steps, more capacity) made results measurably *worse* rather
 failing to help, which is more consistent with a genuine architecture/task mismatch at this pilot
 scale than with a still-undiscovered tuning fix.
 
+## Multi-seed confirmation (runs 5–6, plain recipe, dit_steps=30,000)
+
+| Seed | U0 | U1 | D0 @50 steps | D1 @50 steps |
+| --- | --- | --- | --- | --- |
+| 7 | 0.9626 | 0.9652 | 0.9110 | 0.9138 |
+| 17 | 0.9703 | 0.9652 | 0.9223 | 0.9251 |
+| 27 | 0.9652 | 0.9779 | 0.9167 | 0.9167 |
+| **mean ± sd** | 0.9660 ± 0.0039 | 0.9694 ± 0.0073 | 0.9167 ± 0.0056 | 0.9185 ± 0.0058 |
+
+The U0/U1 vs. D0/D1 gap (≈0.05 F1) is roughly **7–9× the seed-to-seed standard deviation** and
+the same direction in all three seeds — U-Net always wins, diffusion never closes to within noise
+of it. **Seed variance is ruled out as an alternative explanation.**
+
 ## Decision
 
 **U0/U1 now dominate D0/D1 on both measured axes at every tested diffusion operating point**:
@@ -109,7 +127,7 @@ diffusion's connectivity accuracy at lower latency throughout the useful operati
 that outcome and reconsider the diffusion contribution") and in the plan's own failure-response
 table ("U-Net dominates the useful quality/runtime range → stop expanding the diffusion method").
 
-All four confounds raised after run 1 are now addressed:
+All five confounds raised since run 1 are now addressed:
 
 1. ~~Diffusion may be undertrained~~ — **ruled out**: 3× the steps did not help (run 2).
 2. ~~No latency measured~~ — **measured**: U-Net wins on latency by more than an order of
@@ -118,26 +136,30 @@ All four confounds raised after run 1 are now addressed:
    one of three sampling-step results by 0.0085 F1; the other two were unchanged (run 3).
 4. ~~Insufficient model capacity~~ — **ruled out**: 2.9× more parameters made every result worse,
    not better (run 4).
+5. ~~Seed-7 artifact~~ — **ruled out**: the gap holds in the same direction and similar magnitude
+   across seeds 7, 17, and 27 (runs 5–6).
 
-The only unaddressed item is single-seed variance (seed 7 only) and the unexplored 1–5-step
-sampling regime. Given the gap is large and every one of four independent interventions has
-either done nothing or actively hurt, seed variance alone is very unlikely to reverse this
-conclusion, but it is not yet formally ruled out.
+**This is now a settled screening-level finding for this pilot task and scale, not an open
+question.** The remaining gaps before it is a fully confirmatory result are generalization
+(held-out layouts, a second renderer, independently authored diagrams — Stage 10 in
+[docs/03_PROJECT_PLAN.md](../../docs/03_PROJECT_PLAN.md)) and the unexplored 1–5-step sampling
+regime, neither of which is likely to favor diffusion given the pattern so far.
 
-**This is a project-direction decision, not a routine implementation one** — the routing method
-this project is built around only matters if diffusion is worth accelerating in the first place.
-I'm flagging it back to the researcher rather than deciding unilaterally which way to take it.
+**The remaining choice is a project-direction decision, not a routine implementation one** — the
+routing method this project is built around only matters if diffusion is worth accelerating in
+the first place. I'm flagging it back to the researcher rather than deciding unilaterally.
 
 ## Next scoped step (pending direction)
 
-1. Confirm with seeds {17, 27} that the U-Net-dominates finding is not a seed artifact (cheap:
-   ~5 more minutes per seed at this pilot scale) — the last open item before treating this as
-   settled for the pilot.
-2. Extend the D0/D1 sampling sweep down to 1–5 steps to fully characterize H1's premise, if the
-   paper direction still calls for it.
-3. With all four fixable-defect hypotheses eliminated, the evidence-backed options are: scope the
-   paper around a narrower, evidence-backed restoration/evaluation contribution (per
-   [docs/06_PAPER_AND_VENUE.md](../../docs/06_PAPER_AND_VENUE.md)'s own contingency), or continue
-   to the Stage 7 oracle and Stage 8 router anyway with this limitation stated up front — the plan's
-   own failure-response rule flags the latter as building a router to rescue a losing backbone, so
-   it should be a deliberate, documented choice rather than a default.
+With all five confounds eliminated, the evidence-backed options are:
+
+1. **Scope the paper around a narrower, evidence-backed contribution** — the corruption generator,
+   the direct-edge evaluator, and this comparative benchmark (U-Net vs. dense diffusion vs.
+   morphological repair for diagram connectivity restoration) are all real, validated artifacts
+   even without a routing result. Per
+   [docs/06_PAPER_AND_VENUE.md](../../docs/06_PAPER_AND_VENUE.md)'s own contingency.
+2. **Continue to the Stage 7 oracle and Stage 8 router anyway**, with this limitation stated
+   up front — the plan's own failure-response rule names this "building a router to rescue a
+   losing backbone," so it should be a deliberate, documented choice, not a default.
+3. **Extend the sampling sweep to 1–5 steps** first, only if option 2 is chosen — it is the one
+   remaining piece of H1 evidence not yet gathered, and matters only if diffusion stays in scope.

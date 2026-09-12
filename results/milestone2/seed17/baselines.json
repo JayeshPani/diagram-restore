@@ -1,0 +1,270 @@
+{
+  "B0": {
+    "edge_f1": 0.9166666666666666,
+    "edge_precision": 1.0,
+    "edge_recall": 0.8461538461538461,
+    "exact_graph_accuracy": 0.7,
+    "fn": 32,
+    "fp": 0,
+    "images": 100,
+    "invalid_merge_images": 0,
+    "invented_edges_per_image": 0.0,
+    "macro_edge_f1": 0.8086349206349206,
+    "missing_edges_per_image": 0.32,
+    "tp": 176
+  },
+  "B1": {
+    "edge_metrics": {
+      "edge_f1": 0.9429280397022333,
+      "edge_precision": 0.9743589743589743,
+      "edge_recall": 0.9134615384615384,
+      "exact_graph_accuracy": 0.8,
+      "fn": 18,
+      "fp": 5,
+      "images": 100,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.05,
+      "macro_edge_f1": 0.8790164835164834,
+      "missing_edges_per_image": 0.18,
+      "tp": 190
+    },
+    "latency": {
+      "mean_seconds": 5.40841400379577e-05,
+      "median_seconds": 5.3979000313120196e-05,
+      "p95_seconds": 5.710654997983511e-05,
+      "repeats": 50,
+      "warmup": 20
+    },
+    "selected_radius": 1
+  },
+  "D0": {
+    "final_loss": 0.0055766599252820015,
+    "sampling_steps": {
+      "10": {
+        "edge_metrics": {
+          "edge_f1": 0.9222797927461139,
+          "edge_precision": 1.0,
+          "edge_recall": 0.8557692307692307,
+          "exact_graph_accuracy": 0.7,
+          "fn": 30,
+          "fp": 0,
+          "images": 100,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.8166349206349207,
+          "missing_edges_per_image": 0.3,
+          "tp": 178
+        },
+        "latency": {
+          "mean_seconds": 0.019904714120093557,
+          "median_seconds": 0.019795332999819948,
+          "p95_seconds": 0.020553833150461286,
+          "repeats": 50,
+          "warmup": 20
+        }
+      },
+      "20": {
+        "edge_metrics": {
+          "edge_f1": 0.9222797927461139,
+          "edge_precision": 1.0,
+          "edge_recall": 0.8557692307692307,
+          "exact_graph_accuracy": 0.7,
+          "fn": 30,
+          "fp": 0,
+          "images": 100,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.8166349206349207,
+          "missing_edges_per_image": 0.3,
+          "tp": 178
+        },
+        "latency": {
+          "mean_seconds": 0.039086932640093434,
+          "median_seconds": 0.03911460400013311,
+          "p95_seconds": 0.0395054644002812,
+          "repeats": 50,
+          "warmup": 20
+        }
+      },
+      "50": {
+        "edge_metrics": {
+          "edge_f1": 0.9222797927461139,
+          "edge_precision": 1.0,
+          "edge_recall": 0.8557692307692307,
+          "exact_graph_accuracy": 0.7,
+          "fn": 30,
+          "fp": 0,
+          "images": 100,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.8166349206349207,
+          "missing_edges_per_image": 0.3,
+          "tp": 178
+        },
+        "latency": {
+          "mean_seconds": 0.09655428342002778,
+          "median_seconds": 0.09661475000029895,
+          "p95_seconds": 0.09754620259996045,
+          "repeats": 50,
+          "warmup": 20
+        }
+      }
+    },
+    "steps": 30000,
+    "structural_weight": 0.0
+  },
+  "D1": {
+    "final_loss": 0.006477493327111006,
+    "sampling_steps": {
+      "10": {
+        "edge_metrics": {
+          "edge_f1": 0.9222797927461139,
+          "edge_precision": 1.0,
+          "edge_recall": 0.8557692307692307,
+          "exact_graph_accuracy": 0.7,
+          "fn": 30,
+          "fp": 0,
+          "images": 100,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.8166349206349207,
+          "missing_edges_per_image": 0.3,
+          "tp": 178
+        },
+        "latency": {
+          "mean_seconds": 0.02035054665991993,
+          "median_seconds": 0.020160833500085573,
+          "p95_seconds": 0.02056230219995996,
+          "repeats": 50,
+          "warmup": 20
+        }
+      },
+      "20": {
+        "edge_metrics": {
+          "edge_f1": 0.9222797927461139,
+          "edge_precision": 1.0,
+          "edge_recall": 0.8557692307692307,
+          "exact_graph_accuracy": 0.7,
+          "fn": 30,
+          "fp": 0,
+          "images": 100,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.8166349206349207,
+          "missing_edges_per_image": 0.3,
+          "tp": 178
+        },
+        "latency": {
+          "mean_seconds": 0.03941584663996764,
+          "median_seconds": 0.03934814549984367,
+          "p95_seconds": 0.03994242719968497,
+          "repeats": 50,
+          "warmup": 20
+        }
+      },
+      "50": {
+        "edge_metrics": {
+          "edge_f1": 0.9250645994832042,
+          "edge_precision": 1.0,
+          "edge_recall": 0.8605769230769231,
+          "exact_graph_accuracy": 0.71,
+          "fn": 29,
+          "fp": 0,
+          "images": 100,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.8266349206349207,
+          "missing_edges_per_image": 0.29,
+          "tp": 179
+        },
+        "latency": {
+          "mean_seconds": 0.09818060923991652,
+          "median_seconds": 0.09665381249988059,
+          "p95_seconds": 0.10801765595019787,
+          "repeats": 50,
+          "warmup": 20
+        }
+      }
+    },
+    "steps": 30000,
+    "structural_weight": 0.1
+  },
+  "T0": {
+    "edge_metrics": {
+      "edge_f1": 0.9387755102040817,
+      "edge_precision": 1.0,
+      "edge_recall": 0.8846153846153846,
+      "exact_graph_accuracy": 0.77,
+      "fn": 24,
+      "fp": 0,
+      "images": 100,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.0,
+      "macro_edge_f1": 0.855063492063492,
+      "missing_edges_per_image": 0.24,
+      "tp": 184
+    },
+    "final_loss": 0.0009248348069377244,
+    "latency": {
+      "mean_seconds": 0.002477324999990742,
+      "median_seconds": 0.0024762914999882923,
+      "p95_seconds": 0.0025594146998628277,
+      "repeats": 50,
+      "warmup": 20
+    },
+    "steps": 6000,
+    "structural_weight": 0.1
+  },
+  "U0": {
+    "edge_metrics": {
+      "edge_f1": 0.9702970297029703,
+      "edge_precision": 1.0,
+      "edge_recall": 0.9423076923076923,
+      "exact_graph_accuracy": 0.88,
+      "fn": 12,
+      "fp": 0,
+      "images": 100,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.0,
+      "macro_edge_f1": 0.9251428571428572,
+      "missing_edges_per_image": 0.12,
+      "tp": 196
+    },
+    "final_loss": 0.0012160504702478647,
+    "latency": {
+      "mean_seconds": 0.0020444458200108784,
+      "median_seconds": 0.0020141044999490987,
+      "p95_seconds": 0.002220770649887527,
+      "repeats": 50,
+      "warmup": 20
+    },
+    "steps": 6000
+  },
+  "U1": {
+    "edge_metrics": {
+      "edge_f1": 0.9651741293532339,
+      "edge_precision": 1.0,
+      "edge_recall": 0.9326923076923077,
+      "exact_graph_accuracy": 0.86,
+      "fn": 14,
+      "fp": 0,
+      "images": 100,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.0,
+      "macro_edge_f1": 0.9131428571428571,
+      "missing_edges_per_image": 0.14,
+      "tp": 194
+    },
+    "final_loss": 0.0012025644537061453,
+    "latency": {
+      "mean_seconds": 0.0020854624600633543,
+      "median_seconds": 0.002077874999940832,
+      "p95_seconds": 0.002169656100022621,
+      "repeats": 50,
+      "warmup": 20
+    },
+    "steps": 6000,
+    "structural_weight": 0.1
+  },
+  "source_sha256": "94125960a9621bb5140f471cbc7a9807baaaee76ad9f3c2ceb8d5f9952e6a253"
+}
