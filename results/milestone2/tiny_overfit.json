@@ -1,0 +1,49 @@
+{
+  "conditional_dit": {
+    "edge_metrics": {
+      "edge_f1": 1.0,
+      "edge_precision": 1.0,
+      "edge_recall": 1.0,
+      "exact_graph_accuracy": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "images": 12,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.0,
+      "macro_edge_f1": 1.0,
+      "missing_edges_per_image": 0.0,
+      "tp": 41
+    },
+    "final_loss": 0.016959913074970245,
+    "initial_loss": 1.310152530670166,
+    "sampling_steps": 50,
+    "steps": 10000
+  },
+  "conditional_dit_passed": true,
+  "count": 12,
+  "decision_rule": "direct-edge F1 >= 0.95 on this fixed tiny set before full pilot training",
+  "device": "mps",
+  "note": "tiny-set overfit diagnostic only; never reported as generalization",
+  "seed": 7,
+  "source_sha256": "34f56e31f6ec851aec41a0a3f188fb9bf97e9752c8854786bf71ab6bead27233",
+  "unet": {
+    "edge_metrics": {
+      "edge_f1": 1.0,
+      "edge_precision": 1.0,
+      "edge_recall": 1.0,
+      "exact_graph_accuracy": 1.0,
+      "fn": 0,
+      "fp": 0,
+      "images": 12,
+      "invalid_merge_images": 0,
+      "invented_edges_per_image": 0.0,
+      "macro_edge_f1": 1.0,
+      "missing_edges_per_image": 0.0,
+      "tp": 41
+    },
+    "final_loss": 0.007070555351674557,
+    "initial_loss": 1.1257226467132568,
+    "steps": 3000
+  },
+  "unet_passed": true
+}

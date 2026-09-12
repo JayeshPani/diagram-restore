@@ -19,6 +19,16 @@ def main():
     bench.add_argument("--output", type=Path, default=Path("results/milestone1"))
     bench.add_argument("--steps", type=int, default=200)
     bench.add_argument("--warmup", type=int, default=20)
+    overfit = commands.add_parser(
+        "tiny-overfit", help="Tiny-set overfit diagnostic before full baseline training"
+    )
+    overfit.add_argument("--data", type=Path, default=Path("data/pilot-v1"))
+    overfit.add_argument("--output", type=Path, default=Path("results/milestone2"))
+    overfit.add_argument("--count", type=int, default=12)
+    overfit.add_argument("--unet-steps", type=int, default=3000)
+    overfit.add_argument("--dit-steps", type=int, default=10000)
+    overfit.add_argument("--sampling-steps", type=int, default=50)
+    overfit.add_argument("--seed", type=int, default=7)
     args = parser.parse_args()
     if args.command == "generate":
         from .data import generate
@@ -29,6 +39,18 @@ def main():
 
         result = benchmark_training(args.data, args.output, args.steps, args.warmup)
         result["sparse_mlp"] = benchmark_sparse_mlp(args.output)
+    elif args.command == "tiny-overfit":
+        from .train import overfit_tiny_set
+
+        result = overfit_tiny_set(
+            args.data,
+            args.output,
+            args.count,
+            args.unet_steps,
+            args.dit_steps,
+            args.sampling_steps,
+            args.seed,
+        )
     else:
         from .artifacts import (
             audit,
