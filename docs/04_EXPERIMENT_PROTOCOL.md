@@ -1,18 +1,40 @@
 # Experiment protocol
 
-Version 0.1 · 12 September 2026. All numerical settings below are **proposed development defaults**. Record amendments and freeze final choices using validation data before evaluating the reserved test set. No experimental results exist yet.
+Version 0.2 · 13 September 2026. Sections 1–4, 8, and 9 are revised or actively used; sections 5–7
+covered the routing method dropped after Gate G2 (see
+[docs/01_RESEARCH_SCOPE.md](01_RESEARCH_SCOPE.md)'s amendment and
+[results/milestone2/G2_REPORT.md](../results/milestone2/G2_REPORT.md)) and are kept below,
+clearly marked, as the historical record of that design rather than deleted. Sections 2–4's data
+spec, evaluator spec, and model/training recipe are unaffected by the pivot and remain the
+project's live defaults.
 
-## 1. Questions and order of evidence
+## 1. Questions and order of evidence (revised)
 
-H1: connection errors occur in diagram restoration, and reducing diffusion computation worsens them in at least one useful operating range.
+H1 was tested and answered before the pivot: connection errors do occur, and both are true —
+reducing diffusion sampling steps did **not** measurably worsen them in the 10–50 step range at
+this pilot scale, but dense diffusion trailed the small U-Net at every step count regardless (see
+Gate G2). H2–H4 concerned the dropped routing method and were not pursued (no oracle or router was
+built).
 
-H2: at the same executed feedforward budget, protecting true connector regions gives better direct-edge recovery than random selection; protecting gaps/attachments also needs to be compared with generic foreground protection.
+The revised questions for the benchmark contribution:
 
-H3: a router trained to identify connection-relevant regions from inference-available features improves the connectivity/runtime frontier over a generic router with the same structural restoration loss.
+RQ1 *(answered, Gate G2)*: which restoration architectures dominate the direct-edge accuracy/
+latency frontier on this pilot task, and is the answer robust to training budget, standard
+diffusion training tricks, model capacity, and training seed? — U0/U1 dominate D0/D1 on both axes,
+confirmed across 3 seeds and 4 independent debugging interventions.
 
-H4: any demonstrated advantage persists across training seeds and specified distribution shifts, with routing overhead included.
+RQ2 *(open, revised Stage 7)*: does an appearance-similarity metric (Dice/PSNR/SSIM) rank
+restoration architectures the same way the direct-edge evaluator does, or does it hide the gap RQ1
+found? This is the paper's core motivating evidence for a graph-aware evaluator and has not yet
+been measured — `evaluation.image_metrics` exists but has not been run against the Stage 6 models.
 
-Each hypothesis can fail. Establish H1 and H2 before building the complete method. For every model, plot the U-Net reference as well as diffusion comparisons.
+RQ3 *(open, revised Stage 8)*: does the RQ1 finding replicate at a larger, held-out confirmatory
+scale (5,000/500/1,000 split), rather than only the 700-diagram pilot used for Gate G2?
+
+RQ4 *(open, revised Stage 9)*: does the RQ1 finding generalize to layout, corruption, or renderer
+shifts the models were never trained or tuned on?
+
+For every model, plot the U-Net reference as well as diffusion comparisons.
 
 ## 2. Pilot data specification
 
@@ -103,9 +125,15 @@ Use normalized images consistently. Base diffusion loss is noise MSE plus a mode
 
 Overfit 8–16 training diagrams first with fixed corruption and fixed evaluation noise. Check falling loss and visibly correct restored edges; aim for direct-edge F1 ≥ 0.95 on this diagnostic set. Failure is a reason to debug normalization, scheduler, conditioning, rasterization, or capacity before full pilot training. Tiny-set performance is never reported as generalization.
 
-A deterministic transformer control uses the same backbone, damaged observation, a zero second channel, fixed time embedding, and a direct restoration objective. It tests whether transformer capacity, rather than iterative denoising, explains any U-Net gap.
+A deterministic transformer control uses the same backbone, damaged observation, a zero second channel, fixed time embedding, and a direct restoration objective. It tests whether transformer capacity, rather than iterative denoising, explains any U-Net gap. **Result (Gate G2):** T0 (0.947 F1) underperformed U0/U1 (0.963/0.965) — transformer capacity does not explain a U-Net advantage, because there was no advantage for T0 to explain; if anything this weakly favors the U-Net's convolutional inductive bias for this task. A follow-up 2.9×-larger DiT (D0-tuned) also underperformed its smaller counterpart, reinforcing that more capacity alone does not close the gap. See [results/milestone2/G2_REPORT.md](../results/milestone2/G2_REPORT.md).
 
-## 5. Oracle diagnostic before a learned router
+## 5. Oracle diagnostic before a learned router — *dropped 13 September 2026, not built*
+
+**Status: not pursued.** Gate G2 showed dense diffusion trailing the U-Net on both accuracy and
+latency, confirmed across seeds and four debugging interventions — the premise this stage depends
+on (diffusion is worth accelerating) did not hold, and the plan's own failure-response rule says
+not to build a complex mechanism to rescue a failed premise. The section below is preserved as the
+original design record, not as work performed.
 
 Start with the trained dense backbone. First inspect several equal-token masks without retraining as a sensitivity probe. Because unfamiliar masking can itself degrade a dense model, confirm the finding on a **single shared mask-tolerant checkpoint** fine-tuned with random/varied keep masks. All diagnostic policies use the same weights, examples, timesteps, sampling noise, and executed keep counts.
 
@@ -115,7 +143,10 @@ Ground-truth connector/gap locations are allowed **only** in oracle diagnostics 
 
 Proceed when a consistent validation advantage is visible across multiple diagram types and masks; a provisional useful effect is at least 2 F1 points over random at one nontrivial budget. The comparison with all-foreground/observation-edge ranking is necessary to decide whether connection-specific information adds value.
 
-## 6. Smallest proposed router
+## 6. Smallest proposed router — *dropped 13 September 2026, not built*
+
+**Status: not pursued**, for the same reason as section 5. No router, gate scores, or sparse
+gather/scatter inference exist in the codebase. Preserved below as the original design record.
 
 Keep attention dense. After attention and before selected MLP sublayers, compute a score for each token from its current feature and timestep embedding. Initially route only the last four of six blocks; retain the first two fully. Use one small linear/MLP head per routed block. The conditioning image remains available through the backbone features.
 
@@ -142,35 +173,48 @@ Fixed top-k already constrains executed inference cost. The probability regulari
 
 For discrete gates, use a documented straight-through soft-to-hard training estimator. A dense masked MLP path may be used during training so gradients reach gate scores; never use it to claim inference speed. Verify nonzero finite gate gradients, hard-mask forward behavior, and numerical equivalence to the gathered sparse inference path at fixed masks. Pure indexing without a surrogate gate gradient is not a valid learned-routing implementation.
 
-## 7. Comparison matrix and fair attribution
+## 7. Comparison matrix and fair attribution (revised: B0–D1 are the adopted benchmark; G0–C1 dropped)
 
-All variants receive the same image-only inference information and use the same evaluation pipeline. “Structural loss” below means the same reconstruction-side soft-clDice term; “priority target” means separate router supervision.
+All variants receive the same image-only inference information and use the same evaluation pipeline. “Structural loss” below means the same reconstruction-side soft-clDice term.
 
-| ID | Model/policy | Structural loss | Router priority target | What it tests |
+| ID | Model/policy | Structural loss | Status | What it tests |
 | --- | --- | --- | --- | --- |
-| B0 | Damaged input unchanged | None | None | Corruption severity and evaluator behavior |
-| B1 | Small morphological closing/denoising baseline | None | None | Whether simple repair already solves the task; tune kernel on validation |
-| U0 | Small U-Net | No | None | Required conventional restoration reference |
-| U1 | Same U-Net | Yes | None | Whether cheap structural supervision is sufficient |
-| T0 | Deterministic restoration transformer | Yes | None | One-pass, similar-backbone alternative to diffusion |
-| D0 | Full conditional DiT, 10/20/50 steps | No | None | Dense quality and fewer-step acceleration |
-| D1 | Full conditional DiT, 10/20/50 steps | Yes | None | Benefit of structural loss without routing |
-| G0 | Learned generic MLP routing | No | None | Benefit of ordinary adaptive computation |
-| G1 | Learned generic MLP routing | Yes | None | Closest matched control for the proposed routing supervision |
-| E0 | Observation-edge-ranked fixed routing | Yes | None | Cheap importance heuristic available at inference |
-| F0 | Learned MLP routing | Yes | All-ink/foreground target | Whether generic foreground supervision explains the result |
-| C0 | Complete proposed routing | Yes | Connector/gap/attachment target | Full proposal |
-| C1 | Proposed routing without structural restoration loss | No | Connector/gap/attachment target | Whether the skeleton loss is necessary |
+| B0 | Damaged input unchanged | None | **Run** — `results/milestone2/baselines.json` | Corruption severity and evaluator behavior |
+| B1 | Small morphological closing/denoising baseline | None | **Run** | Whether simple repair already solves the task; kernel tuned on validation |
+| U0 | Small U-Net | No | **Run** | Required conventional restoration reference |
+| U1 | Same U-Net | Yes | **Run** | Whether cheap structural supervision is sufficient |
+| T0 | Deterministic restoration transformer | Yes | **Run** | One-pass, similar-backbone alternative to diffusion |
+| D0 | Full conditional DiT, 10/20/50 steps | No | **Run**, plus EMA/LR-schedule and capacity variants | Dense quality and fewer-step acceleration |
+| D1 | Full conditional DiT, 10/20/50 steps | Yes | **Run** | Benefit of structural loss alone |
+| G0 | Learned generic MLP routing | No | *Dropped* | Benefit of ordinary adaptive computation |
+| G1 | Learned generic MLP routing | Yes | *Dropped* | Closest matched control for the routing supervision |
+| E0 | Observation-edge-ranked fixed routing | Yes | *Dropped* | Cheap importance heuristic available at inference |
+| F0 | Learned MLP routing | Yes | *Dropped* | Whether generic foreground supervision explains the result |
+| C0 | Complete proposed routing | Yes | *Dropped* | Full routing proposal |
+| C1 | Proposed routing without structural restoration loss | No | *Dropped* | Whether the skeleton loss is necessary |
 
-“Our model without routing supervision” is **G1**, and “without either structural signal” is **G0**. Reuse those rows instead of training duplicate variants under different names. Oracle rows belong in a separate diagnostic table and never on the deployable frontier.
+B0–D1 is now the complete, adopted comparison for the benchmark paper; every row has been run at
+three seeds against the pilot split (`results/milestone2/`), and D0 has additionally been retrained
+with EMA + a warmup-cosine LR schedule and at 2.9× model capacity to rule out fixable training
+defects before accepting the D0/D1-vs-U0/U1 gap as architectural. G0–C1 required the dropped
+oracle/router (sections 5–6) and were never built; they are kept here only as the historical
+record of the original design.
 
-Use a staged comparison budget: all inexpensive baselines first; one-seed screening after G3; then at least three training seeds for U0/U1, D0/D1, G0/G1, F0, C0, and C1 if their ablations support paper claims. T0/E0 results used for a superiority claim also need repeated training where applicable. If resources do not permit this, narrow the claimed comparisons rather than presenting one lucky run as robust.
+Give U-Net enough development effort to avoid an undertrained straw-man baseline. Report training
+wall time and hyperparameter-search cost per row.
 
-Warm-start router variants from the same seed-specific dense checkpoint. Give dense controls equal additional optimization opportunity. Report inherited pretraining, additional steps, examples seen, total training wall time, and hyperparameter-search cost separately. Keep size/augmentations/optimizer budgets comparable; equal optimizer steps alone do not imply equal computation. Give U-Net enough development effort to avoid an undertrained straw-man baseline.
-
-Budget matching for attribution uses actual active MLP counts; budget matching for practical claims uses measured end-to-end latency. Compare fewer-step dense models on the latency frontier, not only a convenient 50-step reference. Report MACs/FLOPs with an explicit multiply-add convention; do not equate an MLP keep fraction with whole-model savings.
+Report MACs/FLOPs with an explicit multiply-add convention where useful for the paper; budget
+matching for practical claims uses measured end-to-end latency (section 8), which is already
+implemented and recorded for every row above.
 
 ## 8. Timing, memory, and real operation skipping
+
+**Batch-one latency is implemented** in `diagram_restore.latency.measure_latency` and recorded for
+every row in `results/milestone2/baselines.json` (20-warmup/50-repeat screening pass, not yet the
+full 5-session protocol below — that rigor is a Stage 8/9 confirmatory-scale task). The
+"router/top-k/gather/scatter" and "operation-skipping" material below is specific to the dropped
+routing method; the general latency-measurement discipline (warm-up, MPS sync, median/p95/IQR) is
+still the live standard for every measurement in this project.
 
 Measure batch-one latency as the primary deployment scenario and a fixed small-batch throughput separately. Use eval/inference mode; identical resolution, precision, device placement, and sampler; fixed power settings; and an idle plugged-in machine. Randomize the order of method timing to reduce thermal/order bias.
 
@@ -184,7 +228,9 @@ Amdahl-style feasibility estimate: if fraction f of total inference time is the 
 
 ## 9. Generalization and confirmatory analysis
 
-After G3/G4, target an expanded 5,000/500/1,000 clean-parent split at 64 × 64, with pilot development parents confined to training/development and a fresh reserved test set. This is a resource-dependent starting size, not a publication minimum or a statistical power guarantee. Decide final test size using development variance and the predeclared effect size before opening test predictions.
+This section is unaffected by the pivot and is now the primary remaining empirical work (revised
+Stages 8–9 in [docs/03_PROJECT_PLAN.md](03_PROJECT_PLAN.md)), scoped to the retained B0–D1
+comparison rather than a routing frontier. Target an expanded 5,000/500/1,000 clean-parent split at 64 × 64, with pilot development parents confined to training/development and a fresh reserved test set. This is a resource-dependent starting size, not a publication minimum or a statistical power guarantee. Decide final test size using development variance and the predeclared effect size before opening test predictions.
 
 Add separate held-out sets for unseen layout families, thinner lines, stronger yet interpretable corruptions, and crowded near-misses. For 128 × 128, profile a matched model first and keep the resolution/capacity change explicit. Add higher-degree nodes and marked free-standing junctions only with an extended tested evaluator: junction dots become graph vertices, and edges terminate at shapes/dots. Never silently treat crossings as junctions or compare different graph conventions in one pooled metric.
 
@@ -194,14 +240,28 @@ Freeze model settings, keep ratios, sampling counts, evaluator thresholds, seeds
 
 Report mean and standard deviation across independently trained seeds. Use paired bootstrap intervals over **clean parents**, retaining all corruptions per parent; show each seed's paired effect. For uncertainty spanning optimization variability, also use a hierarchical seed/parent analysis and acknowledge that three seeds give limited seed-level precision. Timing repetitions are not independent model-training replicates. Inspect subgroup harm and extraction failures; do not select only favorable conditions after seeing test results.
 
-## 10. Proposed decision criteria
+## 10. Decision criteria (revised for the benchmark contribution)
 
-Primary endpoints: micro direct-edge F1 and median end-to-end restoration latency. Guardrails: edge precision/recall, invented edges, exact-graph accuracy, and extraction-error audit. Do not call a statistically nonsignificant quality difference “equivalent.”
+Criteria A/B below were routing-vs-dense latency/F1 tradeoff thresholds and no longer apply — there
+is no routing method to hold to a tradeoff threshold. The revised criteria for a benchmark paper:
 
-Criterion A: at least 15% lower latency, with F1 degradation at most 1 percentage point and exact-graph degradation at most 2 points, against the validation-selected best eligible dense model. Eligibility means within those quality margins of the strongest validation dense configuration. Freeze that comparator before test.
+**Criterion C (architecture comparison, met at pilot scale):** the accuracy/latency ranking among
+B0/B1/U0/U1/T0/D0/D1 is consistent across at least three training seeds, with the paired
+seed-to-seed standard deviation clearly smaller than the gap between the top-ranked and
+diffusion-based rows. **Met**: U0/U1 (mean 0.966/0.969 F1) vs. D0/D1 (mean 0.917/0.919 F1) across
+seeds 7/17/27, a gap roughly 7–9× the seed-to-seed standard deviation. Guardrails (edge
+precision/recall, invented edges, exact-graph accuracy, extraction-error audit) are reported for
+every row in `results/milestone2/`.
 
-Criterion B: at least 2 percentage points higher F1 within a ±5% runtime band against the locked latency-matched dense configuration. Also require improvement over G1/F0 at matched cost to support connection-specific routing, with the same structural loss and comparable supervision opportunity.
+**Criterion D (evaluator-divergence, open — Stage 7):** at least one pair of restorations exists
+where an appearance-similarity metric (Dice/PSNR/SSIM) and the direct-edge evaluator disagree on
+which is better, or rank the gap between them very differently in magnitude. This is the paper's
+central "why this evaluator is needed" evidence and is the immediate next scoped experiment.
 
-Use paired confidence intervals: for A, the F1-difference lower bound must exceed −0.01 and the exact-graph lower bound exceed −0.02. A claim of *at least* 15% latency reduction needs the latency-ratio upper bound ≤0.85; otherwise report the measured estimate and weaker supported bound. For B, the F1-difference lower bound must reach +0.02 and the runtime match must be supported by repeated timing. If evidence is too imprecise, report uncertainty rather than declaring success.
+**Criterion E (generalization, open — Stage 9):** the Criterion C ranking holds — or any change is
+reported honestly — under at least one genuine distribution shift (held-out layout family, second
+renderer, or independently authored diagrams), not just the exact pilot generator.
 
-These proposed thresholds are a research-management choice. They may be revised with a written development-only justification before final protocol freeze, never retrofitted to final test outcomes. Meeting them does not guarantee acceptance; failing them still produces useful diagnostic evidence but may require a different paper claim.
+Do not call a statistically nonsignificant quality difference “equivalent.” These criteria may be
+revised with a written development-only justification before the confirmatory-scale (Stage 8) test
+set is opened, never retrofitted to final test outcomes.

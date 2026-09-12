@@ -1,57 +1,61 @@
-# Connectivity-Aware Adaptive Diffusion for Diagram Restoration
+# A Direct-Edge Benchmark for Diagram Connectivity Restoration
 
-Research project plan · prepared 12 September 2026
+Research project · prepared 12 September 2026 · rescoped 13 September 2026
 
-**Research question:** Can connectivity-aware routing reduce the computation of a diffusion model while preserving connections in restored diagrams?
+**Research question:** Does image-similarity evaluation hide connectivity failures in diagram restoration, and which restoration architectures actually preserve direct connections under a controlled, reproducible corruption benchmark?
 
-The proposed project restores damaged black-and-white diagrams containing boxes, circles, and undirected connectors. It tests whether a small conditional diffusion transformer can preserve the correct node-to-node connections while selectively skipping feedforward computation.
+This project restores damaged black-and-white diagrams containing boxes, circles, and undirected connectors, and evaluates restorations by their **direct-edge graph**, not just pixel similarity. It was originally scoped around a connectivity-aware diffusion-routing method; Stage 6 experiments (three seeds, four independent debugging interventions) showed a plain U-Net beating dense diffusion on both accuracy and latency, which triggered this plan's own pre-registered failure-response rule. The project is now scoped around the parts that result validated regardless: the corruption generator, the direct-edge evaluator, and a rigorous comparative benchmark. See [docs/01_RESEARCH_SCOPE.md](docs/01_RESEARCH_SCOPE.md)'s amendment and [results/milestone2/G2_REPORT.md](results/milestone2/G2_REPORT.md) for the full evidence trail.
 
-This is a viable **pilot research project**, with a conditional route to a conference paper. Novelty, useful restoration quality, and practical acceleration still require experiments. The supplied instructions determine the scope; despite the folder name, this is principally document image analysis and graphics recognition, rather than NLP or text mining.
+This is document image analysis / graphics recognition, not NLP or text mining, despite the folder name — see docs/01 for that caveat.
 
 ## Read these in order
 
 | Document | What it settles |
 | --- | --- |
-| [Research scope](docs/01_RESEARCH_SCOPE.md) | One-page problem, method, exclusions, and proposed success criteria |
-| [Literature review](docs/02_LITERATURE_REVIEW.md) | Closest work, overlapping ideas, implementation references, and the remaining research opportunity |
-| [Staged project plan](docs/03_PROJECT_PLAN.md) | Twelve stages, checkable outputs, decision gates, and a ten-week working schedule |
-| [Experiment protocol](docs/04_EXPERIMENT_PROTOCOL.md) | Dataset, graph evaluator, architecture, routing supervision, baselines, timing, and statistical analysis |
-| [Environment and budget](docs/05_ENVIRONMENT_AND_BUDGET.md) | Verified Mac/software inventory and how to estimate actual experiment costs |
-| [Paper and venue plan](docs/06_PAPER_AND_VENUE.md) | Evidence needed for the paper and a currently verified submission candidate |
-| [Research search log](docs/07_SEARCH_LOG.md) | Queries, evidence access, exclusions, and remaining coverage limits |
+| [Research scope](docs/01_RESEARCH_SCOPE.md) | Problem, method, exclusions, success criteria — v0.2, with the routing-to-benchmark amendment |
+| [Literature review](docs/02_LITERATURE_REVIEW.md) | Closest work for the *original* routing framing — **needs a refresh** for the benchmark framing before submission (Stage 12) |
+| [Staged project plan](docs/03_PROJECT_PLAN.md) | Stages 1–6 complete; Stages 7–12 revised to a benchmark contribution after Gate G2 |
+| [Experiment protocol](docs/04_EXPERIMENT_PROTOCOL.md) | Dataset, evaluator, training recipe, and revised decision criteria; sections 5–6 (oracle/router) kept only as a dropped-design record |
+| [Environment and budget](docs/05_ENVIRONMENT_AND_BUDGET.md) | Verified Mac/software inventory and compute budget (unaffected by the pivot) |
+| [Paper and venue plan](docs/06_PAPER_AND_VENUE.md) | Revised claim-to-evidence checklist, manuscript structure, and ICDAR 2027 candidacy |
+| [Research search log](docs/07_SEARCH_LOG.md) | Original search queries; flagged for a benchmark-framing refresh |
+| [Gate G2 report](results/milestone2/G2_REPORT.md) | The evidence that triggered the pivot: 3 seeds, 4 debugging interventions, all ruled out as fixable explanations |
 
 ## Current status
 
-- Complete: supplied instructions read; initial literature and novelty assessment; hardware/software inventory; written research and execution plan.
-- Verified: Apple M4 Pro, 24 GB unified memory; installed PyTorch 2.9.0 imports successfully and reports MPS available.
-- Pending: isolated project environment, training benchmark, dataset generator, evaluator, model implementations, and experiments.
-- No accuracy, runtime, memory benchmark, or publication result is claimed. No long training jobs or paid compute have been started.
+- **Gate G1 passed** (dataset + evaluator): 700-diagram pilot split (500/100/100), 80/80 hand-specified evaluator fixtures pass, exact clean-graph recovery. See `results/milestone1/`.
+- **Gate G2 screened** (baselines): U0/U1 (small U-Net) dominate D0/D1 (dense conditional diffusion) on both direct-edge F1 (0.966–0.969 vs. 0.917–0.919 mean) and latency (2.1 ms vs. 20–160 ms), confirmed across seeds 7/17/27 and after ruling out undertraining, missing training tricks (EMA + LR schedule), and insufficient capacity (2.9× larger model) as explanations. See `results/milestone2/G2_REPORT.md`.
+- **Scope pivot** (13 September 2026): the connectivity-aware routing method is dropped; no oracle or learned router was built. The project is rescoped to the benchmark contribution — see docs/01's amendment.
+- **Open next steps**: appearance-vs-edge divergence analysis (Stage 7, small), an expanded confirmatory-scale benchmark at 5,000/500/1,000 diagrams with repeated seeds (Stage 8, a multi-hour compute commitment — not yet started), generalization to held-out distributions (Stage 9), and a literature refresh for the benchmark framing (Stage 12).
+- No accuracy/latency claim beyond the pilot scale (700 diagrams, 3 seeds) has been made; no confirmatory-scale or generalization result exists yet.
 
-## First implementation milestone
-
-Generate 500 training, 100 validation, and 100 reserved test diagrams at 64 × 64. Save each clean/damaged pair and graph annotations. Build an evaluator that correctly identifies intact, missing, and invented **direct** connections on deliberately constructed examples. Produce a contact sheet and a short validation report.
-
-Begin model training only after that measurement system passes its checks. The router comes later, after the baseline and oracle gates.
-
-## Proposed implementation layout
-
-Only the planning documents are implemented at this point. The following application directories are to be added in the stages described in the plan:
+## Implemented layout
 
 ```text
 Text Mining/
   README.md
-  docs/
-  configs/                   # dataset, model, training, and evaluation settings
+  docs/                        # scope, literature, plan, protocol, budget, paper/venue, search log
+  configs/pilot.toml           # dataset generator config
   src/diagram_restore/
-    data/                    # graph sampling, rendering, corruption, manifests
-    models/                  # U-Net, dense DiT, routed DiT
-    training/                # losses, optimizers, checkpoints, seeds
-    evaluation/              # direct-edge extraction, image metrics, timing
-  scripts/                   # generate, train, evaluate, benchmark, visualize
-  tests/                     # evaluator fixtures, leakage checks, sparse parity
-  data/                      # generated files; excluded from Git by default
-  results/                   # compact reports and metrics tracked; heavy outputs ignored
-  paper/                     # manuscript and figures, after evidence exists
+    data.py                    # deterministic corruption generator, manifest, leakage-safe splits
+    geometry.py                # node/connector rasterization shared by the generator and evaluator
+    evaluation.py               # direct-edge extraction, edge metrics, appearance metrics
+    fixtures.py                 # 80 hand-specified evaluator counterexamples
+    models.py                  # SmallUNet, ConditionalDiT, losses (incl. soft-clDice structural loss)
+    sampling.py                 # DDIM reverse sampler
+    train.py                    # tiny-set overfit diagnostic
+    baselines.py                 # B0/B1/U0/U1/T0/D0/D1 baseline suite + batch-one latency
+    diffusion_tuning.py          # EMA + warmup-cosine LR + capacity variants for D0 debugging
+    latency.py                   # batch-one restoration latency measurement
+    runtime.py                   # environment inventory, training/sparse-MLP benchmarks
+    artifacts.py                 # audit reports, contact sheets, overlays
+    cli.py                       # `diagram-restore generate|audit|benchmark|tiny-overfit|baselines|diffusion-tuning`
+  tests/                        # 163 tests: evaluator fixtures, sampler correctness, training smoke tests
+  data/pilot-v1/                # generated dataset; excluded from Git
+  results/
+    milestone1/                 # Gate G1: environment, benchmark, integrity, fixtures, contact sheets
+    milestone2/                 # Gate G2: baselines.json, G2_REPORT.md, diffusion-tuning ablations, seed17/, seed27/
+  paper/                        # manuscript and figures, after Stage 7/9 evidence exists
 ```
 
-Each stage ends with a result to inspect and a written decision. These checkpoints are scientific decisions about whether the next stage is justified.
+Run `diagram-restore --help` (after `uv sync`) for the available commands. Each stage ends with a result to inspect and a written decision — these are scientific checkpoints, not just implementation milestones.

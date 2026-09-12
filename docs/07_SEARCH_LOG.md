@@ -71,3 +71,15 @@ Mural restoration, D²iT, ART, task-adaptive medical restoration, and flowchart-
 The major concept families were covered, but recent searches were still revealing relevant work. This is therefore a bounded initial review, **not search saturation**. It supports a pilot and identifies novelty risks; it does not certify originality or exhaust the 2026 literature.
 
 Before committing to large experiments: inspect the full recent methods, broaden graphics-recognition/diagram reconstruction coverage, inspect citations to the closest family, and verify implementation licenses at fixed revisions. Before submission: repeat the core queries, update arXiv versions, recheck venue dates/rules, and revise the contribution if new work overlaps.
+
+## Scope pivot (13 September 2026) — this search log is now stale for the paper framing
+
+Gate G2 (`results/milestone2/G2_REPORT.md`) triggered the routing-to-benchmark amendment in
+[docs/01_RESEARCH_SCOPE.md](01_RESEARCH_SCOPE.md). Every query and source above was directed at
+positioning a **routing method** against DyDiT/DC-DiT/efficient-diffusion literature; none of it
+searched for diagram/graphics-recognition **benchmark and evaluation** papers, which is the
+project's actual remaining novelty question. This log has not been refreshed for that framing —
+that refresh is revised Stage 12 in `docs/03_PROJECT_PLAN.md` and is a **required step before
+drafting related work**, not optional. Suggested starting queries for that refresh: "diagram
+restoration benchmark dataset", "graph-aware evaluation image restoration", "flowchart / circuit
+diagram dataset direct edge annotation", "diffusion vs CNN restoration structural task comparison".

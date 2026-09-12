@@ -1,6 +1,10 @@
 # Staged project plan
 
-Prepared 12 September 2026. The sequence follows all twelve stages of the supplied brief. The first substantive implementation result is the dataset plus evaluator.
+Prepared 12 September 2026; revised 13 September 2026 after the Stage 6 baseline result triggered
+this plan's own failure-response rule (row 3 of the table below). The first six stages are
+complete and unchanged; stages 7–12 are rescoped from a routing method to a benchmark
+contribution. See [docs/01_RESEARCH_SCOPE.md](01_RESEARCH_SCOPE.md)'s amendment and
+[results/milestone2/G2_REPORT.md](../results/milestone2/G2_REPORT.md) for the evidence.
 
 ## Working assumptions
 
@@ -8,52 +12,64 @@ One researcher, approximately 12–15 focused hours a week, access to the inspec
 
 Proceed within a stage until its output is reviewable. At each scientific gate, record the result, limitations, and decision in a short report. A failed gate calls for investigation or a narrower claim; it does not justify silently changing the experiment to favor the method.
 
-## Twelve stages and their checks
+## Stages 1–6: complete, unchanged
 
 | Stage | Work | Concrete result to inspect | Completion or decision rule |
 | --- | --- | --- | --- |
-| 1. Exact scope | Define input/output, direct-edge semantics, exclusions, and primary hypothesis. | `docs/01_RESEARCH_SCOPE.md` | Complete for planning. Numerical targets are provisional until protocol freeze. |
-| 2. Closest work | Compare the three named papers, their updates, topology losses, restoration routing, and recent efficient diffusion restoration. | `docs/02_LITERATURE_REVIEW.md` and search log | Initial review complete. Before method freeze, inspect the closest recent full methods and update the novelty statement. |
-| 3. Reproducibility and budget | Create a Python 3.12 environment; lock dependencies; record device, Git revision, and seed controls. Run a short training and sparse-block benchmark. | Environment lock, `results/environment.json`, `results/benchmark_pilot.json` | Clean process can import packages and use MPS; measured costs fit the stage budget. Current inventory is complete; setup and benchmark are pending. |
-| 4. Pilot data | Sample clean graphs, split parent diagrams, render, corrupt, and retain exact annotations. | Generator, manifest, 700 pairs, leakage audit, 36-example contact sheet | Re-running a fixed seed reproduces data; no parent/geometry leakage; images and graph labels pass geometric checks. |
-| 5. Evaluator | Extract direct edges using known node regions but no ground-truth edge list inside extraction. Test deliberate errors. | Evaluation CLI, at least 40 hand-designed fixtures, annotated overlays and audit report | Every fixture has the expected edge set; clean rendered graphs yield exact recovery; prediction audits distinguish extraction errors from model errors. **Gate G1.** |
-| 6. Baselines | Learn a tiny subset, then train simple repair/U-Net and compact dense diffusion. Include a deterministic transformer control. Vary sampling steps. | Saved configs/checkpoints; validation edge metrics, failures, and runtime curves | Pipeline learns the tiny set; a useful diffusion regime is demonstrated; reduced compute produces measurable connection loss or another clear tradeoff. Otherwise investigate. **Gate G2.** |
-| 7. Oracle diagnostic | Use the same mask-tolerant backbone to compare equal-budget random, all-foreground, observation-edge, and ground-truth connector policies. | Budget-matched oracle table and routing overlays | Connector protection must improve edge recovery over random and clarify whether it adds more than generic foreground protection. If not, reconsider the criterion. **Gate G3.** |
-| 8. Minimal learned router | Add feature/timestep router, connector-priority supervision, structural restoration loss, and compute regularization. Implement gather/MLP/scatter inference. | One adaptive model, sparse/dense-mask parity check, gate-gradient check, actual token counts, routing maps | Model takes only damaged pixels at inference; saved counters prove skipped operations; training is stable. No quality claim yet. |
-| 9. Attribution and ablations | Compare dense, fewer-step, generic, loss-only, foreground routing, and proposed variants at equal tuning effort. | Validation-selected accuracy/runtime frontier and ablation table | Connection-specific supervision improves on generic routing with the same restoration loss. If structural loss alone explains the gain, revise the contribution. **Gate G4.** |
-| 10. Real speed and generalization | Freeze choices; expand data only after pilot gates; repeat key systems across seeds; evaluate held-out layouts, line widths, gaps, and independent rendering/scan examples. | Test report, timing repetitions, uncertainty estimates, OOD breakdown, extraction audit | Primary success condition is supported, generalization is characterized, and overhead is included. A synthetic-only result must be labeled as such. **Gate G5.** |
-| 11. Evidence-based claim | Write the strongest claim actually supported, including cases where simpler models win. | One-paragraph contribution statement and claim-to-evidence table | Every numerical claim traces to a saved run; unsupported speed, topology-guarantee, or generalization language is removed. |
-| 12. Paper and submission preparation | Produce figures/tables, manuscript, limitations, artifact instructions, and mentor review. Recheck venue rules. | Complete manuscript, reproducibility package, venue checklist | Evidence and venue scope align; complete author review before submission. No submission is performed by this planning task. |
+| 1. Exact scope | Define input/output, direct-edge semantics, exclusions, and primary hypothesis. | `docs/01_RESEARCH_SCOPE.md` | Complete; revised in the v0.2 amendment above. |
+| 2. Closest work | Compare the three named papers, their updates, topology losses, restoration routing, and recent efficient diffusion restoration. | `docs/02_LITERATURE_REVIEW.md` and search log | Initial review complete for the routing question. **Needs a refresh** for the benchmark framing (comparable diagram/graphics-recognition benchmark papers) before submission — not yet done. |
+| 3. Reproducibility and budget | Create a Python 3.12 environment; lock dependencies; record device, Git revision, and seed controls. Run a short training and sparse-block benchmark. | Environment lock, `results/milestone1/environment.json`, `results/milestone1/benchmark_pilot.json` | Complete. |
+| 4. Pilot data | Sample clean graphs, split parent diagrams, render, corrupt, and retain exact annotations. | Generator, manifest, 700 pairs, leakage audit, contact sheets | Complete: fixed-seed reproduction, no parent/geometry leakage, 700/700 records pass integrity checks. |
+| 5. Evaluator | Extract direct edges using known node regions but no ground-truth edge list inside extraction. Test deliberate errors. | Evaluation CLI, 80 hand-designed fixtures, annotated overlays and audit report | **Gate G1 passed**: 80/80 fixtures pass; clean-render recovery is exact (F1 = 1.0, exact-graph = 1.0 on 700 images). |
+| 6. Baselines | Learn a tiny subset, then train simple repair/U-Net and compact dense diffusion. Include a deterministic transformer control. Vary sampling steps. | Saved metrics and runtime curves in `results/milestone2/` | **Gate G2 screened**: U0/U1 dominate D0/D1 on accuracy and latency, confirmed across 3 seeds and 4 independent debugging interventions (undertraining, training tricks, capacity, seed variance all ruled out as explanations). This **triggered the "U-Net dominates" failure-response row** below — see `results/milestone2/G2_REPORT.md`. |
 
-## Ten-week working schedule
+## Stages 7–12 (revised): a benchmark contribution, not a routing method
+
+Stage 6's result removes the premise for Stages 7–9 as originally written (oracle diagnostic,
+learned router, routing ablations — all conditional on diffusion being worth accelerating). Per
+the failure-response table's own instruction ("do not build a complex router to rescue a failed
+premise"), those stages are dropped rather than attempted. The remaining work turns the
+already-validated generator, evaluator, and comparison into a complete benchmark paper.
+
+| Stage | Work | Concrete result to inspect | Completion or decision rule |
+| --- | --- | --- | --- |
+| 7. Appearance-vs-edge divergence | Compute image-similarity metrics (Dice/PSNR/SSIM, already implemented in `evaluation.image_metrics`) for every Stage 6 model alongside their edge-F1, on the same validation images. | A table/plot showing whether appearance metrics rank models the same way edge-F1 does. | At least one case where appearance metrics call two models similar while edge-F1 clearly separates them — this is the paper's core "why a graph-aware evaluator is needed" evidence. If appearance and edge metrics always agree, the motivating claim needs revision. |
+| 8. Expanded confirmatory benchmark | Expand to the 5,000/500/1,000 split (per `docs/04_EXPERIMENT_PROTOCOL.md` §9); repeat the retained comparison (B0/B1/U0/U1/T0/D0/D1) at 3 seeds on the larger split; add any additional baseline architectures a reviewer would expect for a benchmark paper (e.g. a second U-Net width, a plain CNN autoencoder). | Confirmatory results table with confidence intervals, on data the Stage 6 pilot never trained or tuned on. | Findings from the pilot (U0/U1 dominate D0/D1) replicate at the confirmatory scale within stated uncertainty, or the report says explicitly where they don't. |
+| 9. Generalization | Evaluate held-out layout families, thinner lines, stronger corruptions, and — resources permitting — a second synthetic renderer or independently authored diagrams (per `docs/04_EXPERIMENT_PROTOCOL.md` §9). | OOD breakdown table, extraction-failure audit. | At least one genuine distribution shift is tested and reported honestly, including any case where the ranking changes. |
+| 10. Evidence-based claim | Write the strongest claim the benchmark actually supports, including where diffusion is competitive (if any operating point exists) and where it clearly is not. | One-paragraph contribution statement and claim-to-evidence table (`docs/06_PAPER_AND_VENUE.md`). | Every numerical claim traces to a saved run; no routing/acceleration language remains. |
+| 11. Paper and submission preparation | Produce figures/tables, manuscript, limitations, artifact instructions, and mentor review. Recheck venue rules. | Complete manuscript, reproducibility package, venue checklist. | Evidence and venue scope align; complete author review before submission. No submission is performed by this planning task. |
+| 12. Literature refresh | Before submission, redo the closest-work search (Stage 2) specifically for diagram/graphics-recognition **benchmark and evaluation** papers, not routing/efficient-diffusion papers — the positioning target has changed. | Updated `docs/02_LITERATURE_REVIEW.md` and `docs/07_SEARCH_LOG.md`. | Novelty statement reflects the benchmark contribution, not the dropped routing angle. |
+
+## Revised working schedule
+
+The original ten-week schedule assumed Weeks 5–8 on the oracle/router/ablations. Weeks 1–4 are
+complete as originally planned (through Gate G2); the remainder is replaced:
 
 | Week | Main work | Reviewable result |
 | --- | --- | --- |
-| 1 | Scope, literature, environment, generator v1 | Scope and literature files; environment lock; 700-pair dataset and contact sheet |
-| 2 | Evaluator fixtures, leakage checks, training benchmark | G1 report and measured experiment budget |
-| 3 | Tiny-set learning, simple restoration and dense baselines | Baseline learning curves and sanity report |
-| 4 | Sampling-budget sweep and failure analysis | G2 decision with image/graph examples |
-| 5 | Oracle and sparse-operation feasibility | G3 decision and block/full-model timing breakdown |
-| 6 | Learned router and first ablations | Adaptive checkpoint, routing maps, sparse equivalence report |
-| 7 | Fair controls and validation selection | G4 decision; frozen metrics, thresholds, settings and seeds |
-| 8 | Larger split, repeated training, held-out stress sets | Independent test measurements and G5 evidence |
-| 9 | Independent examples, failure audit, tables and draft | Complete results section and manuscript draft |
-| 10 | Mentor review, novelty refresh, artifact checks | Reviewable conference submission package |
+| 1 (done) | Scope, literature, environment, generator v1 | Scope and literature files; environment lock; 700-pair dataset and contact sheet |
+| 2 (done) | Evaluator fixtures, leakage checks, training benchmark | Gate G1 report |
+| 3–4 (done) | Baselines, sampling-step sweep, 4-way confound debugging, 3-seed confirmation | Gate G2 screening report (`results/milestone2/G2_REPORT.md`) and this plan's revision |
+| 5 | Appearance-vs-edge divergence analysis (Stage 7) | Table/plot for the paper's core motivating evidence |
+| 6–7 | Expanded confirmatory benchmark at the larger split, 3 seeds (Stage 8) | Confirmatory results table with confidence intervals |
+| 8 | Generalization: held-out shift, second renderer if feasible (Stage 9) | OOD breakdown and extraction audit |
+| 9 | Literature refresh for benchmark framing (Stage 12), draft manuscript (Stage 10) | Updated lit review; complete results section and manuscript draft |
+| 10 | Mentor review, artifact checks, submission package (Stage 11) | Reviewable conference submission package |
 
-If starting on 14 September 2026, ten calendar weeks end around 22 November. This leaves revision time before the candidate venue's currently posted 2027 deadlines. Longer measured training or failed scientific gates can extend the schedule.
+If restarting the remaining schedule on 15 September 2026, six weeks end around 27 October — inside the candidate venue's currently posted 2027 deadlines with revision buffer to spare, since the routing stages that would have consumed Weeks 5–8 are no longer needed.
 
-## First milestone: task checklist
+## First milestone: task checklist (complete)
 
-- [ ] Build graph sampler for 2–5 labeled nodes, boxes/circles, and unambiguous undirected direct edges.
-- [ ] Define shape masks, boundary attachment rules, line rasterization, and minimum clearances.
-- [ ] Generate parent IDs and split 500/100/100 before any corruption or augmentation.
-- [ ] Save clean/damaged images, node geometry, true edge list, connector masks, seeds, and corruption metadata.
-- [ ] Produce training/validation contact sheets covering clean, noise, blur, and line-gap cases.
-- [ ] Implement edge extraction from prediction and node geometry only.
-- [ ] Add fixtures for intact links, missing links, invented links, wrong endpoints, near-touches, and indirect paths.
-- [ ] Check clean-render graph recovery, manifest uniqueness, reproducibility, and annotation/image agreement.
-- [ ] Audit at least 30 development examples and every failing fixture.
-- [ ] Save a concise G1 report with examples and failure counts.
+- [x] Build graph sampler for 2–5 labeled nodes, boxes/circles, and unambiguous undirected direct edges.
+- [x] Define shape masks, boundary attachment rules, line rasterization, and minimum clearances.
+- [x] Generate parent IDs and split 500/100/100 before any corruption or augmentation.
+- [x] Save clean/damaged images, node geometry, true edge list, connector masks, seeds, and corruption metadata.
+- [x] Produce training/validation contact sheets covering clean, noise, blur, and line-gap cases.
+- [x] Implement edge extraction from prediction and node geometry only.
+- [x] Add fixtures for intact links, missing links, invented links, wrong endpoints, near-touches, and indirect paths.
+- [x] Check clean-render graph recovery, manifest uniqueness, reproducibility, and annotation/image agreement.
+- [x] Audit at least 30 development examples and every failing fixture.
+- [x] Save a concise G1 report with examples and failure counts.
 
 ## How to respond to a failed gate
 
@@ -61,11 +77,11 @@ If starting on 14 September 2026, ten calendar weeks end around 22 November. Thi
 | --- | --- |
 | Evaluator confuses node outlines with connectors | Fix graph semantics/extraction before measuring models. |
 | Most corruptions are trivial or fundamentally ambiguous | Revise the development distribution once with documented criteria; freeze a fresh held-out split after development. |
-| U-Net dominates the useful quality/runtime range | Stop expanding the diffusion method; assess a narrower restoration/evaluation study or a justified new setting. |
-| Oracle gives no benefit after a fair mask-tolerant control | Reconsider connectivity-specific allocation; do not build a complex router to rescue a failed premise. |
-| Structural loss explains all improvements | Credit structural supervision; do not attribute the gain to routing. |
-| Sparse execution is slower | Report operation savings only; test the already planned 128-pixel scale if justified. Further kernels/hardware require a revised resource plan. |
-| Only the pilot generator shows gains | Limit the claim to that domain and strengthen independent validation before a broader paper. |
+| **U-Net dominates the useful quality/runtime range** | **Triggered 13 September 2026.** Stop expanding the diffusion method; assess a narrower restoration/evaluation study — done, see the revised Stages 7–12 above. |
+| Oracle gives no benefit after a fair mask-tolerant control | Not reached — no oracle was built once the U-Net-dominates row triggered first. |
+| Structural loss explains all improvements | Not applicable to the revised scope; structural loss remains one compared condition (U1/D1) in the benchmark. |
+| Sparse execution is slower | Not applicable — no sparse execution was built. |
+| Only the pilot generator shows gains | Limit the claim to that domain and strengthen independent validation before a broader paper — this is now Stage 9. |
 | A close paper covers the proposed signal | Reposition around a demonstrably different question or benchmark, or revise the project before expensive training. |
 
 ## Stage report template
