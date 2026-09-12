@@ -1,10 +1,9 @@
 # Gate G2 screening report — Stage 6 baseline suite
 
-Prepared 12 September 2026, updated 13 September 2026 after a third run adding EMA + a
-warmup-cosine learning-rate schedule. **Single-seed development screening across three
-independent training configurations, not a multi-seed confirmatory result.** No confidence
-intervals yet. Do not cite these numbers as final paper evidence; see "Next scoped step" for what
-turns this into one.
+Prepared 12 September 2026, updated 13 September 2026 after a fourth run testing a substantially
+larger diffusion model. **Single-seed development screening across four independent training
+configurations, not a multi-seed confirmatory result.** No confidence intervals yet. Do not cite
+these numbers as final paper evidence; see "Next scoped step" for what turns this into one.
 
 ## Question
 
@@ -30,6 +29,9 @@ tradeoff?
   training fixes run 2 lacked — a linear-warmup/cosine-decay learning rate schedule
   (`warmup_steps=1500`, base_lr=1e-4) and an EMA of the weights (decay 0.999) used for sampling.
   This isolates "was the recipe missing standard tricks" from "is the architecture behind."
+- Run 4 (git `4af1709`, `source_sha256` in [capacity/diffusion_tuning.json](capacity/diffusion_tuning.json)):
+  same recipe as run 3 (EMA + warmup-cosine, 30,000 steps, seed 7), but with a **2.9× larger DiT**
+  (width 192, depth 8 → 5.64M params vs 1.92M). Tests whether the pilot DiT was simply too small.
 - U0/U1/T0: SmallUNet/ConditionalDiT backbone, AdamW lr=1e-4, batch 8.
 - D0/D1: ConditionalDiT, same optimizer; DDIM sampling at 10/20/50 steps, eta=0, identical fixed
   noise across the sweep and across D0/D1.
@@ -78,6 +80,25 @@ sampling, and they left the 10- and 20-step results **completely unchanged** and
 the three most likely fixable-defect explanations are now eliminated by direct experiment, not
 assumption.
 
+## What changed in run 4 (2.9× larger DiT, same recipe, steps, and seed)
+
+| Sampling steps | Tuned D0, 1.92M params (run 3) | Tuned D0, 5.64M params (run 4) |
+| --- | --- | --- |
+| 10 | 0.9223 | 0.9195 (**worse**) |
+| 20 | 0.9223 | 0.9195 (**worse**) |
+| 50 | 0.9195 | 0.9138 (**worse**) |
+
+Nearly tripling the parameter count made every sampling-step result **worse**, not better, and
+latency scaled up with it (32.6/64.4/160.2 ms vs 20.0/39.5/97.6 ms — now 16×–74× slower than
+U-Net). Full numeric output: [capacity/diffusion_tuning.json](capacity/diffusion_tuning.json).
+
+**This rules out insufficient capacity as the explanation.** All three of the fixable-defect
+hypotheses raised after run 2 — undertraining, missing standard training tricks, insufficient
+model capacity — have now been tested by direct experiment and eliminated. Two of the three
+interventions (more steps, more capacity) made results measurably *worse* rather than merely
+failing to help, which is more consistent with a genuine architecture/task mismatch at this pilot
+scale than with a still-undiscovered tuning fix.
+
 ## Decision
 
 **U0/U1 now dominate D0/D1 on both measured axes at every tested diffusion operating point**:
@@ -88,19 +109,20 @@ diffusion's connectivity accuracy at lower latency throughout the useful operati
 that outcome and reconsider the diffusion contribution") and in the plan's own failure-response
 table ("U-Net dominates the useful quality/runtime range → stop expanding the diffusion method").
 
-Three of the four confounds raised after run 1 are now addressed:
+All four confounds raised after run 1 are now addressed:
 
-1. ~~Diffusion may be undertrained~~ — **ruled out**: 3× the steps did not help.
+1. ~~Diffusion may be undertrained~~ — **ruled out**: 3× the steps did not help (run 2).
 2. ~~No latency measured~~ — **measured**: U-Net wins on latency by more than an order of
    magnitude, so this is not a case where diffusion trades speed for quality.
 3. ~~Missing standard training tricks (EMA / LR schedule)~~ — **ruled out**: both together moved
-   one of three sampling-step results by 0.0085 F1; the other two were unchanged.
+   one of three sampling-step results by 0.0085 F1; the other two were unchanged (run 3).
+4. ~~Insufficient model capacity~~ — **ruled out**: 2.9× more parameters made every result worse,
+   not better (run 4).
 
-The remaining unaddressed items are single-seed variance (seed 7 only), the unexplored 1–5-step
-sampling regime, and model capacity (a wider/deeper DiT at matched compute has not been tried).
-Given how large and directionally consistent the gap is across three independent training
-configurations, seed variance alone is very unlikely to reverse this conclusion, but it is not
-yet formally ruled out.
+The only unaddressed item is single-seed variance (seed 7 only) and the unexplored 1–5-step
+sampling regime. Given the gap is large and every one of four independent interventions has
+either done nothing or actively hurt, seed variance alone is very unlikely to reverse this
+conclusion, but it is not yet formally ruled out.
 
 **This is a project-direction decision, not a routine implementation one** — the routing method
 this project is built around only matters if diffusion is worth accelerating in the first place.
@@ -109,14 +131,13 @@ I'm flagging it back to the researcher rather than deciding unilaterally which w
 ## Next scoped step (pending direction)
 
 1. Confirm with seeds {17, 27} that the U-Net-dominates finding is not a seed artifact (cheap:
-   ~5 more minutes per seed at this pilot scale).
-2. Extend the D0/D1 sampling sweep down to 1–5 steps to fully characterize H1's premise.
-3. The one remaining fixable-defect candidate is model capacity: try a wider/deeper DiT at
-   matched compute before treating the gap as fully architectural — two of three likely tuning
-   explanations are now eliminated, so expectations for this should be modest.
-4. Depending on (1)–(3): either scope the paper around a narrower, evidence-backed restoration/
-   evaluation contribution (per
-   [docs/06_PAPER_AND_VENUE.md](../../docs/06_PAPER_AND_VENUE.md)'s own contingency), or identify
-   a diffusion configuration that is competitive before continuing to the Stage 7 oracle and
-   Stage 8 router — building a router to rescue a losing backbone is explicitly against the plan's
-   own failure-response rule.
+   ~5 more minutes per seed at this pilot scale) — the last open item before treating this as
+   settled for the pilot.
+2. Extend the D0/D1 sampling sweep down to 1–5 steps to fully characterize H1's premise, if the
+   paper direction still calls for it.
+3. With all four fixable-defect hypotheses eliminated, the evidence-backed options are: scope the
+   paper around a narrower, evidence-backed restoration/evaluation contribution (per
+   [docs/06_PAPER_AND_VENUE.md](../../docs/06_PAPER_AND_VENUE.md)'s own contingency), or continue
+   to the Stage 7 oracle and Stage 8 router anyway with this limitation stated up front — the plan's
+   own failure-response rule flags the latter as building a router to rescue a losing backbone, so
+   it should be a deliberate, documented choice rather than a default.
