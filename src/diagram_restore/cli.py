@@ -42,6 +42,21 @@ def main():
     baselines.add_argument("--structural-weight", type=float, default=0.1)
     baselines.add_argument("--latency-warmup", type=int, default=20)
     baselines.add_argument("--latency-repeats", type=int, default=50)
+    tuning = commands.add_parser(
+        "diffusion-tuning",
+        help="EMA + warmup-cosine diffusion training, comparable to the baselines D0 row",
+    )
+    tuning.add_argument("--data", type=Path, default=Path("data/pilot-v1"))
+    tuning.add_argument("--output", type=Path, default=Path("results/milestone2"))
+    tuning.add_argument("--steps", type=int, default=30000)
+    tuning.add_argument("--sampling-steps", type=int, nargs="+", default=[10, 20, 50])
+    tuning.add_argument("--seed", type=int, default=7)
+    tuning.add_argument("--structural-weight", type=float, default=0.0)
+    tuning.add_argument("--base-lr", type=float, default=1e-4)
+    tuning.add_argument("--warmup-steps", type=int, default=1500)
+    tuning.add_argument("--ema-decay", type=float, default=0.999)
+    tuning.add_argument("--latency-warmup", type=int, default=20)
+    tuning.add_argument("--latency-repeats", type=int, default=50)
     args = parser.parse_args()
     if args.command == "generate":
         from .data import generate
@@ -76,6 +91,22 @@ def main():
             args.seed,
             tuple(args.morphological_radii),
             args.structural_weight,
+            args.latency_warmup,
+            args.latency_repeats,
+        )
+    elif args.command == "diffusion-tuning":
+        from .diffusion_tuning import evaluate_diffusion_tuning
+
+        result = evaluate_diffusion_tuning(
+            args.data,
+            args.output,
+            args.steps,
+            tuple(args.sampling_steps),
+            args.seed,
+            args.structural_weight,
+            args.base_lr,
+            args.warmup_steps,
+            args.ema_decay,
             args.latency_warmup,
             args.latency_repeats,
         )
