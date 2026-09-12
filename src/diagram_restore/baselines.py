@@ -15,6 +15,7 @@ from .data import read_manifest
 from .evaluation import evaluate_predictions, normalized_image
 from .geometry import NEIGHBORS
 from .io import load_image, source_fingerprint, write_json
+from .latency import measure_latency
 from .models import (
     ConditionalDiT,
     SmallUNet,
@@ -161,25 +162,37 @@ def run_baseline_suite(
     seed: int = 7,
     morphological_radii: tuple = (0, 1, 2, 3),
     structural_weight: float = 0.1,
+    latency_warmup: int = 20,
+    latency_repeats: int = 50,
 ) -> dict:
     device = choose_device()
     train_damaged, train_clean, _ = load_split(root, "train")
     train_damaged, train_clean = train_damaged.to(device), train_clean.to(device)
     val_damaged, val_clean, val_records = load_split(root, "validation")
     val_damaged, val_clean = val_damaged.to(device), val_clean.to(device)
+    single = val_damaged[:1]
+
+    def timed(restore) -> dict:
+        return measure_latency(restore, latency_warmup, latency_repeats, device)
 
     result: dict = {"B0": damaged_input_baseline(val_damaged.cpu(), val_records)}
 
     radius, morphological_metrics = select_morphological_radius(
         val_damaged.cpu(), val_records, morphological_radii
     )
-    result["B1"] = {"selected_radius": radius, "edge_metrics": morphological_metrics}
+    single_cpu = single.cpu().numpy()[0, 0]
+    result["B1"] = {
+        "selected_radius": radius,
+        "edge_metrics": morphological_metrics,
+        "latency": timed(lambda: morphological_restore(single_cpu, radius)),
+    }
 
     unet0, unet0_losses = train_unet(train_damaged, train_clean, unet_steps, seed, 0.0)
     result["U0"] = {
         "steps": unet_steps,
         "final_loss": unet0_losses[-1],
         "edge_metrics": evaluate_predictions(restore_unet(unet0, val_damaged), val_records),
+        "latency": timed(lambda: restore_unet(unet0, single)),
     }
 
     unet1, unet1_losses = train_unet(
@@ -190,6 +203,7 @@ def run_baseline_suite(
         "structural_weight": structural_weight,
         "final_loss": unet1_losses[-1],
         "edge_metrics": evaluate_predictions(restore_unet(unet1, val_damaged), val_records),
+        "latency": timed(lambda: restore_unet(unet1, single)),
     }
 
     transformer, transformer_losses = train_deterministic_transformer(
@@ -202,6 +216,7 @@ def run_baseline_suite(
         "edge_metrics": evaluate_predictions(
             restore_deterministic_transformer(transformer, val_damaged), val_records
         ),
+        "latency": timed(lambda: restore_deterministic_transformer(transformer, single)),
     }
 
     alpha_bar = cosine_alpha_bar().to(device)
@@ -217,7 +232,14 @@ def run_baseline_suite(
         }
         for steps in sampling_steps:
             restored = restore_conditional_dit(model, val_damaged, alpha_bar, steps, seed)
-            row["sampling_steps"][str(steps)] = evaluate_predictions(restored, val_records)
+            row["sampling_steps"][str(steps)] = {
+                "edge_metrics": evaluate_predictions(restored, val_records),
+                "latency": timed(
+                    lambda steps=steps: restore_conditional_dit(
+                        model, single, alpha_bar, steps, seed
+                    )
+                ),
+            }
         result[row_id] = row
 
     result["source_sha256"] = source_fingerprint()

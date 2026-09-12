@@ -40,6 +40,8 @@ def main():
     baselines.add_argument("--seed", type=int, default=7)
     baselines.add_argument("--morphological-radii", type=int, nargs="+", default=[0, 1, 2, 3])
     baselines.add_argument("--structural-weight", type=float, default=0.1)
+    baselines.add_argument("--latency-warmup", type=int, default=20)
+    baselines.add_argument("--latency-repeats", type=int, default=50)
     args = parser.parse_args()
     if args.command == "generate":
         from .data import generate
@@ -74,6 +76,8 @@ def main():
             args.seed,
             tuple(args.morphological_radii),
             args.structural_weight,
+            args.latency_warmup,
+            args.latency_repeats,
         )
     else:
         from .artifacts import (
