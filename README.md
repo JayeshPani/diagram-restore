@@ -29,9 +29,9 @@ This is document image analysis / graphics recognition, not NLP or text mining, 
 - **Stage 7 done, confirmed at 3 seeds** (13 September 2026): appearance metrics hide the connectivity gap. Mean Dice's range is 4.48× ± 0.60 narrower than edge-F1's across seeds 7/17/27, and Dice ranks the untouched damaged input above every diffusion-restored variant tested (18/18 configs). See `results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md`.
 - **Literature refresh, two passes done** (13-14 September 2026): closest prior art is SciFlow-Bench (arXiv:2602.09809), read in full text — a near-concurrent independent argument for graph-aware over pixel-based evaluation in diagram *generation*, which also independently found diffusion trailing on structural fidelity (same qualitative pattern as this project's headline, different task). OPRB's venue/authors verified (DocRevive, CVPR 2026 Workshop MULA). See `docs/02_LITERATURE_REVIEW.md`.
 - **Stage 8 done** (13 September 2026): both headline findings replicate on a fresh, independently generated 5,000/500/1,000 dataset (3 seeds) — and get *stronger*. U0/U1 reach 0.994 mean F1 vs. D0/D1's 0.926 (gap widens from ~0.05 to ~0.069 F1; gap-to-noise ratio ~7–9× → ~29×), and the Dice/edge-F1 divergence widens from ~4.5× to ~6–7.5× compression, with the damaged input beating every diffusion config on Dice again (36/36 checked configs total, both scales). See `results/milestone3/STAGE8_CONFIRMATORY_REPORT.md`.
-- **Stage 9 done for two shifts** (13 September 2026): models trained once per seed (3 seeds) on the confirmatory data, evaluated zero-shot against 2x corruption severity and always-5-node density — the U0/U1-vs-D0/D1 gap holds in every condition (gap-to-noise ratio ~6.6x-30x, no ranking flip). See `results/milestone4/STAGE9_GENERALIZATION_REPORT.md`.
-- **Open next steps**: an acquisition shift specifically — real/independently authored or scanned diagrams (the renderer-shift half is now covered, see below); a systematic citation-graph check to close out Stage 12; optionally, additional baseline architectures (second U-Net width, plain CNN autoencoder) a reviewer might expect.
-- Accuracy/latency claims are now supported at two scales (pilot: 700 diagrams; confirmatory: 6,500 diagrams), 3 seeds each, on two independently generated in-distribution datasets, and hold under two tested out-of-distribution shifts (corruption severity, layout density). Only a renderer/acquisition shift remains untested.
+- **Stage 9 done for all three parametric shifts** (13-14 September 2026): models trained once per seed (3 seeds) on the confirmatory data, evaluated zero-shot against 2x corruption severity, always-5-node density, and a second renderer (`geometry.render_antialiased`, a genuinely different rasterization technique) — the U0/U1-vs-D0/D1 gap holds in every condition (gap-to-noise ratio ~3.9x-30x, no ranking flip) and *strengthens* under density and renderer shift (U-Net reaches near-ceiling F1; diffusion's seed variance rises 14x under the renderer shift). See `results/milestone4/STAGE9_GENERALIZATION_REPORT.md` and `STAGE9_RENDERER_SHIFT_REPORT.md`.
+- **Open next steps**: an acquisition shift specifically — real, independently authored or scanned diagrams — is the one generalization category left, and needs external human input (drawing/scanning) this project cannot fabricate; a systematic citation-graph check to close out Stage 12; optionally, additional baseline architectures (second U-Net width, plain CNN autoencoder) a reviewer might expect.
+- Accuracy/latency claims are now supported at two scales (pilot: 700 diagrams; confirmatory: 6,500 diagrams), 3 seeds each, on two independently generated in-distribution datasets, and hold under three tested out-of-distribution shifts (corruption severity, layout density, rendering technique). Only an acquisition shift (real diagrams) remains untested.
 
 ## Implemented layout
 
@@ -43,9 +43,10 @@ Text Mining/
   configs/confirmatory.toml    # confirmatory-scale generator config (6,500 diagrams, fresh seed)
   configs/ood_corruption.toml  # Stage 9: 2x noise/blur severity, longer gaps, fresh seed
   configs/ood_density.toml     # Stage 9: always 5 nodes instead of 2-5, fresh seed
+  configs/ood_renderer.toml    # Stage 9: antialiased renderer instead of binary, fresh seed
   src/diagram_restore/
     data.py                    # deterministic corruption generator, manifest, leakage-safe splits
-    geometry.py                # node/connector rasterization shared by the generator and evaluator
+    geometry.py                # node/connector rasterization; render_antialiased (second renderer)
     evaluation.py               # direct-edge extraction, edge metrics, appearance metrics
     fixtures.py                 # 80 hand-specified evaluator counterexamples
     models.py                  # SmallUNet, ConditionalDiT, losses (incl. soft-clDice structural loss)
@@ -58,16 +59,17 @@ Text Mining/
     runtime.py                   # environment inventory, training/sparse-MLP benchmarks
     artifacts.py                 # audit reports, contact sheets, overlays
     cli.py                       # `diagram-restore generate|audit|benchmark|tiny-overfit|baselines|diffusion-tuning|generalization`
-  tests/                        # 167 tests: evaluator fixtures, sampler correctness, training smoke tests
+  tests/                        # 174 tests: evaluator fixtures, sampler correctness, training smoke tests
   data/pilot-v1/                # pilot dataset (700 diagrams); excluded from Git
   data/confirmatory-v1/         # confirmatory dataset (6,500 diagrams, fresh seed); excluded from Git
   data/ood-corruption-v1/       # Stage 9 OOD test set (harder corruption); excluded from Git
   data/ood-density-v1/          # Stage 9 OOD test set (denser layouts); excluded from Git
+  data/ood-renderer-v1/         # Stage 9 OOD test set (antialiased renderer); excluded from Git
   results/
     milestone1/                 # Gate G1: environment, benchmark, integrity, fixtures, contact sheets
     milestone2/                 # Gate G2 + Stage 7: baselines.json, G2_REPORT.md, STAGE7_APPEARANCE_VS_EDGE.md, diffusion-tuning ablations, seed17/, seed27/
     milestone3/                 # Stage 8: confirmatory-scale integrity audit, seed7/, seed17/, seed27/, STAGE8_CONFIRMATORY_REPORT.md
-    milestone4/                 # Stage 9: seed7/, seed17/, seed27/, STAGE9_GENERALIZATION_REPORT.md
+    milestone4/                 # Stage 9: seed{7,17,27}/, renderer_seed{7,17,27}/, STAGE9_GENERALIZATION_REPORT.md, STAGE9_RENDERER_SHIFT_REPORT.md
   paper/                        # manuscript and figures, after the remaining lit refresh and mentor review
 ```
 

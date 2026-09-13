@@ -65,10 +65,13 @@ showing which architectures dominate the accuracy/latency frontier for this task
 demonstrated case where an appearance metric and the direct-edge F1 disagree on which restoration
 is better (met, confirmed at 3 seeds — see
 [results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md](../results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md));
-(4) generalization evidence beyond the exact pilot generator: a held-out corruption/density
-distribution shift (met, 3 seeds — see
-[results/milestone4/STAGE9_GENERALIZATION_REPORT.md](../results/milestone4/STAGE9_GENERALIZATION_REPORT.md);
-a renderer or acquisition shift via a second tool or independently authored diagrams remains open).
+(4) generalization evidence beyond the exact pilot generator: held-out corruption, density,
+and renderer distribution shifts (all met, 3 seeds each — see
+[results/milestone4/STAGE9_GENERALIZATION_REPORT.md](../results/milestone4/STAGE9_GENERALIZATION_REPORT.md)
+and
+[results/milestone4/STAGE9_RENDERER_SHIFT_REPORT.md](../results/milestone4/STAGE9_RENDERER_SHIFT_REPORT.md);
+only an acquisition shift via independently authored/scanned diagrams remains open, needing
+external human input this project cannot fabricate).
 Report edge precision/recall, invented and missing edges, and variability across at least three
 training seeds (met for items 2, 3, and 4) with confidence intervals — done throughout.
 

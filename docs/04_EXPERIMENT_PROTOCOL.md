@@ -38,13 +38,16 @@ G2? **Yes, and it strengthens.** On an independently generated dataset (fresh se
 F1 and the gap-to-noise ratio rises from ~7–9× to ~29×. The RQ2 divergence also strengthens (Dice
 compression ~4.5× → ~6–7.5×). See `results/milestone3/STAGE8_CONFIRMATORY_REPORT.md`.
 
-RQ4 *(answered for corruption/density shift, revised Stage 9)*: does the RQ1 finding generalize
-to layout, corruption, or renderer shifts the models were never trained or tuned on? **Yes, for
-the two shifts tested.** Models trained once on confirmatory-v1 (3 seeds), evaluated zero-shot
-against 2× corruption severity and always-5-node density: the U0/U1-vs-D0/D1 gap holds in every
-condition (gap-to-noise ratio ~6.6×–30×), with no ranking flip. Renderer shift (a second synthetic
-tool) and acquisition shift (independently authored/scanned diagrams) remain untested — see
-`results/milestone4/STAGE9_GENERALIZATION_REPORT.md`.
+RQ4 *(answered for three shifts, revised Stage 9)*: does the RQ1 finding generalize to layout,
+corruption, or renderer shifts the models were never trained or tuned on? **Yes, for all three
+shifts tested.** Models trained once on confirmatory-v1 (3 seeds), evaluated zero-shot against 2×
+corruption severity, always-5-node density, and a second renderer
+(`geometry.render_antialiased`): the U0/U1-vs-D0/D1 gap holds in every condition (gap-to-noise
+ratio ~3.9×–30×) and *strengthens* under density and renderer shift — the U-Net reaches
+near-ceiling F1 while diffusion's seed variance rises 14× under the renderer shift specifically.
+Only acquisition shift (independently authored/scanned diagrams) remains untested, needing
+external human input — see `results/milestone4/STAGE9_GENERALIZATION_REPORT.md` and
+`results/milestone4/STAGE9_RENDERER_SHIFT_REPORT.md`.
 
 For every model, plot the U-Net reference as well as diffusion comparisons.
 
@@ -276,13 +279,15 @@ damaged input beats diffusion on Dice in 18/18 further configs (36/36 total acro
 See `results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md` and
 `results/milestone3/STAGE8_CONFIRMATORY_REPORT.md`.
 
-**Criterion E (generalization, met for two shifts — Stage 9):** the Criterion C ranking holds — or
-any change is reported honestly — under at least one genuine distribution shift, not just the
+**Criterion E (generalization, met for three shifts — Stage 9):** the Criterion C ranking holds —
+or any change is reported honestly — under at least one genuine distribution shift, not just the
 exact pilot generator. **Met**: 3 seeds, models trained once on confirmatory-v1, evaluated
-zero-shot against 2× corruption severity and always-5-node density — the ranking holds in both
-(gap-to-noise ratio ~6.6×–30×). A second renderer or independently authored diagrams (a
-renderer/acquisition shift, distinct from the parametric shifts tested) remain open. See
-`results/milestone4/STAGE9_GENERALIZATION_REPORT.md`.
+zero-shot against 2× corruption severity, always-5-node density, and a second renderer
+(`geometry.render_antialiased`) — the ranking holds in all three (gap-to-noise ratio ~3.9×–30×),
+strengthening under density and renderer shift. Only an acquisition shift (independently
+authored/scanned diagrams) remains open, needing external human input this project cannot
+fabricate. See `results/milestone4/STAGE9_GENERALIZATION_REPORT.md` and
+`results/milestone4/STAGE9_RENDERER_SHIFT_REPORT.md`.
 
 Do not call a statistically nonsignificant quality difference “equivalent.” These criteria may be
 revised with a written development-only justification before the confirmatory-scale (Stage 8) test
