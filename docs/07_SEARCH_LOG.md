@@ -107,6 +107,49 @@ This pass is **evidence label B** (search-tool summaries and abstracts only; no 
 inspection, no citation-graph check, no license verification) and is explicitly a first look,
 not the required pre-submission pass. Every hit found was from 2026 or very late 2025 — this
 area is moving fast enough that the queries should be repeated close to the submission date
-rather than trusted from this single pass. See docs/02's "What still needs doing" list for the
-concrete follow-ups (full-text read of SciFlow-Bench's evaluator, verify OPRB's venue/authors,
-search specifically for diagram-domain diffusion-vs-CNN comparisons with a graph ground truth).
+rather than trusted from this single pass.
+
+## Second refresh pass (14 September 2026) — full-text follow-up
+
+Direct fetches and additional queries closing out the first pass's follow-up list:
+
+```text
+[WebFetch] https://arxiv.org/abs/2602.09809  (SciFlow-Bench, abstract page only — no venue/full method)
+[WebFetch] https://arxiv.org/html/2602.09809  (SciFlow-Bench, full HTML — evaluator mechanism, authors, Table 4)
+"Occluded Pages Restoration Benchmark" OR "OPRB" document restoration dataset degraded pages figures diagrams
+diffusion model versus CNN structural fidelity diagram flowchart restoration graph accuracy comparison
+circuit diagram wiring diagram restoration deep learning connectivity preservation benchmark
+```
+
+Outcomes, full detail in [docs/02_LITERATURE_REVIEW.md](02_LITERATURE_REVIEW.md):
+
+- **SciFlow-Bench full-text read, done.** Its inverse parser is a hierarchical multi-agent
+  VLM/OCR pipeline (not a single trained model, not an algorithmic geometry parser like this
+  project's), using semantic sentence-embedding node matching over directed graphs. Purely
+  an arXiv preprint (v3, June 2026), no venue found. It independently reports diffusion
+  models (SDXL, PixArt-Σ) showing weak structural recoverability versus autoregressive VLMs
+  — a different task and a different "winner" than this project's, but the same qualitative
+  pattern (diffusion trailing on structural correctness), worth citing as adjacent
+  corroborating evidence.
+- **OPRB venue/authors verified.** It is introduced within **DocRevive** (Purkayastha et
+  al.), accepted at the **CVPR 2026 Workshop on Multimodal Understanding for Long-form
+  Analysis (MULA)**, arXiv:2604.10077. Document occlusion restoration (ink/stamps/scribbles
+  removed), diagrams a ~23% minority; no graph/connectivity evaluation. OPRB's own
+  restoration-evaluation methodology has not been read in full text.
+- **Diagram-domain diffusion-vs-CNN structural comparison: still not found** after two
+  search passes. Generic (non-diagram) diffusion literature argues the *opposite* direction
+  from this project's finding — diffusion models are generally believed to produce *better*
+  structural fidelity than CNNs in image generation broadly — making this project's result a
+  genuine counter-to-conventional-wisdom finding worth foregrounding, not a confirmation of
+  known results.
+- **New find**: "Vision-Based Topology-Consistent Structural Parsing of Hand-Drawn Circuit
+  Diagrams," *Sensors* 26(11):3440, 2026 (peer-reviewed, PMC13259090) — a real, non-synthetic
+  1,317-diagram hand-drawn circuit benchmark with explicit connectivity reasoning. Parsing,
+  not restoration; no architecture-family comparison. Relevant precedent that real hand-drawn
+  diagram benchmarks are a tractable, publishable category — cited in docs/02 as motivation
+  for this project's still-open renderer/acquisition-shift generalization item.
+
+Remaining before the required pre-submission pass: OPRB's restoration methodology in full
+text, SciFlow-Bench's Table 4 read directly (not via search-tool synthesis), and a proper
+citation-graph check (who cites/is cited by SciFlow-Bench and DiagramNet) — none of this was
+systematic literature-database work, only search-engine discovery across two passes.
