@@ -1,0 +1,3619 @@
+{
+  "cases": [
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "name": "intact_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "name": "intact_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "name": "intact_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "name": "intact_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 2,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "one_pixel_gap_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 2,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "one_pixel_gap_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 2,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "one_pixel_gap_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 2,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "one_pixel_gap_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "removed_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "removed_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "removed_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "removed_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.6666666666666666,
+        "fn": 0,
+        "fp": 1,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.5,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "name": "invented_diagonal_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.6666666666666666,
+        "fn": 0,
+        "fp": 1,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.5,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "name": "invented_diagonal_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.6666666666666666,
+        "fn": 0,
+        "fp": 1,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.5,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "name": "invented_diagonal_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.6666666666666666,
+        "fn": 0,
+        "fp": 1,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.5,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "name": "invented_diagonal_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 1,
+        "invented_edges": [
+          [
+            "A",
+            "D"
+          ]
+        ],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "name": "wrong_endpoint_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 1,
+        "invented_edges": [
+          [
+            "A",
+            "D"
+          ]
+        ],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "name": "wrong_endpoint_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 1,
+        "invented_edges": [
+          [
+            "A",
+            "D"
+          ]
+        ],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "name": "wrong_endpoint_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 1,
+        "invented_edges": [
+          [
+            "A",
+            "D"
+          ]
+        ],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": 0.0,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "name": "wrong_endpoint_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "name": "chain_not_triangle_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "name": "chain_not_triangle_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "name": "chain_not_triangle_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "name": "chain_not_triangle_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 4,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 4
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "square_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 4,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 4
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "square_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 4,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 4
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "square_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 4,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 4
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "square_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 3,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.8571428571428571,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 0.75,
+        "tp": 3
+      },
+      "expected_edges": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "square_cut_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 3,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.8571428571428571,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 0.75,
+        "tp": 3
+      },
+      "expected_edges": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "square_cut_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 3,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.8571428571428571,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 0.75,
+        "tp": 3
+      },
+      "expected_edges": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "square_cut_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 3,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.8571428571428571,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": 1.0,
+        "recall": 0.75,
+        "tp": 3
+      },
+      "expected_edges": [
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "square_cut_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "disconnected_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "disconnected_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "disconnected_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "disconnected_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 1,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "near_miss_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 1,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "near_miss_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 1,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "near_miss_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 1,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "near_miss_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": null,
+        "recall": null,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "zero_edge_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": null,
+        "recall": null,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "zero_edge_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": null,
+        "recall": null,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "zero_edge_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": null,
+        "recall": null,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "zero_edge_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "blank_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "blank_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "blank_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 0,
+        "dangling_components": 0,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "blank_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.2857142857142857,
+        "fn": 0,
+        "fp": 5,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.16666666666666666,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "all_ink_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.2857142857142857,
+        "fn": 0,
+        "fp": 5,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.16666666666666666,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "all_ink_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.2857142857142857,
+        "fn": 0,
+        "fp": 5,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.16666666666666666,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "all_ink_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.2857142857142857,
+        "fn": 0,
+        "fp": 5,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.16666666666666666,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "all_ink_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 1
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "name": "isolated_fragment_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 1
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "name": "isolated_fragment_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 1
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "name": "isolated_fragment_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 1
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "name": "isolated_fragment_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.5,
+        "fn": 0,
+        "fp": 4,
+        "invented_edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "crossed_diagonals_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.5,
+        "fn": 0,
+        "fp": 4,
+        "invented_edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "crossed_diagonals_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.5,
+        "fn": 0,
+        "fp": 4,
+        "invented_edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "crossed_diagonals_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.5,
+        "fn": 0,
+        "fp": 4,
+        "invented_edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "crossed_diagonals_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.5,
+        "fn": 0,
+        "fp": 4,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "merged_parallel_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.5,
+        "fn": 0,
+        "fp": 4,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "merged_parallel_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.5,
+        "fn": 0,
+        "fp": 4,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "merged_parallel_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "invalid_merges": [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        ],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.5,
+        "fn": 0,
+        "fp": 4,
+        "invented_edges": [
+          [
+            "A",
+            "C"
+          ],
+          [
+            "A",
+            "D"
+          ],
+          [
+            "B",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ]
+        ],
+        "missing_edges": [],
+        "precision": 0.3333333333333333,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ],
+        [
+          "B",
+          "C"
+        ],
+        [
+          "B",
+          "D"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "name": "merged_parallel_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "name": "diagonal_intact_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "name": "diagonal_intact_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "name": "diagonal_intact_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 1,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 1
+      },
+      "expected_edges": [
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "name": "diagonal_intact_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 2,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "diagonal_gap_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 2,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "diagonal_gap_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 2,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "diagonal_gap_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 2,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": false,
+        "f1": 0.0,
+        "fn": 1,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [
+          [
+            "A",
+            "C"
+          ]
+        ],
+        "precision": null,
+        "recall": 0.0,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "diagonal_gap_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 4,
+        "dangling_components": 4,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": null,
+        "recall": null,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "boundary_offset_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 4,
+        "dangling_components": 4,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": null,
+        "recall": null,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "boundary_offset_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 12,
+        "dangling_components": 12,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": null,
+        "recall": null,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "boundary_offset_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 12,
+        "dangling_components": 12,
+        "edges": [],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": null,
+        "recall": null,
+        "tp": 0
+      },
+      "expected_edges": [],
+      "name": "boundary_offset_circle_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "name": "two_port_node_box_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "name": "two_port_node_box_w2",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "name": "two_port_node_circle_w1",
+      "passed": true
+    },
+    {
+      "actual": {
+        "components": 2,
+        "dangling_components": 0,
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "invalid_merges": [],
+        "isolated_components": 0
+      },
+      "against_reference": {
+        "exact_graph": true,
+        "f1": 1.0,
+        "fn": 0,
+        "fp": 0,
+        "invented_edges": [],
+        "missing_edges": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "tp": 2
+      },
+      "expected_edges": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "name": "two_port_node_circle_w2",
+      "passed": true
+    }
+  ],
+  "drawing": "independent hand-specified Pillow fixtures, not the dataset renderer",
+  "passed": 80,
+  "total": 80
+}
