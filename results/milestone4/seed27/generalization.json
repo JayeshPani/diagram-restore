@@ -1,0 +1,1021 @@
+{
+  "in_distribution": {
+    "B0": {
+      "appearance_metrics": {
+        "identical_pixel_images": 80,
+        "images": 500,
+        "mean_boundary_f1_1px": 0.9996060758077461,
+        "mean_foreground_dice": 0.9976430213946542,
+        "mean_psnr_db": 32.82133659605752,
+        "mean_ssim": 0.9357054660050291
+      },
+      "edge_metrics": {
+        "edge_f1": 0.9294062646096307,
+        "edge_precision": 1.0,
+        "edge_recall": 0.868122270742358,
+        "exact_graph_accuracy": 0.7,
+        "fn": 151,
+        "fp": 0,
+        "images": 500,
+        "invalid_merge_images": 0,
+        "invented_edges_per_image": 0.0,
+        "macro_edge_f1": 0.8299774891774891,
+        "missing_edges_per_image": 0.302,
+        "tp": 994
+      }
+    },
+    "B1": {
+      "appearance_metrics": {
+        "identical_pixel_images": 148,
+        "images": 500,
+        "mean_boundary_f1_1px": 0.9996060758077461,
+        "mean_foreground_dice": 0.9900923567867348,
+        "mean_psnr_db": 28.947927142853175,
+        "mean_ssim": 0.9963189397453478
+      },
+      "edge_metrics": {
+        "edge_f1": 0.9623393885688968,
+        "edge_precision": 0.9766187050359713,
+        "edge_recall": 0.948471615720524,
+        "exact_graph_accuracy": 0.84,
+        "fn": 59,
+        "fp": 26,
+        "images": 500,
+        "invalid_merge_images": 0,
+        "invented_edges_per_image": 0.052,
+        "macro_edge_f1": 0.9151984903984904,
+        "missing_edges_per_image": 0.118,
+        "tp": 1086
+      }
+    },
+    "D0": {
+      "sampling_steps": {
+        "10": {
+          "appearance_metrics": {
+            "identical_pixel_images": 0,
+            "images": 500,
+            "mean_boundary_f1_1px": 0.9908248677904384,
+            "mean_foreground_dice": 0.9878890171404632,
+            "mean_psnr_db": 28.10861615466849,
+            "mean_ssim": 0.8173111633383098
+          },
+          "edge_metrics": {
+            "edge_f1": 0.925891181988743,
+            "edge_precision": 1.0,
+            "edge_recall": 0.8620087336244542,
+            "exact_graph_accuracy": 0.69,
+            "fn": 158,
+            "fp": 0,
+            "images": 500,
+            "invalid_merge_images": 0,
+            "invented_edges_per_image": 0.0,
+            "macro_edge_f1": 0.8270623376623376,
+            "missing_edges_per_image": 0.316,
+            "tp": 987
+          },
+          "latency": {
+            "mean_seconds": 0.020973819099745016,
+            "median_seconds": 0.020290646003559232,
+            "p95_seconds": 0.023494518602092285,
+            "repeats": 50,
+            "warmup": 20
+          }
+        },
+        "20": {
+          "appearance_metrics": {
+            "identical_pixel_images": 0,
+            "images": 500,
+            "mean_boundary_f1_1px": 0.9964671934084423,
+            "mean_foreground_dice": 0.9940238664446622,
+            "mean_psnr_db": 31.587549530328285,
+            "mean_ssim": 0.9224252096936805
+          },
+          "edge_metrics": {
+            "edge_f1": 0.9248826291079812,
+            "edge_precision": 1.0,
+            "edge_recall": 0.8602620087336245,
+            "exact_graph_accuracy": 0.686,
+            "fn": 160,
+            "fp": 0,
+            "images": 500,
+            "invalid_merge_images": 0,
+            "invented_edges_per_image": 0.0,
+            "macro_edge_f1": 0.825995670995671,
+            "missing_edges_per_image": 0.32,
+            "tp": 985
+          },
+          "latency": {
+            "mean_seconds": 0.03989154910042998,
+            "median_seconds": 0.039210936996823875,
+            "p95_seconds": 0.040231826899616865,
+            "repeats": 50,
+            "warmup": 20
+          }
+        },
+        "50": {
+          "appearance_metrics": {
+            "identical_pixel_images": 0,
+            "images": 500,
+            "mean_boundary_f1_1px": 0.9977937136962999,
+            "mean_foreground_dice": 0.9951403641742543,
+            "mean_psnr_db": 32.92811656794437,
+            "mean_ssim": 0.9614953490798194
+          },
+          "edge_metrics": {
+            "edge_f1": 0.9253871421867668,
+            "edge_precision": 1.0,
+            "edge_recall": 0.8611353711790393,
+            "exact_graph_accuracy": 0.688,
+            "fn": 159,
+            "fp": 0,
+            "images": 500,
+            "invalid_merge_images": 0,
+            "invented_edges_per_image": 0.0,
+            "macro_edge_f1": 0.8256337662337662,
+            "missing_edges_per_image": 0.318,
+            "tp": 986
+          },
+          "latency": {
+            "mean_seconds": 0.09740346670005237,
+            "median_seconds": 0.09754735399837955,
+            "p95_seconds": 0.09896355395067076,
+            "repeats": 50,
+            "warmup": 20
+          }
+        }
+      }
+    },
+    "D1": {
+      "sampling_steps": {
+        "10": {
+          "appearance_metrics": {
+            "identical_pixel_images": 0,
+            "images": 500,
+            "mean_boundary_f1_1px": 0.9975365094400853,
+            "mean_foreground_dice": 0.9953168205229251,
+            "mean_psnr_db": 36.616815979018355,
+            "mean_ssim": 0.9847252126409619
+          },
+          "edge_metrics": {
+            "edge_f1": 0.9279026217228464,
+            "edge_precision": 1.0,
+            "edge_recall": 0.8655021834061135,
+            "exact_graph_accuracy": 0.696,
+            "fn": 154,
+            "fp": 0,
+            "images": 500,
+            "invalid_merge_images": 0,
+            "invented_edges_per_image": 0.0,
+            "macro_edge_f1": 0.8283108225108226,
+            "missing_edges_per_image": 0.308,
+            "tp": 991
+          },
+          "latency": {
+            "mean_seconds": 0.020771319119812687,
+            "median_seconds": 0.020098750002944143,
+            "p95_seconds": 0.020781477447962972,
+            "repeats": 50,
+            "warmup": 20
+          }
+        },
+        "20": {
+          "appearance_metrics": {
+            "identical_pixel_images": 0,
+            "images": 500,
+            "mean_boundary_f1_1px": 0.9988824792429023,
+            "mean_foreground_dice": 0.9967397782507957,
+            "mean_psnr_db": 36.65227912971599,
+            "mean_ssim": 0.9883336356786342
+          },
+          "edge_metrics": {
+            "edge_f1": 0.9279026217228464,
+            "edge_precision": 1.0,
+            "edge_recall": 0.8655021834061135,
+            "exact_graph_accuracy": 0.696,
+            "fn": 154,
+            "fp": 0,
+            "images": 500,
+            "invalid_merge_images": 0,
+            "invented_edges_per_image": 0.0,
+            "macro_edge_f1": 0.8292632034632035,
+            "missing_edges_per_image": 0.308,
+            "tp": 991
+          },
+          "latency": {
+            "mean_seconds": 0.03933908496008371,
+            "median_seconds": 0.03920404100063024,
+            "p95_seconds": 0.04006329969924991,
+            "repeats": 50,
+            "warmup": 20
+          }
+        },
+        "50": {
+          "appearance_metrics": {
+            "identical_pixel_images": 0,
+            "images": 500,
+            "mean_boundary_f1_1px": 0.9988234809431248,
+            "mean_foreground_dice": 0.9957873467617151,
+            "mean_psnr_db": 32.99320795090684,
+            "mean_ssim": 0.9811627549452802
+          },
+          "edge_metrics": {
+            "edge_f1": 0.9248826291079812,
+            "edge_precision": 1.0,
+            "edge_recall": 0.8602620087336245,
+            "exact_graph_accuracy": 0.686,
+            "fn": 160,
+            "fp": 0,
+            "images": 500,
+            "invalid_merge_images": 0,
+            "invented_edges_per_image": 0.0,
+            "macro_edge_f1": 0.8247489177489178,
+            "missing_edges_per_image": 0.32,
+            "tp": 985
+          },
+          "latency": {
+            "mean_seconds": 0.09761796743943706,
+            "median_seconds": 0.09773402099744999,
+            "p95_seconds": 0.09929215419761021,
+            "repeats": 50,
+            "warmup": 20
+          }
+        }
+      }
+    },
+    "T0": {
+      "appearance_metrics": {
+        "identical_pixel_images": 0,
+        "images": 500,
+        "mean_boundary_f1_1px": 0.9997761235956275,
+        "mean_foreground_dice": 0.9985402994356791,
+        "mean_psnr_db": 50.879079112754546,
+        "mean_ssim": 0.999189061193553
+      },
+      "edge_metrics": {
+        "edge_f1": 0.9666064981949458,
+        "edge_precision": 1.0,
+        "edge_recall": 0.9353711790393013,
+        "exact_graph_accuracy": 0.852,
+        "fn": 74,
+        "fp": 0,
+        "images": 500,
+        "invalid_merge_images": 0,
+        "invented_edges_per_image": 0.0,
+        "macro_edge_f1": 0.9057212121212121,
+        "missing_edges_per_image": 0.148,
+        "tp": 1071
+      },
+      "latency": {
+        "mean_seconds": 0.002530776579369558,
+        "median_seconds": 0.0025113330011663493,
+        "p95_seconds": 0.002674045798994484,
+        "repeats": 50,
+        "warmup": 20
+      }
+    },
+    "U0": {
+      "appearance_metrics": {
+        "identical_pixel_images": 0,
+        "images": 500,
+        "mean_boundary_f1_1px": 0.99997164613819,
+        "mean_foreground_dice": 0.9997670162152976,
+        "mean_psnr_db": 63.06723758979784,
+        "mean_ssim": 0.9998788230212585
+      },
+      "edge_metrics": {
+        "edge_f1": 0.9951733216322949,
+        "edge_precision": 1.0,
+        "edge_recall": 0.9903930131004367,
+        "exact_graph_accuracy": 0.978,
+        "fn": 11,
+        "fp": 0,
+        "images": 500,
+        "invalid_merge_images": 0,
+        "invented_edges_per_image": 0.0,
+        "macro_edge_f1": 0.9886285714285714,
+        "missing_edges_per_image": 0.022,
+        "tp": 1134
+      },
+      "latency": {
+        "mean_seconds": 0.002117056619754294,
+        "median_seconds": 0.002106061998347286,
+        "p95_seconds": 0.00225437514600344,
+        "repeats": 50,
+        "warmup": 20
+      }
+    },
+    "U1": {
+      "appearance_metrics": {
+        "identical_pixel_images": 0,
+        "images": 500,
+        "mean_boundary_f1_1px": 0.9999678220464118,
+        "mean_foreground_dice": 0.9997146418034506,
+        "mean_psnr_db": 62.88729010704252,
+        "mean_ssim": 0.999852938449721
+      },
+      "edge_metrics": {
+        "edge_f1": 0.9929639401934917,
+        "edge_precision": 1.0,
+        "edge_recall": 0.9860262008733625,
+        "exact_graph_accuracy": 0.968,
+        "fn": 16,
+        "fp": 0,
+        "images": 500,
+        "invalid_merge_images": 0,
+        "invented_edges_per_image": 0.0,
+        "macro_edge_f1": 0.9848761904761905,
+        "missing_edges_per_image": 0.032,
+        "tp": 1129
+      },
+      "latency": {
+        "mean_seconds": 0.002102091699489392,
+        "median_seconds": 0.0020995630038669333,
+        "p95_seconds": 0.002219729498392553,
+        "repeats": 50,
+        "warmup": 20
+      }
+    },
+    "images": 500
+  },
+  "morphological_radius": 1,
+  "ood": {
+    "ood_corruption": {
+      "B0": {
+        "appearance_metrics": {
+          "identical_pixel_images": 3,
+          "images": 300,
+          "mean_boundary_f1_1px": 0.9044925389246263,
+          "mean_foreground_dice": 0.8666277091237419,
+          "mean_psnr_db": 24.942273203537763,
+          "mean_ssim": 0.7841624436130769
+        },
+        "edge_metrics": {
+          "edge_f1": 0.8148788927335641,
+          "edge_precision": 1.0,
+          "edge_recall": 0.6875912408759124,
+          "exact_graph_accuracy": 0.51,
+          "fn": 214,
+          "fp": 0,
+          "images": 300,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.6666488696488697,
+          "missing_edges_per_image": 0.7133333333333334,
+          "tp": 471
+        }
+      },
+      "B1": {
+        "appearance_metrics": {
+          "identical_pixel_images": 61,
+          "images": 300,
+          "mean_boundary_f1_1px": 0.9044925389246263,
+          "mean_foreground_dice": 0.865252842119752,
+          "mean_psnr_db": 24.115659989790508,
+          "mean_ssim": 0.9368723299961641
+        },
+        "edge_metrics": {
+          "edge_f1": 0.8488372093023255,
+          "edge_precision": 0.9845857418111753,
+          "edge_recall": 0.745985401459854,
+          "exact_graph_accuracy": 0.61,
+          "fn": 174,
+          "fp": 8,
+          "images": 300,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.02666666666666667,
+          "macro_edge_f1": 0.7297712102712103,
+          "missing_edges_per_image": 0.58,
+          "tp": 511
+        }
+      },
+      "D0": {
+        "sampling_steps": {
+          "10": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.9786347394926226,
+              "mean_foreground_dice": 0.9240444025841593,
+              "mean_psnr_db": 23.978266281371788,
+              "mean_ssim": 0.7416553540288336
+            },
+            "edge_metrics": {
+              "edge_f1": 0.820292347377472,
+              "edge_precision": 0.997907949790795,
+              "edge_recall": 0.6963503649635037,
+              "exact_graph_accuracy": 0.52,
+              "fn": 208,
+              "fp": 1,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0033333333333333335,
+              "macro_edge_f1": 0.6871053391053391,
+              "missing_edges_per_image": 0.6933333333333334,
+              "tp": 477
+            },
+            "latency": {
+              "mean_seconds": 0.019983248300122797,
+              "median_seconds": 0.019628521000413457,
+              "p95_seconds": 0.020353553801760425,
+              "repeats": 50,
+              "warmup": 20
+            }
+          },
+          "20": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.9872616100215958,
+              "mean_foreground_dice": 0.9354308154223535,
+              "mean_psnr_db": 26.43318363570878,
+              "mean_ssim": 0.8574376275134952
+            },
+            "edge_metrics": {
+              "edge_f1": 0.8243359040274207,
+              "edge_precision": 0.9979253112033195,
+              "edge_recall": 0.7021897810218978,
+              "exact_graph_accuracy": 0.53,
+              "fn": 204,
+              "fp": 1,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0033333333333333335,
+              "macro_edge_f1": 0.6892496392496393,
+              "missing_edges_per_image": 0.68,
+              "tp": 481
+            },
+            "latency": {
+              "mean_seconds": 0.039875424240890425,
+              "median_seconds": 0.0394436879978457,
+              "p95_seconds": 0.04002479825358023,
+              "repeats": 50,
+              "warmup": 20
+            }
+          },
+          "50": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.9898911699015507,
+              "mean_foreground_dice": 0.9386305056475821,
+              "mean_psnr_db": 27.386784949390822,
+              "mean_ssim": 0.9059622822489435
+            },
+            "edge_metrics": {
+              "edge_f1": 0.8250428816466552,
+              "edge_precision": 1.0,
+              "edge_recall": 0.7021897810218978,
+              "exact_graph_accuracy": 0.5333333333333333,
+              "fn": 204,
+              "fp": 0,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0,
+              "macro_edge_f1": 0.6888422318422318,
+              "missing_edges_per_image": 0.68,
+              "tp": 481
+            },
+            "latency": {
+              "mean_seconds": 0.0975427067396231,
+              "median_seconds": 0.09788756250054576,
+              "p95_seconds": 0.09951085014763521,
+              "repeats": 50,
+              "warmup": 20
+            }
+          }
+        }
+      },
+      "D1": {
+        "sampling_steps": {
+          "10": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.990111774831059,
+              "mean_foreground_dice": 0.9469926724437365,
+              "mean_psnr_db": 30.006639877058255,
+              "mean_ssim": 0.9424293294991376
+            },
+            "edge_metrics": {
+              "edge_f1": 0.8310580204778157,
+              "edge_precision": 1.0,
+              "edge_recall": 0.710948905109489,
+              "exact_graph_accuracy": 0.53,
+              "fn": 198,
+              "fp": 0,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0,
+              "macro_edge_f1": 0.6991438191438192,
+              "missing_edges_per_image": 0.66,
+              "tp": 487
+            },
+            "latency": {
+              "mean_seconds": 0.020467798260215206,
+              "median_seconds": 0.020082395498320693,
+              "p95_seconds": 0.020612450301632633,
+              "repeats": 50,
+              "warmup": 20
+            }
+          },
+          "20": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.9924052608694268,
+              "mean_foreground_dice": 0.9495291430193663,
+              "mean_psnr_db": 30.14424541931661,
+              "mean_ssim": 0.9483521218803175
+            },
+            "edge_metrics": {
+              "edge_f1": 0.8360237892948174,
+              "edge_precision": 1.0,
+              "edge_recall": 0.7182481751824817,
+              "exact_graph_accuracy": 0.54,
+              "fn": 193,
+              "fp": 0,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0,
+              "macro_edge_f1": 0.707921596921597,
+              "missing_edges_per_image": 0.6433333333333333,
+              "tp": 492
+            },
+            "latency": {
+              "mean_seconds": 0.03940304335905239,
+              "median_seconds": 0.03949354150245199,
+              "p95_seconds": 0.039937766996081335,
+              "repeats": 50,
+              "warmup": 20
+            }
+          },
+          "50": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.992488072413217,
+              "mean_foreground_dice": 0.9466877361486827,
+              "mean_psnr_db": 27.857462747260712,
+              "mean_ssim": 0.940425459372445
+            },
+            "edge_metrics": {
+              "edge_f1": 0.8280581693755347,
+              "edge_precision": 1.0,
+              "edge_recall": 0.7065693430656934,
+              "exact_graph_accuracy": 0.53,
+              "fn": 201,
+              "fp": 0,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0,
+              "macro_edge_f1": 0.6969215969215969,
+              "missing_edges_per_image": 0.67,
+              "tp": 484
+            },
+            "latency": {
+              "mean_seconds": 0.09777983421983663,
+              "median_seconds": 0.09783433350094128,
+              "p95_seconds": 0.09964099185017403,
+              "repeats": 50,
+              "warmup": 20
+            }
+          }
+        }
+      },
+      "T0": {
+        "appearance_metrics": {
+          "identical_pixel_images": 0,
+          "images": 300,
+          "mean_boundary_f1_1px": 0.9974305074790982,
+          "mean_foreground_dice": 0.965927726971654,
+          "mean_psnr_db": 40.65233994823325,
+          "mean_ssim": 0.979477506363786
+        },
+        "edge_metrics": {
+          "edge_f1": 0.9066241021548284,
+          "edge_precision": 1.0,
+          "edge_recall": 0.8291970802919708,
+          "exact_graph_accuracy": 0.7066666666666667,
+          "fn": 117,
+          "fp": 0,
+          "images": 300,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.823587061087061,
+          "missing_edges_per_image": 0.39,
+          "tp": 568
+        },
+        "latency": {
+          "mean_seconds": 0.002532369239925174,
+          "median_seconds": 0.0025144374994852114,
+          "p95_seconds": 0.0027397704954637446,
+          "repeats": 50,
+          "warmup": 20
+        }
+      },
+      "U0": {
+        "appearance_metrics": {
+          "identical_pixel_images": 0,
+          "images": 300,
+          "mean_boundary_f1_1px": 0.980037215746003,
+          "mean_foreground_dice": 0.9518559143422178,
+          "mean_psnr_db": 49.9073704872691,
+          "mean_ssim": 0.9811278477214952
+        },
+        "edge_metrics": {
+          "edge_f1": 0.9263322884012539,
+          "edge_precision": 1.0,
+          "edge_recall": 0.8627737226277372,
+          "exact_graph_accuracy": 0.8233333333333334,
+          "fn": 94,
+          "fp": 0,
+          "images": 300,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.8732804232804233,
+          "missing_edges_per_image": 0.31333333333333335,
+          "tp": 591
+        },
+        "latency": {
+          "mean_seconds": 0.0021307375596370547,
+          "median_seconds": 0.0021146670005691703,
+          "p95_seconds": 0.0023860814002546245,
+          "repeats": 50,
+          "warmup": 20
+        }
+      },
+      "U1": {
+        "appearance_metrics": {
+          "identical_pixel_images": 0,
+          "images": 300,
+          "mean_boundary_f1_1px": 0.9787026452121786,
+          "mean_foreground_dice": 0.9519317914009205,
+          "mean_psnr_db": 49.346037982492454,
+          "mean_ssim": 0.9801275806108015
+        },
+        "edge_metrics": {
+          "edge_f1": 0.9178515007898894,
+          "edge_precision": 1.0,
+          "edge_recall": 0.8481751824817518,
+          "exact_graph_accuracy": 0.7933333333333333,
+          "fn": 104,
+          "fp": 0,
+          "images": 300,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.8578583453583453,
+          "missing_edges_per_image": 0.3466666666666667,
+          "tp": 581
+        },
+        "latency": {
+          "mean_seconds": 0.002094288299995242,
+          "median_seconds": 0.002096062497003004,
+          "p95_seconds": 0.002205252050771378,
+          "repeats": 50,
+          "warmup": 20
+        }
+      },
+      "images": 300
+    },
+    "ood_density": {
+      "B0": {
+        "appearance_metrics": {
+          "identical_pixel_images": 41,
+          "images": 300,
+          "mean_boundary_f1_1px": 0.9998926185149397,
+          "mean_foreground_dice": 0.9987498823967564,
+          "mean_psnr_db": 32.25406220727065,
+          "mean_ssim": 0.9419716080969555
+        },
+        "edge_metrics": {
+          "edge_f1": 0.952529994783516,
+          "edge_precision": 1.0,
+          "edge_recall": 0.9093625498007968,
+          "exact_graph_accuracy": 0.7,
+          "fn": 91,
+          "fp": 0,
+          "images": 300,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.9219240019240019,
+          "missing_edges_per_image": 0.30333333333333334,
+          "tp": 913
+        }
+      },
+      "B1": {
+        "appearance_metrics": {
+          "identical_pixel_images": 46,
+          "images": 300,
+          "mean_boundary_f1_1px": 0.9998926185149397,
+          "mean_foreground_dice": 0.989159705573046,
+          "mean_psnr_db": 28.00654240968952,
+          "mean_ssim": 0.9946697810969435
+        },
+        "edge_metrics": {
+          "edge_f1": 0.967869500741473,
+          "edge_precision": 0.9607458292443573,
+          "edge_recall": 0.9750996015936255,
+          "exact_graph_accuracy": 0.8133333333333334,
+          "fn": 25,
+          "fp": 40,
+          "images": 300,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.13333333333333333,
+          "macro_edge_f1": 0.9629632589632589,
+          "missing_edges_per_image": 0.08333333333333333,
+          "tp": 979
+        }
+      },
+      "D0": {
+        "sampling_steps": {
+          "10": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.9948835336744389,
+              "mean_foreground_dice": 0.9923376869467531,
+              "mean_psnr_db": 28.22434380558772,
+              "mean_ssim": 0.8629473645763384
+            },
+            "edge_metrics": {
+              "edge_f1": 0.9497907949790795,
+              "edge_precision": 1.0,
+              "edge_recall": 0.9043824701195219,
+              "exact_graph_accuracy": 0.6866666666666666,
+              "fn": 96,
+              "fp": 0,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0,
+              "macro_edge_f1": 0.9183261183261182,
+              "missing_edges_per_image": 0.32,
+              "tp": 908
+            },
+            "latency": {
+              "mean_seconds": 0.020750900840357644,
+              "median_seconds": 0.020165750498563284,
+              "p95_seconds": 0.02104360800112772,
+              "repeats": 50,
+              "warmup": 20
+            }
+          },
+          "20": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.9981311015523227,
+              "mean_foreground_dice": 0.9961468369001852,
+              "mean_psnr_db": 31.650476278378463,
+              "mean_ssim": 0.9415693189688039
+            },
+            "edge_metrics": {
+              "edge_f1": 0.9508881922675027,
+              "edge_precision": 1.0,
+              "edge_recall": 0.9063745019920318,
+              "exact_graph_accuracy": 0.6966666666666667,
+              "fn": 94,
+              "fp": 0,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0,
+              "macro_edge_f1": 0.9194742664742663,
+              "missing_edges_per_image": 0.31333333333333335,
+              "tp": 910
+            },
+            "latency": {
+              "mean_seconds": 0.03989395167955081,
+              "median_seconds": 0.039682311999058584,
+              "p95_seconds": 0.040249126901471755,
+              "repeats": 50,
+              "warmup": 20
+            }
+          },
+          "50": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.9988335719351265,
+              "mean_foreground_dice": 0.9968769669709885,
+              "mean_psnr_db": 32.87071036197478,
+              "mean_ssim": 0.9703474961264489
+            },
+            "edge_metrics": {
+              "edge_f1": 0.9508881922675027,
+              "edge_precision": 1.0,
+              "edge_recall": 0.9063745019920318,
+              "exact_graph_accuracy": 0.6933333333333334,
+              "fn": 94,
+              "fp": 0,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0,
+              "macro_edge_f1": 0.9194425204425204,
+              "missing_edges_per_image": 0.31333333333333335,
+              "tp": 910
+            },
+            "latency": {
+              "mean_seconds": 0.097587231760117,
+              "median_seconds": 0.0974437705008313,
+              "p95_seconds": 0.09902879635046702,
+              "repeats": 50,
+              "warmup": 20
+            }
+          }
+        }
+      },
+      "D1": {
+        "sampling_steps": {
+          "10": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.9987013603529362,
+              "mean_foreground_dice": 0.997072105603467,
+              "mean_psnr_db": 35.97775476250978,
+              "mean_ssim": 0.9856415174434449
+            },
+            "edge_metrics": {
+              "edge_f1": 0.9514360313315927,
+              "edge_precision": 1.0,
+              "edge_recall": 0.9073705179282868,
+              "exact_graph_accuracy": 0.6966666666666667,
+              "fn": 93,
+              "fp": 0,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0,
+              "macro_edge_f1": 0.920918710918711,
+              "missing_edges_per_image": 0.31,
+              "tp": 911
+            },
+            "latency": {
+              "mean_seconds": 0.020812396599212662,
+              "median_seconds": 0.020261540998035343,
+              "p95_seconds": 0.020742845798667985,
+              "repeats": 50,
+              "warmup": 20
+            }
+          },
+          "20": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.999479452497802,
+              "mean_foreground_dice": 0.9980373811097852,
+              "mean_psnr_db": 36.47288162951916,
+              "mean_ssim": 0.9895907254499703
+            },
+            "edge_metrics": {
+              "edge_f1": 0.952529994783516,
+              "edge_precision": 1.0,
+              "edge_recall": 0.9093625498007968,
+              "exact_graph_accuracy": 0.7,
+              "fn": 91,
+              "fp": 0,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0,
+              "macro_edge_f1": 0.9222202982202983,
+              "missing_edges_per_image": 0.30333333333333334,
+              "tp": 913
+            },
+            "latency": {
+              "mean_seconds": 0.039578434980503514,
+              "median_seconds": 0.039432978999684565,
+              "p95_seconds": 0.04005902104581764,
+              "repeats": 50,
+              "warmup": 20
+            }
+          },
+          "50": {
+            "appearance_metrics": {
+              "identical_pixel_images": 0,
+              "images": 300,
+              "mean_boundary_f1_1px": 0.9993544326083141,
+              "mean_foreground_dice": 0.9973416039749304,
+              "mean_psnr_db": 33.14507277128054,
+              "mean_ssim": 0.9841854832319782
+            },
+            "edge_metrics": {
+              "edge_f1": 0.9514360313315927,
+              "edge_precision": 1.0,
+              "edge_recall": 0.9073705179282868,
+              "exact_graph_accuracy": 0.6933333333333334,
+              "fn": 93,
+              "fp": 0,
+              "images": 300,
+              "invalid_merge_images": 0,
+              "invented_edges_per_image": 0.0,
+              "macro_edge_f1": 0.9204425204425204,
+              "missing_edges_per_image": 0.31,
+              "tp": 911
+            },
+            "latency": {
+              "mean_seconds": 0.09831019000004744,
+              "median_seconds": 0.09815585449905484,
+              "p95_seconds": 0.10109874200061313,
+              "repeats": 50,
+              "warmup": 20
+            }
+          }
+        }
+      },
+      "T0": {
+        "appearance_metrics": {
+          "identical_pixel_images": 0,
+          "images": 300,
+          "mean_boundary_f1_1px": 0.999911691605765,
+          "mean_foreground_dice": 0.999185636013857,
+          "mean_psnr_db": 49.038549001411226,
+          "mean_ssim": 0.9991707341731022
+        },
+        "edge_metrics": {
+          "edge_f1": 0.9749872383869321,
+          "edge_precision": 1.0,
+          "edge_recall": 0.951195219123506,
+          "exact_graph_accuracy": 0.8366666666666667,
+          "fn": 49,
+          "fp": 0,
+          "images": 300,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.9493342953342953,
+          "missing_edges_per_image": 0.16333333333333333,
+          "tp": 955
+        },
+        "latency": {
+          "mean_seconds": 0.002495171620103065,
+          "median_seconds": 0.002484354001353495,
+          "p95_seconds": 0.0027037837026000484,
+          "repeats": 50,
+          "warmup": 20
+        }
+      },
+      "U0": {
+        "appearance_metrics": {
+          "identical_pixel_images": 0,
+          "images": 300,
+          "mean_boundary_f1_1px": 0.9999942429476107,
+          "mean_foreground_dice": 0.9998195692849591,
+          "mean_psnr_db": 61.44335796672152,
+          "mean_ssim": 0.9998802460568912
+        },
+        "edge_metrics": {
+          "edge_f1": 0.994994994994995,
+          "edge_precision": 1.0,
+          "edge_recall": 0.9900398406374502,
+          "exact_graph_accuracy": 0.9666666666666667,
+          "fn": 10,
+          "fp": 0,
+          "images": 300,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.9903068783068784,
+          "missing_edges_per_image": 0.03333333333333333,
+          "tp": 994
+        },
+        "latency": {
+          "mean_seconds": 0.0021079925003868994,
+          "median_seconds": 0.0021182079981372226,
+          "p95_seconds": 0.002185558551354916,
+          "repeats": 50,
+          "warmup": 20
+        }
+      },
+      "U1": {
+        "appearance_metrics": {
+          "identical_pixel_images": 0,
+          "images": 300,
+          "mean_boundary_f1_1px": 0.9999942429476107,
+          "mean_foreground_dice": 0.9997991098860898,
+          "mean_psnr_db": 61.17789741309876,
+          "mean_ssim": 0.99986053148193
+        },
+        "edge_metrics": {
+          "edge_f1": 0.9939879759519038,
+          "edge_precision": 1.0,
+          "edge_recall": 0.9880478087649402,
+          "exact_graph_accuracy": 0.96,
+          "fn": 12,
+          "fp": 0,
+          "images": 300,
+          "invalid_merge_images": 0,
+          "invented_edges_per_image": 0.0,
+          "macro_edge_f1": 0.9897142857142857,
+          "missing_edges_per_image": 0.04,
+          "tp": 992
+        },
+        "latency": {
+          "mean_seconds": 0.002159307440306293,
+          "median_seconds": 0.0021233540028333664,
+          "p95_seconds": 0.0023517001518484903,
+          "repeats": 50,
+          "warmup": 20
+        }
+      },
+      "images": 300
+    }
+  },
+  "seed": 27,
+  "source_sha256": "5a5a9dfb38b4023e9971a4bebbe472e2fb08e992a92f7d33458ea5b13d08778c"
+}
