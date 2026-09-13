@@ -139,14 +139,24 @@ def evaluate_observations(root: Path, output: Path, split: str = "validation") -
 def contact_sheets(root: Path, output: Path) -> list[str]:
     records = read_manifest(root)
     development = [r for r in records if r["split"] in {"train", "validation"}]
-    selected = []
-    for kind in ("clean", "noise", "blur", "gap"):
-        selected.extend([r for r in development if r["corruption"]["kind"] == kind][:9])
+    by_kind = {
+        kind: [r for r in development if r["corruption"]["kind"] == kind][:9]
+        for kind in ("clean", "noise", "blur", "gap")
+    }
     # Interleave the four kinds, making each page a mixture of corruption types.
-    selected = [selected[group * 9 + i] for i in range(9) for group in range(4)]
+    # A small dataset may have fewer than 9 examples of some kind, so this pads to
+    # whatever is actually available instead of assuming a fixed 9-per-kind, 36-total shape.
+    slots = max((len(rows) for rows in by_kind.values()), default=0)
+    selected = [
+        by_kind[kind][i]
+        for i in range(slots)
+        for kind in ("clean", "noise", "blur", "gap")
+        if i < len(by_kind[kind])
+    ]
     font = ImageFont.load_default(size=12)
     paths = []
-    for page in range(2):
+    pages = -(-len(selected) // 18) if selected else 0
+    for page in range(pages):
         sheet = Image.new("RGB", (960, 1200), "#eef0f3")
         draw = ImageDraw.Draw(sheet)
         for i, row in enumerate(selected[page * 18 : (page + 1) * 18]):
