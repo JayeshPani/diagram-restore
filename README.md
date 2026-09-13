@@ -28,8 +28,9 @@ This is document image analysis / graphics recognition, not NLP or text mining, 
 - **Scope pivot** (13 September 2026): the connectivity-aware routing method is dropped; no oracle or learned router was built. The project is rescoped to the benchmark contribution — see docs/01's amendment.
 - **Stage 7 done, confirmed at 3 seeds** (13 September 2026): appearance metrics hide the connectivity gap. Mean Dice's range is 4.48× ± 0.60 narrower than edge-F1's across seeds 7/17/27, and Dice ranks the untouched damaged input above every diffusion-restored variant tested (18/18 configs). See `results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md`.
 - **Literature refresh first pass done** (13 September 2026, web-search only): closest prior art is SciFlow-Bench (arXiv:2602.09809), a near-concurrent independent argument for graph-aware over pixel-based evaluation, but for diagram *generation* rather than restoration. See `docs/02_LITERATURE_REVIEW.md`.
-- **Open next steps**: an expanded confirmatory-scale benchmark at 5,000/500/1,000 diagrams with repeated seeds (Stage 8, a multi-hour compute commitment — deliberately not started overnight, needs the researcher present given an earlier hardware thermal concern), generalization to held-out distributions (Stage 9), and a full-text literature pass (Stage 12).
-- No accuracy/latency claim beyond the pilot scale (700 diagrams, 3 seeds) has been made; no confirmatory-scale or generalization result exists yet.
+- **Stage 8 done** (13 September 2026): both headline findings replicate on a fresh, independently generated 5,000/500/1,000 dataset (3 seeds) — and get *stronger*. U0/U1 reach 0.994 mean F1 vs. D0/D1's 0.926 (gap widens from ~0.05 to ~0.069 F1; gap-to-noise ratio ~7–9× → ~29×), and the Dice/edge-F1 divergence widens from ~4.5× to ~6–7.5× compression, with the damaged input beating every diffusion config on Dice again (36/36 checked configs total, both scales). See `results/milestone3/STAGE8_CONFIRMATORY_REPORT.md`.
+- **Open next steps**: generalization to a genuine distribution shift — held-out layouts, a second renderer, or independently authored diagrams (Stage 9); a full-text literature pass (Stage 12); optionally, additional baseline architectures (second U-Net width, plain CNN autoencoder) a reviewer might expect.
+- Accuracy/latency claims are now supported at both pilot (700 diagrams) and confirmatory (6,500 diagrams) scale, 3 seeds each, on two independently generated datasets; no generalization-to-distribution-shift result exists yet.
 
 ## Implemented layout
 
@@ -37,7 +38,8 @@ This is document image analysis / graphics recognition, not NLP or text mining, 
 Text Mining/
   README.md
   docs/                        # scope, literature, plan, protocol, budget, paper/venue, search log
-  configs/pilot.toml           # dataset generator config
+  configs/pilot.toml           # pilot dataset generator config (700 diagrams)
+  configs/confirmatory.toml    # confirmatory-scale generator config (6,500 diagrams, fresh seed)
   src/diagram_restore/
     data.py                    # deterministic corruption generator, manifest, leakage-safe splits
     geometry.py                # node/connector rasterization shared by the generator and evaluator
@@ -52,12 +54,14 @@ Text Mining/
     runtime.py                   # environment inventory, training/sparse-MLP benchmarks
     artifacts.py                 # audit reports, contact sheets, overlays
     cli.py                       # `diagram-restore generate|audit|benchmark|tiny-overfit|baselines|diffusion-tuning`
-  tests/                        # 163 tests: evaluator fixtures, sampler correctness, training smoke tests
-  data/pilot-v1/                # generated dataset; excluded from Git
+  tests/                        # 165 tests: evaluator fixtures, sampler correctness, training smoke tests
+  data/pilot-v1/                # pilot dataset (700 diagrams); excluded from Git
+  data/confirmatory-v1/         # confirmatory dataset (6,500 diagrams, fresh seed); excluded from Git
   results/
     milestone1/                 # Gate G1: environment, benchmark, integrity, fixtures, contact sheets
-    milestone2/                 # Gate G2: baselines.json, G2_REPORT.md, diffusion-tuning ablations, seed17/, seed27/
-  paper/                        # manuscript and figures, after Stage 7/9 evidence exists
+    milestone2/                 # Gate G2 + Stage 7: baselines.json, G2_REPORT.md, STAGE7_APPEARANCE_VS_EDGE.md, diffusion-tuning ablations, seed17/, seed27/
+    milestone3/                 # Stage 8: confirmatory-scale integrity audit, seed7/, seed17/, seed27/, STAGE8_CONFIRMATORY_REPORT.md
+  paper/                        # manuscript and figures, after Stage 9 evidence exists
 ```
 
 Run `diagram-restore --help` (after `uv sync`) for the available commands. Each stage ends with a result to inspect and a written decision — these are scientific checkpoints, not just implementation milestones.

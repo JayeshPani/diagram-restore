@@ -31,8 +31,12 @@ ranks the untouched damaged input above every diffusion-restored variant tested 
 (18/18 configs). SSIM and PSNR each disagree with Dice and with each other about which row is
 worst. See `results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md`.
 
-RQ3 *(open, revised Stage 8)*: does the RQ1 finding replicate at a larger, held-out confirmatory
-scale (5,000/500/1,000 split), rather than only the 700-diagram pilot used for Gate G2?
+RQ3 *(answered, revised Stage 8)*: does the RQ1 finding replicate at a larger, freshly generated
+confirmatory scale (5,000/500/1,000 split), rather than only the 700-diagram pilot used for Gate
+G2? **Yes, and it strengthens.** On an independently generated dataset (fresh seed), U0/U1 reach
+0.994 mean F1 (sd 0.001–0.002) vs. D0/D1's 0.926 (sd ~0.002) — the gap widens from ~0.05 to ~0.069
+F1 and the gap-to-noise ratio rises from ~7–9× to ~29×. The RQ2 divergence also strengthens (Dice
+compression ~4.5× → ~6–7.5×). See `results/milestone3/STAGE8_CONFIRMATORY_REPORT.md`.
 
 RQ4 *(open, revised Stage 9)*: does the RQ1 finding generalize to layout, corruption, or renderer
 shifts the models were never trained or tuned on?
@@ -248,20 +252,24 @@ Report mean and standard deviation across independently trained seeds. Use paire
 Criteria A/B below were routing-vs-dense latency/F1 tradeoff thresholds and no longer apply — there
 is no routing method to hold to a tradeoff threshold. The revised criteria for a benchmark paper:
 
-**Criterion C (architecture comparison, met at pilot scale):** the accuracy/latency ranking among
-B0/B1/U0/U1/T0/D0/D1 is consistent across at least three training seeds, with the paired
-seed-to-seed standard deviation clearly smaller than the gap between the top-ranked and
-diffusion-based rows. **Met**: U0/U1 (mean 0.966/0.969 F1) vs. D0/D1 (mean 0.917/0.919 F1) across
-seeds 7/17/27, a gap roughly 7–9× the seed-to-seed standard deviation. Guardrails (edge
-precision/recall, invented edges, exact-graph accuracy, extraction-error audit) are reported for
-every row in `results/milestone2/`.
+**Criterion C (architecture comparison, met at pilot and confirmatory scale):** the accuracy/
+latency ranking among B0/B1/U0/U1/T0/D0/D1 is consistent across at least three training seeds,
+with the paired seed-to-seed standard deviation clearly smaller than the gap between the
+top-ranked and diffusion-based rows. **Met at pilot scale**: U0/U1 (mean 0.966/0.969 F1) vs. D0/D1
+(mean 0.917/0.919 F1) across seeds 7/17/27, a gap roughly 7–9× the seed-to-seed standard
+deviation. **Met more strongly at confirmatory scale** (fresh 5,000/500/1,000 dataset): U0/U1
+mean 0.994 F1 vs. D0/D1 mean 0.926, a gap roughly 29× the seed-to-seed standard deviation. See
+`results/milestone3/STAGE8_CONFIRMATORY_REPORT.md`.
 
-**Criterion D (evaluator-divergence, met — confirmed at 3 seeds, Stage 7):** at least one pair of
+**Criterion D (evaluator-divergence, met at pilot and confirmatory scale):** at least one pair of
 restorations exists where an appearance-similarity metric and the direct-edge evaluator disagree
-on which is better, or rank the gap between them very differently in magnitude. **Met, seeds
-7/17/27**: mean Dice ranks the untouched damaged input above every diffusion-restored variant
-(18/18 configs), and compresses the meaningful accuracy range by 4.48× ± 0.60 — see
-`results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md`.
+on which is better, or rank the gap between them very differently in magnitude. **Met at pilot
+scale** (seeds 7/17/27): mean Dice ranks the untouched damaged input above every
+diffusion-restored variant (18/18 configs), compressing the meaningful accuracy range by
+4.48× ± 0.60. **Met more strongly at confirmatory scale**: compression widens to ~6–7.5×, and the
+damaged input beats diffusion on Dice in 18/18 further configs (36/36 total across both scales).
+See `results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md` and
+`results/milestone3/STAGE8_CONFIRMATORY_REPORT.md`.
 
 **Criterion E (generalization, open — Stage 9):** the Criterion C ranking holds — or any change is
 reported honestly — under at least one genuine distribution shift (held-out layout family, second
