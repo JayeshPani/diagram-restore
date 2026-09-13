@@ -2,11 +2,12 @@ from pathlib import Path
 
 import numpy as np
 import pytest
+from PIL import Image
 from scipy import ndimage as ndi
 
-from diagram_restore.data import corrupt, read_config, sample_parent
+from diagram_restore.data import corrupt, generate, read_config, read_manifest, sample_parent
 from diagram_restore.evaluation import extract_edges
-from diagram_restore.geometry import NEIGHBORS
+from diagram_restore.geometry import NEIGHBORS, Node
 
 CONFIG = read_config(Path(__file__).parents[1] / "configs/pilot.toml")
 
@@ -39,3 +40,52 @@ def test_parent_and_damage_repeat_exactly():
         y, mask_y, metadata_y = corrupt(b, kind, 27, CONFIG)
         assert np.array_equal(x, y) and np.array_equal(mask_x, mask_y)
         assert metadata_x == metadata_y
+
+
+def test_read_config_rejects_an_unknown_renderer(tmp_path):
+    config_path = tmp_path / "bad.toml"
+    config_path.write_text(
+        Path("configs/pilot.toml").read_text() + '\nrenderer = "hand-drawn"\n'
+    )
+    with pytest.raises(ValueError):
+        read_config(config_path)
+
+
+def test_generate_with_the_antialiased_renderer_still_recovers_exact_graphs(tmp_path):
+    config_path = tmp_path / "aa.toml"
+    config_path.write_text(
+        """
+version = "test-aa"
+image_size = 64
+seed = 5
+train = 6
+validation = 2
+test = 2
+min_nodes = 2
+max_nodes = 4
+line_widths = [1, 2]
+noise_sigma_max = 0.02
+blur_sigma_max = 0.3
+max_gap_length = 2
+max_removed_fraction = 0.2
+renderer = "antialiased"
+
+[corruption_weights]
+clean = 0.5
+noise = 0.5
+blur = 0.0
+gap = 0.0
+"""
+    )
+    output = tmp_path / "data"
+    generate(config_path, output)
+    records = read_manifest(output)
+    assert len(records) == 10
+    saw_gray = False
+    for record in records:
+        clean = np.asarray(Image.open(output / record["clean"]))
+        nodes = [Node.from_dict(n) for n in record["nodes"]]
+        expected = {tuple(e) for e in record["edges"]}
+        assert set(extract_edges(clean, nodes).edges) == expected
+        saw_gray = saw_gray or bool(((clean > 0) & (clean < 255)).any())
+    assert saw_gray, "expected at least one genuinely antialiased (non-binary) pixel"

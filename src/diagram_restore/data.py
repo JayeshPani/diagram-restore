@@ -12,10 +12,20 @@ from PIL import Image
 from scipy import ndimage as ndi
 from skimage.morphology import skeletonize
 
-from .geometry import NEIGHBORS, Node, node_mask, node_regions, polyline_mask, render
+from .evaluation import extract_edges
+from .geometry import (
+    NEIGHBORS,
+    Node,
+    node_mask,
+    node_regions,
+    polyline_mask,
+    render,
+    render_antialiased,
+)
 from .io import hash_bytes, hash_json, save_mask, source_fingerprint, write_json
 
 SPLITS = ("train", "validation", "test")
+RENDERERS = ("binary", "antialiased")
 
 
 def read_config(path: Path) -> dict:
@@ -34,6 +44,8 @@ def read_config(path: Path) -> dict:
         raise ValueError("Corruption weights must be nonnegative and sum to one")
     if not 0 < config["max_removed_fraction"] <= 0.2:
         raise ValueError("Pilot erasure fraction must be in (0, 0.2]")
+    if config.get("renderer", "binary") not in RENDERERS:
+        raise ValueError(f"renderer must be one of {RENDERERS}")
     return config
 
 
@@ -204,10 +216,21 @@ def generate(config_path: Path, output: Path) -> dict:
         raise FileExistsError(f"Refusing to overwrite nonempty dataset directory: {output}")
     rng = np.random.default_rng(config["seed"])
     total = sum(config[split] for split in SPLITS)
+    renderer = config.get("renderer", "binary")
     parents, seen = [], set()
     while len(parents) < total:
         seeds = rng.integers(0, 2**32, 2).tolist()
         parent = sample_parent(*seeds, config)
+        if renderer == "antialiased":
+            expected = {tuple(e["nodes"]) for e in parent["edges"]}
+            candidate = render_antialiased(parent["nodes"], parent["edges"], config["image_size"])
+            # Reject the rare geometry (near-touches, tight diagonals) where this
+            # renderer's antialiasing doesn't reproduce the exact same direct-edge set
+            # the binary renderer and evaluator agree on, rather than shipping a dataset
+            # whose "ground truth" the evaluator itself cannot recover from a clean image.
+            if set(extract_edges(candidate, parent["nodes"]).edges) != expected:
+                continue
+            parent["clean"] = candidate
         clean_hash = hash_bytes(parent["clean"].tobytes())
         if clean_hash not in seen:
             seen.add(clean_hash)
@@ -265,7 +288,7 @@ def generate(config_path: Path, output: Path) -> dict:
             "renderer_seed": parent["renderer_seed"],
             "geometry_attempt": parent["geometry_attempt"],
             "corruption": corruption,
-            "renderer_version": "raster-v1",
+            "renderer_version": "raster-v1" if renderer == "binary" else "antialiased-v1",
             "size": config["image_size"],
         }
         write_json(folder / "annotation.json", record)

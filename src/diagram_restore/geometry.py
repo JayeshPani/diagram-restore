@@ -72,3 +72,39 @@ def render(nodes: list[Node], connectors: list[np.ndarray], size: int) -> np.nda
     ink = np.logical_or.reduce(connectors) if connectors else np.zeros_like(fills)
     ink = (ink & ~fills) | outlines
     return np.where(ink, 0, 255).astype(np.uint8)
+
+
+def render_antialiased(
+    nodes: list[Node], edges: list[dict], size: int, supersample: int = 4
+) -> np.ndarray:
+    """A distinct rasterization technique for renderer-shift tests: draws the same
+    abstract geometry (edge polylines, node bounding boxes) at `supersample`x resolution,
+    then box-downsamples, producing genuinely antialiased gray edges instead of `render`'s
+    exact binary fills. Takes raw geometry rather than precomputed masks, unlike `render`,
+    since supersampling must happen before rasterization, not after.
+    """
+    big = size * supersample
+    offset = supersample / 2
+    image = Image.new("L", (big, big), 255)
+    draw = ImageDraw.Draw(image)
+    for edge in edges:
+        # A 1px-wide diagonal stroke covers well under half of each traversed output
+        # pixel on average, so a literal width*supersample scaling can dip below the
+        # evaluator's 0.5 threshold and break the line; pad the stroke enough to stay
+        # solid along any diagonal while still leaving a genuinely antialiased fringe.
+        width = edge["width"] * supersample + supersample // 2
+        # Box-downsampling averages input blocks [i*supersample, (i+1)*supersample); a
+        # stroke centered on the raw pixel coordinate straddles two blocks and comes out
+        # as faint gray in both instead of solid in one, so center it on the block instead.
+        points = [(x * supersample + offset, y * supersample + offset) for x, y in edge["polyline"]]
+        draw.line(points, fill=0, width=width)
+        # PIL's line joints are beveled, not mitered; a bevel gap at a bend can survive
+        # supersampling as a real break, so plug every interior vertex with a filled disc.
+        radius = width / 2
+        for x, y in points[1:-1]:
+            draw.ellipse((x - radius, y - radius, x + radius, y + radius), fill=0)
+    for node in nodes:
+        box = tuple(v * supersample for v in node.bbox)
+        painter = draw.rectangle if node.shape == "box" else draw.ellipse
+        painter(box, fill=255, outline=0, width=supersample)
+    return np.asarray(image.resize((size, size), Image.Resampling.BOX), dtype=np.uint8)
