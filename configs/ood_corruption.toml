@@ -1,0 +1,19 @@
+version = "ood-corruption-v1"
+image_size = 64
+seed = 20260914
+train = 1
+validation = 1
+test = 300
+min_nodes = 2
+max_nodes = 5
+line_widths = [1, 2]
+noise_sigma_max = 0.06
+blur_sigma_max = 1.2
+max_gap_length = 5
+max_removed_fraction = 0.20
+
+[corruption_weights]
+clean = 0.0
+noise = 0.3
+blur = 0.3
+gap = 0.4

@@ -59,6 +59,27 @@ def main():
     tuning.add_argument("--depth", type=int, default=6)
     tuning.add_argument("--latency-warmup", type=int, default=20)
     tuning.add_argument("--latency-repeats", type=int, default=50)
+    generalization = commands.add_parser(
+        "generalization",
+        help="Train once in-distribution, evaluate against held-out shifts (Stage 9)",
+    )
+    generalization.add_argument("--data", type=Path, default=Path("data/pilot-v1"))
+    generalization.add_argument("--output", type=Path, default=Path("results/milestone4"))
+    generalization.add_argument(
+        "--ood",
+        action="append",
+        required=True,
+        metavar="NAME=PATH",
+        help="A held-out dataset to evaluate against, as name=path; repeatable",
+    )
+    generalization.add_argument("--unet-steps", type=int, default=6000)
+    generalization.add_argument("--dit-steps", type=int, default=30000)
+    generalization.add_argument("--sampling-steps", type=int, nargs="+", default=[10, 20, 50])
+    generalization.add_argument("--seed", type=int, default=7)
+    generalization.add_argument("--structural-weight", type=float, default=0.1)
+    generalization.add_argument("--morphological-radii", type=int, nargs="+", default=[0, 1, 2, 3])
+    generalization.add_argument("--latency-warmup", type=int, default=20)
+    generalization.add_argument("--latency-repeats", type=int, default=50)
     args = parser.parse_args()
     if args.command == "generate":
         from .data import generate
@@ -111,6 +132,23 @@ def main():
             args.ema_decay,
             args.width,
             args.depth,
+            args.latency_warmup,
+            args.latency_repeats,
+        )
+    elif args.command == "generalization":
+        from .generalization import evaluate_generalization
+
+        ood_roots = dict(pair.split("=", 1) for pair in args.ood)
+        result = evaluate_generalization(
+            args.data,
+            args.output,
+            {name: Path(path) for name, path in ood_roots.items()},
+            args.unet_steps,
+            args.dit_steps,
+            tuple(args.sampling_steps),
+            args.seed,
+            args.structural_weight,
+            tuple(args.morphological_radii),
             args.latency_warmup,
             args.latency_repeats,
         )
