@@ -65,12 +65,12 @@ showing which architectures dominate the accuracy/latency frontier for this task
 demonstrated case where an appearance metric and the direct-edge F1 disagree on which restoration
 is better (met, confirmed at 3 seeds — see
 [results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md](../results/milestone2/STAGE7_APPEARANCE_VS_EDGE.md));
-(4) generalization evidence beyond the exact pilot generator: a held-out layout/corruption
-distribution shift and, resources permitting, a second renderer or independently authored diagrams
-(revised Stage 9, not yet gathered — the only remaining open item before a confirmatory-scale
-claim). Report edge precision/recall, invented and missing edges, and variability across at least
-three training seeds (met for items 2 and 3) with confidence intervals before any generalization
-claim.
+(4) generalization evidence beyond the exact pilot generator: a held-out corruption/density
+distribution shift (met, 3 seeds — see
+[results/milestone4/STAGE9_GENERALIZATION_REPORT.md](../results/milestone4/STAGE9_GENERALIZATION_REPORT.md);
+a renderer or acquisition shift via a second tool or independently authored diagrams remains open).
+Report edge precision/recall, invented and missing edges, and variability across at least three
+training seeds (met for items 2, 3, and 4) with confidence intervals — done throughout.
 
 **Practical relevance.** *(unchanged from v0.1 — this is the clause whose condition was met)*
 U-Net remains an essential reference. If it matches or exceeds diffusion's connectivity accuracy
